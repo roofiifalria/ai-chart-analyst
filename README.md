@@ -1,5 +1,6 @@
 
 # AI Chart Analyst
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/558270dd-1b1e-420c-9a43-a3aac4aec9a2" />
 
 AI Chart Analyst adalah aplikasi web multimodal berbasis arsitektur **RAG (Retrieval-Augmented Generation)**. Aplikasi ini memungkinkan pengguna mengunggah gambar chart keuangan untuk dianalisis, sekaligus menyediakan fitur chat berbasis teks mengenai berbagai konsep analisis teknikal.
 
@@ -113,3 +114,4 @@ pip install -r requirements.txt
 # 5. Jalankan server backend
 uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
+
