@@ -1,8 +1,8 @@
 // frontend/src/App.jsx
 
 import React, { useState, useRef, useEffect } from 'react';
+import { Upload, Send, BarChart3, Moon, Sun } from 'lucide-react';
 
-// URL Backend API kita
 const API_URL = "http://localhost:8000/api/analyze_chart";
 
 export default function App() {
@@ -11,16 +11,15 @@ export default function App() {
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
   
   const fileInputRef = useRef(null);
   const messagesEndRef = useRef(null);
 
-  // Auto-scroll ke pesan terbaru
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  // Handle perubahan file
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -33,9 +32,7 @@ export default function App() {
     }
   };
 
-  // Handle pengiriman form
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     if (!query || !imageFile || isLoading) return;
 
     setIsLoading(true);
@@ -108,71 +105,118 @@ export default function App() {
     }
   };
 
-  // --- JSX (HTML) Diubah untuk menggunakan CSS biasa ---
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSubmit();
+    }
+  };
+
   return (
-    <div className="app-container">
+    <div className={`app-container ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+      {/* Header */}
       <header className="header">
-        <h1>AI Chart Analyst</h1>
+        <div className="header-content">
+          <div className="header-left">
+            <BarChart3 className="header-icon" />
+            <h1>AI Chart Analyst</h1>
+          </div>
+          
+          <button
+            onClick={() => setIsDarkMode(!isDarkMode)}
+            className="theme-toggle"
+          >
+            {isDarkMode ? <Sun className="icon" /> : <Moon className="icon" />}
+          </button>
+        </div>
       </header>
 
+      {/* Chat Area */}
       <main className="chat-area">
-        {messages.map((msg, index) => (
-          <div key={index} className={`message ${msg.role}`}>
-            {msg.role === 'user' && msg.image && (
-              <img src={msg.image} alt="Chart preview" />
-            )}
-            <p>{msg.content}</p>
-          </div>
-        ))}
-        {isLoading && (
-          <div className="loading-indicator">
-            <p>AI sedang menganalisis...</p>
-          </div>
-        )}
-        <div ref={messagesEndRef} />
+        <div className="messages-container">
+          {messages.map((msg, index) => (
+            <div
+              key={index}
+              className={`message ${msg.role}`}
+            >
+              <div className="message-content">
+                {msg.role === 'user' && msg.image && (
+                  <div className="message-image">
+                    <img src={msg.image} alt="Chart preview" />
+                  </div>
+                )}
+                <p>{msg.content}</p>
+              </div>
+            </div>
+          ))}
+
+          {isLoading && (
+            <div className="message ai">
+              <div className="message-content">
+                <div className="loading-indicator">
+                  <div className="loading-dots">
+                    <div className="dot"></div>
+                    <div className="dot"></div>
+                    <div className="dot"></div>
+                  </div>
+                  <span>AI sedang menganalisis...</span>
+                </div>
+              </div>
+            </div>
+          )}
+          <div ref={messagesEndRef} />
+        </div>
       </main>
 
+      {/* Footer Input */}
       <footer className="footer">
-        <form onSubmit={handleSubmit} className="chat-form">
-          <button
-            type="button"
-            onClick={() => fileInputRef.current?.click()}
-            className="upload-button"
-            title="Upload Chart Image"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-            </svg>
-          </button>
-          <input
-            type="file"
-            accept="image/png, image/jpeg"
-            ref={fileInputRef}
-            onChange={handleFileChange}
-            className="hidden-file-input"
-          />
-
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={imagePreview ? "Ketik pertanyaan Anda..." : "Silakan upload gambar chart dulu..."}
-            disabled={!imageFile}
-          />
-
-          <button
-            type="submit"
-            disabled={!query || !imageFile || isLoading}
-          >
-            Kirim
-          </button>
-        </form>
-        <div className="file-preview">
+        <div className="footer-content">
           {imageFile && (
-            <p>
-              Siap menganalisis: {imageFile.name}
-            </p>
+            <div className="file-preview">
+              <div className="preview-dot"></div>
+              <span>
+                Siap menganalisis: <strong>{imageFile.name}</strong>
+              </span>
+            </div>
           )}
+          
+          <div className="chat-form">
+            <button
+              type="button"
+              onClick={() => fileInputRef.current?.click()}
+              className="upload-button"
+              title="Upload Chart Image"
+            >
+              <Upload className="icon" />
+            </button>
+            
+            <input
+              type="file"
+              accept="image/png, image/jpeg"
+              ref={fileInputRef}
+              onChange={handleFileChange}
+              className="hidden-file-input"
+            />
+
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onKeyPress={handleKeyPress}
+              placeholder={imagePreview ? "Ketik pertanyaan Anda..." : "Silakan upload gambar chart dulu..."}
+              disabled={!imageFile}
+              className="text-input"
+            />
+
+            <button
+              type="button"
+              onClick={handleSubmit}
+              disabled={!query || !imageFile || isLoading}
+              className="send-button"
+            >
+              <Send className="icon" />
+            </button>
+          </div>
         </div>
       </footer>
     </div>
