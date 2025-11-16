@@ -129,4 +129,5 @@ Database pengetahuan (RAG) akan di-host pada layanan **ChromaDB Cloud** terkelol
 
 Menggunakan model `qwen3-vl:235b-cloud` (lokal) yang dikombinasikan dengan **ChromaDB Cloud** (terkelola) adalah arsitektur hybrid yang sangat kuat. Ini memberikan kemampuan AI SOTA secara lokal sambil memindahkan beban manajemen database ke cloud.
 
-Keberhasilan bergantung pada: (1) Ketersediaan **perangkat keras server multi-GPU**, dan (2) **Koneksi internet yang stabil** dari server tersebut ke ChromaDB Cloud.
+Keberhasilan bergantung pada: (1) Ketersediaan **perangkat keras server multi-GPU**, dan (2) **Koneksi internet yang stabil** dari server tersebut ke ChromaDB Cloud.#   a i - c h a r t - a n a l y s t  
+ 
