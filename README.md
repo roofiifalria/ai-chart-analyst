@@ -21,7 +21,24 @@ AI Chart Analyst adalah aplikasi web lengkap yang menggunakan arsitektur RAG (Re
 - **Model Embedding**: `all-MiniLM-L6-v2` (dijalankan secara lokal oleh LangChain)
 
 ## Struktur Proyek
-/ai-chart-analyst/ ├── /backend/ # Server FastAPI (Python) │ ├── /app/ │ │ ├── /api/ # Endpoint API (chat.py) │ │ ├── /core/ # Konfigurasi (config.py) │ │ ├── /models/ # Skema Pydantic (schema.py) │ │ └── /services/ # Logika bisnis (llm_service.py, rag_service.py) │ ├── .env # Kredensial (HARUS DIBUAT) │ └── requirements.txt │ ├── /frontend/ # Aplikasi Chatbot (React) │ ├── /src/ │ │ ├── App.jsx # Komponen UI utama │ │ ├── App.css # Styling untuk App.jsx │ │ └── index.css # Styling global │ └── package.json │ ├── /notebooks/ │ └── 01_Data_Ingestion.ipynb # Skrip untuk mengisi ChromaDB │ └── README.md # Dokumentasi ini
+/ai-chart-analyst/ 
+│ ├── /backend/ # Server FastAPI (Python) 
+│     ├── /app/ 
+│ │ ├── /api/ # Endpoint API (chat.py) 
+│ │ ├── /core/ # Konfigurasi (config.py) 
+│ │ ├── /models/ # Skema Pydantic (schema.py) 
+│ │ └── /services/ # Logika bisnis (llm_service.py, rag_service.py) 
+│ ├── .env # Kredensial (HARUS DIBUAT) 
+│ └── requirements.txt 
+│ ├── /frontend/ # Aplikasi Chatbot (React) 
+│ ├── /src/ 
+│ │ ├── App.jsx # Komponen UI utama 
+│ │ ├── App.css # Styling untuk App.jsx 
+│ │ └── index.css # Styling global 
+│ └── package.json 
+│ ├── /notebooks/ 
+│ └── 01_Data_Ingestion.ipynb # Skrip untuk mengisi ChromaDB 
+│ └── README.md # Dokumentasi ini
 
 ## Instalasi & Menjalankan
 
@@ -61,3 +78,4 @@ pip install -r requirements.txt
 # 5. JALANKAN SERVER BACKEND
 uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
+
