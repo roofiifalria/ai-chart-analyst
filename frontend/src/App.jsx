@@ -1,11 +1,13 @@
-// frontend/src/App.jsx
+// frontend/src/App.jsx (VERSI DIPERBARUI)
 
 import React, { useState, useRef, useEffect } from 'react';
+// Impor ikon-ikon Anda
 import { Upload, Send, BarChart3, Moon, Sun } from 'lucide-react';
 
 const API_URL = "http://localhost:8000/api/analyze_chart";
 
 export default function App() {
+  // Semua state Anda (termasuk dark mode) tetap ada
   const [messages, setMessages] = useState([]);
   const [query, setQuery] = useState("");
   const [imageFile, setImageFile] = useState(null);
@@ -20,6 +22,7 @@ export default function App() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
+  // Perbarui handleFileChange agar menghapus chat lama
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -29,33 +32,54 @@ export default function App() {
         setImagePreview(reader.result);
       };
       reader.readAsDataURL(file);
+      
+      // Hapus riwayat chat saat gambar baru diunggah
+      setMessages([]);
     }
   };
 
+  // --- FUNGSI handleSubmit YANG DIPERBARUI ---
   const handleSubmit = async () => {
-    if (!query || !imageFile || isLoading) return;
+    // [PERBAIKAN 1] Izinkan submit jika query ada (gambar opsional)
+    if (!query || isLoading) return;
 
     setIsLoading(true);
 
+    // [PERBAIKAN 2] Tampilkan gambar di pesan HANYA jika ini adalah pesan pertama
+    // tentang gambar itu. Kita cek apakah imagePreview ada.
     const userMessage = {
       role: 'user',
       content: query,
-      image: imagePreview
+      // Jika ada imagePreview, ini adalah pesan pertama tentang gambar itu
+      // Pesan selanjutnya (follow-up) tidak akan menyertakan gambar
+      image: imagePreview 
     };
     setMessages(prev => [...prev, userMessage]);
 
     const formData = new FormData();
     formData.append('query', query);
-    formData.append('image_file', imageFile);
+    
+    // [PERBAIKAN 3] Hanya tambahkan gambar jika ada
+    if (imageFile) {
+      formData.append('image_file', imageFile);
+    }
 
     const aiMessage = { role: 'ai', content: '' };
     setMessages(prev => [...prev, aiMessage]);
 
+    // [PERBAIKAN 4] HANYA reset query. JANGAN reset gambar.
+    // Ini memungkinkan pertanyaan follow-up.
     setQuery("");
-    setImageFile(null);
-    setImagePreview(null);
-    if (fileInputRef.current) {
-      fileInputRef.current.value = "";
+
+    // [PERBAIKAN 5] Setelah gambar dikirim SATU KALI, 
+    // kita hapus dari state agar pengiriman berikutnya
+    // adalah teks-saja (follow-up).
+    if (imageFile) {
+      setImageFile(null);
+      setImagePreview(null);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
     }
 
     try {
@@ -65,7 +89,15 @@ export default function App() {
       });
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        // Tampilkan error yang lebih jelas
+        const errorText = await response.text();
+        let errorJson = {};
+        try {
+          errorJson = JSON.parse(errorText);
+        } catch(e) {}
+        
+        const detail = errorJson.detail || errorText || `HTTP error! status: ${response.status}`;
+        throw new Error(detail);
       }
 
       const reader = response.body.getReader();
@@ -104,6 +136,7 @@ export default function App() {
       setIsLoading(false);
     }
   };
+  // --- AKHIR FUNGSI handleSubmit ---
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -112,16 +145,16 @@ export default function App() {
     }
   };
 
+  // --- KODE JSX (HTML) JUGA PERLU DIPERBAIKI ---
   return (
     <div className={`app-container ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
-      {/* Header */}
+      {/* Header (Kode Anda tidak berubah) */}
       <header className="header">
         <div className="header-content">
           <div className="header-left">
             <BarChart3 className="header-icon" />
             <h1>AI Chart Analyst</h1>
           </div>
-          
           <button
             onClick={() => setIsDarkMode(!isDarkMode)}
             className="theme-toggle"
@@ -131,7 +164,7 @@ export default function App() {
         </div>
       </header>
 
-      {/* Chat Area */}
+      {/* Chat Area (Kode Anda tidak berubah) */}
       <main className="chat-area">
         <div className="messages-container">
           {messages.map((msg, index) => (
@@ -168,14 +201,14 @@ export default function App() {
         </div>
       </main>
 
-      {/* Footer Input */}
+      {/* Footer Input (Kode Anda DIPERBARUI) */}
       <footer className="footer">
         <div className="footer-content">
-          {imageFile && (
+          {imagePreview && ( // Ubah imageFile menjadi imagePreview
             <div className="file-preview">
               <div className="preview-dot"></div>
               <span>
-                Siap menganalisis: <strong>{imageFile.name}</strong>
+                Siap menganalisis: <strong>{imageFile?.name}</strong>
               </span>
             </div>
           )}
@@ -203,15 +236,17 @@ export default function App() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder={imagePreview ? "Ketik pertanyaan Anda..." : "Silakan upload gambar chart dulu..."}
-              disabled={!imageFile}
+              // [PERBAIKAN 6] Ubah placeholder dan logik disabled
+              placeholder={imagePreview ? "Tanya tentang gambar ini..." : "Tanya tentang konsep trading..."}
+              disabled={isLoading} // Izinkan input teks kapan saja
               className="text-input"
             />
 
             <button
               type="button"
               onClick={handleSubmit}
-              disabled={!query || !imageFile || isLoading}
+              // [PERBAIKAN 7] Izinkan submit hanya dengan teks
+              disabled={!query || isLoading}
               className="send-button"
             >
               <Send className="icon" />
