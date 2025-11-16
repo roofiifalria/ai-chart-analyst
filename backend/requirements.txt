@@ -1,0 +1,18 @@
+# Untuk server API
+fastapi
+uvicorn[standard]
+python-multipart
+
+# Untuk manajemen konfigurasi
+pydantic-settings
+
+# Untuk orkestrasi AI
+langchain
+langchain-community
+
+# Klien untuk layanan lokal kita
+ollama
+chromadb
+
+# Ditambahkan untuk notebook agar bisa baca .env
+python-dotenv
