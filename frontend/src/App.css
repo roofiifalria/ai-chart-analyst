@@ -126,6 +126,32 @@
   gap: 1.5rem;
 }
 
+/* ===== WELCOME MESSAGE ===== */
+.welcome-message {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  opacity: 0.8;
+}
+
+.dark-mode .welcome-message {
+  color: #e2e8f0;
+}
+
+.light-mode .welcome-message {
+  color: #475569;
+}
+
+.welcome-message h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.welcome-message p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
 /* ===== MESSAGES ===== */
 .message {
   display: flex;
@@ -163,23 +189,47 @@
   border: 1px solid #e5e7eb;
 }
 
+/* ===== MESSAGE IMAGE (dalam chat bubble) ===== */
 .message-image {
   margin-bottom: 0.75rem;
   overflow: hidden;
   border-radius: 1rem;
   border: 2px solid rgba(255, 255, 255, 0.2);
+  max-width: 100%;
 }
 
 .message-image img {
   width: 100%;
   height: auto;
   display: block;
+  max-height: 400px;
+  object-fit: contain;
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
-.message p {
-  white-space: pre-wrap;
+/* ===== MARKDOWN BODY ===== */
+.markdown-body {
+  word-wrap: break-word;
   line-height: 1.6;
-  margin: 0;
+}
+
+.markdown-body p {
+  margin: 0.5em 0;
+}
+
+.markdown-body ul, .markdown-body ol {
+  margin: 0.5em 0;
+  padding-left: 1.5rem;
+}
+
+.markdown-body li {
+  margin: 0.3em 0;
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-weight: bold;
 }
 
 /* ===== LOADING INDICATOR ===== */
@@ -261,34 +311,92 @@
   padding: 1rem;
 }
 
-.file-preview {
+/* ===== IMAGE PREVIEW CONTAINER (sebelum kirim) ===== */
+.image-preview-container {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.5rem 1rem;
+  gap: 1rem;
+  padding: 0.75rem;
   margin-bottom: 0.75rem;
   border-radius: 1rem;
-  font-size: 0.875rem;
+  transition: all 0.3s ease;
 }
 
-.dark-mode .file-preview {
+.dark-mode .image-preview-container {
   background-color: rgba(88, 28, 135, 0.3);
   border: 1px solid rgba(168, 85, 247, 0.5);
+}
+
+.light-mode .image-preview-container {
+  background-color: #f3e8ff;
+  border: 1px solid #d8b4fe;
+}
+
+.preview-box {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 2px solid;
+  flex-shrink: 0;
+}
+
+.dark-mode .preview-box {
+  border-color: rgba(168, 85, 247, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.light-mode .preview-box {
+  border-color: #d8b4fe;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.preview-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.remove-image-btn {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(239, 68, 68, 0.9);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.remove-image-btn:hover {
+  background-color: #dc2626;
+  transform: scale(1.1);
+}
+
+.file-name {
+  flex: 1;
+  font-size: 0.875rem;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dark-mode .file-name {
   color: #d8b4fe;
 }
 
-.light-mode .file-preview {
-  background-color: #f3e8ff;
-  border: 1px solid #d8b4fe;
+.light-mode .file-name {
   color: #7e22ce;
-}
-
-.preview-dot {
-  width: 0.5rem;
-  height: 0.5rem;
-  background-color: #4ade80;
-  border-radius: 50%;
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 /* ===== CHAT FORM ===== */
@@ -331,6 +439,7 @@
   border: 1px solid;
   outline: none;
   transition: all 0.2s ease;
+  font-size: 1rem;
 }
 
 .dark-mode .text-input {
@@ -423,5 +532,33 @@
   }
   50% {
     opacity: 0.5;
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .header-content {
+    padding: 0.75rem 1rem;
+  }
+
+  .header h1 {
+    font-size: 1.25rem;
+  }
+
+  .chat-area {
+    padding: 1rem 0.5rem;
+  }
+
+  .message-content {
+    max-width: 90%;
+  }
+
+  .preview-box {
+    width: 80px;
+    height: 80px;
+  }
+
+  .footer-content {
+    padding: 0.75rem;
   }
 }

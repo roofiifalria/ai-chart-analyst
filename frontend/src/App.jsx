@@ -1,13 +1,12 @@
-// frontend/src/App.jsx (VERSI DIPERBARUI)
-
 import React, { useState, useRef, useEffect } from 'react';
-// Impor ikon-ikon Anda
-import { Upload, Send, BarChart3, Moon, Sun } from 'lucide-react';
+import { Upload, Send, BarChart3, Moon, Sun, X } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import './App.css';
 
 const API_URL = "http://localhost:8000/api/analyze_chart";
 
 export default function App() {
-  // Semua state Anda (termasuk dark mode) tetap ada
   const [messages, setMessages] = useState([]);
   const [query, setQuery] = useState("");
   const [imageFile, setImageFile] = useState(null);
@@ -22,7 +21,6 @@ export default function App() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  // Perbarui handleFileChange agar menghapus chat lama
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -32,55 +30,72 @@ export default function App() {
         setImagePreview(reader.result);
       };
       reader.readAsDataURL(file);
-      
-      // Hapus riwayat chat saat gambar baru diunggah
-      setMessages([]);
     }
   };
 
-  // --- FUNGSI handleSubmit YANG DIPERBARUI ---
+  const removeImage = () => {
+    setImageFile(null);
+    setImagePreview(null);
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  };
+
   const handleSubmit = async () => {
-    // [PERBAIKAN 1] Izinkan submit jika query ada (gambar opsional)
-    if (!query || isLoading) return;
+    if ((!query && !imageFile) || isLoading) return;
 
     setIsLoading(true);
 
-    // [PERBAIKAN 2] Tampilkan gambar di pesan HANYA jika ini adalah pesan pertama
-    // tentang gambar itu. Kita cek apakah imagePreview ada.
+    // 1. Simpan referensi lokal sebelum state direset
+    const currentQuery = query || "Analisis gambar ini";
+    const currentImageFile = imageFile;
+    const currentImagePreview = imagePreview;
+
+    // 2. Tambahkan pesan User ke UI dan siapkan payload history
     const userMessage = {
       role: 'user',
-      content: query,
-      // Jika ada imagePreview, ini adalah pesan pertama tentang gambar itu
-      // Pesan selanjutnya (follow-up) tidak akan menyertakan gambar
-      image: imagePreview 
+      content: currentQuery,
+      image: currentImagePreview
     };
-    setMessages(prev => [...prev, userMessage]);
 
+    const currentMessages = [...messages, userMessage];
+    // Update UI immediately so user sees their message
+    setMessages(currentMessages);
+
+    // 3. Siapkan History untuk dikirim (pakai currentMessages agar tidak ketinggalan pesan baru)
+    const historyPayload = currentMessages.map(msg => ({
+      role: msg.role,
+      content: msg.content || "",
+      // sertakan flag image kalau ada (berguna untuk debugging di backend)
+      hasImage: !!msg.image
+    }));
+
+    // 4. Buat FormData SEBELUM reset
     const formData = new FormData();
-    formData.append('query', query);
-    
-    // [PERBAIKAN 3] Hanya tambahkan gambar jika ada
-    if (imageFile) {
-      formData.append('image_file', imageFile);
+    formData.append('query', currentQuery);
+    formData.append('history', JSON.stringify(historyPayload));
+
+    if (currentImageFile) {
+      formData.append('image_file', currentImageFile);
     }
+
+    // 5. Reset Input (SETELAH FormData dibuat)
+    setQuery("");
+    setImageFile(null);
+    // Debug: log what's about to be sent (FormData is not directly printable so we log values)
+      try {
+        console.debug("[DEBUG] Outgoing request:", {
+          query: formData.get('query'),
+          history: formData.get('history'),
+          image_present: !!formData.get('image_file')
+        });
+      } catch (e) {
+        console.warn("[DEBUG] Failed to log FormData directly", e);
+      }
+    setImagePreview(null);
+    if (fileInputRef.current) fileInputRef.current.value = "";
 
     const aiMessage = { role: 'ai', content: '' };
-    setMessages(prev => [...prev, aiMessage]);
-
-    // [PERBAIKAN 4] HANYA reset query. JANGAN reset gambar.
-    // Ini memungkinkan pertanyaan follow-up.
-    setQuery("");
-
-    // [PERBAIKAN 5] Setelah gambar dikirim SATU KALI, 
-    // kita hapus dari state agar pengiriman berikutnya
-    // adalah teks-saja (follow-up).
-    if (imageFile) {
-      setImageFile(null);
-      setImagePreview(null);
-      if (fileInputRef.current) {
-        fileInputRef.current.value = "";
-      }
-    }
+    // Ensure placeholder is appended to the UI
+    setMessages([...currentMessages, aiMessage]);
 
     try {
       const response = await fetch(API_URL, {
@@ -89,17 +104,17 @@ export default function App() {
       });
 
       if (!response.ok) {
-        // Tampilkan error yang lebih jelas
-        const errorText = await response.text();
-        let errorJson = {};
+        let errorMsg = `Server error: ${response.status}`;
         try {
-          errorJson = JSON.parse(errorText);
-        } catch(e) {}
-        
-        const detail = errorJson.detail || errorText || `HTTP error! status: ${response.status}`;
-        throw new Error(detail);
+          const errorData = await response.json();
+          errorMsg += ` - ${errorData.detail || ''}`;
+        } catch (e) {
+          // Ignore JSON parse error
+        }
+        throw new Error(errorMsg);
       }
 
+      // 6. Baca Stream Response
       const reader = response.body.getReader();
       const decoder = new TextDecoder('utf-8');
 
@@ -109,34 +124,37 @@ export default function App() {
         
         const chunk = decoder.decode(value);
         
+        // Update pesan AI terakhir dengan chunk baru (IMMUTABLE)
         setMessages(prev => {
-          const lastMessage = prev[prev.length - 1];
-          if (lastMessage.role === 'ai') {
-            const updatedMessage = {
-              ...lastMessage,
-              content: lastMessage.content + chunk,
+          const newMsgs = [...prev];
+          const lastMsg = newMsgs[newMsgs.length - 1];
+          if (lastMsg && lastMsg.role === 'ai') {
+            newMsgs[newMsgs.length - 1] = {
+              ...lastMsg,
+              content: lastMsg.content + chunk
             };
-            return [...prev.slice(0, -1), updatedMessage];
           }
-          return prev;
+          return newMsgs;
         });
       }
 
     } catch (error) {
       console.error("Fetch error:", error);
       setMessages(prev => {
-        const lastMessage = prev[prev.length - 1];
-        const updatedMessage = {
-          ...lastMessage,
-          content: `Maaf, terjadi kesalahan: ${error.message}`,
-        };
-        return [...prev.slice(0, -1), updatedMessage];
+        const newMsgs = [...prev];
+        const lastMsg = newMsgs[newMsgs.length - 1];
+        if (lastMsg && lastMsg.role === 'ai') {
+          newMsgs[newMsgs.length - 1] = {
+            ...lastMsg,
+            content: `⚠️ Maaf, terjadi kesalahan: ${error.message}`
+          };
+        }
+        return newMsgs;
       });
     } finally {
       setIsLoading(false);
     }
   };
-  // --- AKHIR FUNGSI handleSubmit ---
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -145,40 +163,61 @@ export default function App() {
     }
   };
 
-  // --- KODE JSX (HTML) JUGA PERLU DIPERBAIKI ---
   return (
     <div className={`app-container ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
-      {/* Header (Kode Anda tidak berubah) */}
+      {/* Header */}
       <header className="header">
         <div className="header-content">
           <div className="header-left">
             <BarChart3 className="header-icon" />
             <h1>AI Chart Analyst</h1>
           </div>
+          
           <button
             onClick={() => setIsDarkMode(!isDarkMode)}
             className="theme-toggle"
+            title="Ganti Tema"
           >
             {isDarkMode ? <Sun className="icon" /> : <Moon className="icon" />}
           </button>
         </div>
       </header>
 
-      {/* Chat Area (Kode Anda tidak berubah) */}
+      {/* Chat Area */}
       <main className="chat-area">
         <div className="messages-container">
+          {messages.length === 0 && (
+            <div className="welcome-message">
+              <h2>Selamat Datang! 👋</h2>
+              <p>Saya siap membantu menganalisis chart trading Anda.</p>
+              <p>Silakan upload gambar chart atau tanya tentang konsep teknikal.</p>
+            </div>
+          )}
+
           {messages.map((msg, index) => (
-            <div
-              key={index}
-              className={`message ${msg.role}`}
-            >
+            <div key={index} className={`message ${msg.role}`}>
               <div className="message-content">
                 {msg.role === 'user' && msg.image && (
                   <div className="message-image">
-                    <img src={msg.image} alt="Chart preview" />
+                    <img src={msg.image} alt="Uploaded chart" />
                   </div>
                 )}
-                <p>{msg.content}</p>
+                
+                <div className="markdown-body">
+                  <ReactMarkdown 
+                    remarkPlugins={[remarkGfm]}
+                    components={{
+                      h1: ({node, ...props}) => <h1 style={{fontSize: '1.5em', fontWeight: 'bold', margin: '0.5em 0'}} {...props} />,
+                      h2: ({node, ...props}) => <h2 style={{fontSize: '1.3em', fontWeight: 'bold', margin: '0.8em 0 0.4em', borderBottom: '1px solid rgba(255,255,255,0.2)', paddingBottom: '4px'}} {...props} />,
+                      ul: ({node, ...props}) => <ul style={{paddingLeft: '20px', margin: '0.5em 0'}} {...props} />,
+                      li: ({node, ...props}) => <li style={{margin: '0.3em 0'}} {...props} />,
+                      p: ({node, ...props}) => <p style={{margin: '0.5em 0', lineHeight: '1.6'}} {...props} />,
+                      strong: ({node, ...props}) => <strong style={{color: isDarkMode ? '#fbbf24' : '#d97706'}} {...props} />,
+                    }}
+                  >
+                    {msg.content}
+                  </ReactMarkdown>
+                </div>
               </div>
             </div>
           ))}
@@ -192,7 +231,7 @@ export default function App() {
                     <div className="dot"></div>
                     <div className="dot"></div>
                   </div>
-                  <span>AI sedang menganalisis...</span>
+                  <span>Sedang berpikir...</span>
                 </div>
               </div>
             </div>
@@ -201,15 +240,18 @@ export default function App() {
         </div>
       </main>
 
-      {/* Footer Input (Kode Anda DIPERBARUI) */}
+      {/* Footer Input */}
       <footer className="footer">
         <div className="footer-content">
-          {imagePreview && ( // Ubah imageFile menjadi imagePreview
-            <div className="file-preview">
-              <div className="preview-dot"></div>
-              <span>
-                Siap menganalisis: <strong>{imageFile?.name}</strong>
-              </span>
+          {imagePreview && (
+            <div className="image-preview-container">
+              <div className="preview-box">
+                <img src={imagePreview} alt="Preview" />
+                <button onClick={removeImage} className="remove-image-btn" title="Hapus gambar">
+                  <X size={16} />
+                </button>
+              </div>
+              <span className="file-name">{imageFile?.name}</span>
             </div>
           )}
           
@@ -218,14 +260,14 @@ export default function App() {
               type="button"
               onClick={() => fileInputRef.current?.click()}
               className="upload-button"
-              title="Upload Chart Image"
+              title="Upload Gambar Chart"
             >
               <Upload className="icon" />
             </button>
             
             <input
               type="file"
-              accept="image/png, image/jpeg"
+              accept="image/png, image/jpeg, image/jpg"
               ref={fileInputRef}
               onChange={handleFileChange}
               className="hidden-file-input"
@@ -236,18 +278,17 @@ export default function App() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyPress={handleKeyPress}
-              // [PERBAIKAN 6] Ubah placeholder dan logik disabled
-              placeholder={imagePreview ? "Tanya tentang gambar ini..." : "Tanya tentang konsep trading..."}
-              disabled={isLoading} // Izinkan input teks kapan saja
+              placeholder={imageFile ? "Tambahkan pertanyaan tentang gambar ini..." : "Ketik pesan Anda..."}
               className="text-input"
+              disabled={isLoading}
             />
 
             <button
               type="button"
               onClick={handleSubmit}
-              // [PERBAIKAN 7] Izinkan submit hanya dengan teks
-              disabled={!query || isLoading}
+              disabled={(!query && !imageFile) || isLoading}
               className="send-button"
+              title="Kirim"
             >
               <Send className="icon" />
             </button>

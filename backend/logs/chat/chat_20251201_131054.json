@@ -1,0 +1,10 @@
+{
+  "timestamp": "2025-12-01T13:10:35.756057",
+  "mode": "multimodal",
+  "query": "Test from script with image",
+  "history_length": 1,
+  "image_filename": "test_image.png",
+  "ai_response": "",
+  "error": null,
+  "vision_model_used": "deepseek-v3.1:671b-cloud"
+}

@@ -1,0 +1,54 @@
+{
+  "timestamp": "2025-12-01T13:30:40.353217",
+  "mode": "multimodal",
+  "query": "Test from script with image",
+  "history_length": 1,
+  "image_filename": "test_image.png",
+  "ai_response": "",
+  "stream_chunks": [
+    {
+      "index": 0,
+      "text_preview": ""
+    },
+    {
+      "index": 1,
+      "text_preview": ""
+    },
+    {
+      "index": 2,
+      "text_preview": ""
+    }
+  ],
+  "vision_attempts": [
+    {
+      "model": "qwen3-vl:4b",
+      "attempt": 1,
+      "invocation_success": false,
+      "parse_success": false,
+      "content_preview": null,
+      "error": "Ollama call failed with status code 500. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [500 Internal Server Error]>\n<CIMultiDictProxy('Content-Type': 'application/json', 'Date': 'Mon, 01 Dec 2025 06:37:25 GMT', 'Transfer-Encoding': 'chunked')>\n>"
+    },
+    {
+      "model": "qwen3-vl:4b",
+      "attempt": 2,
+      "invocation_success": false,
+      "parse_success": false,
+      "content_preview": null,
+      "error": "Ollama call failed with status code 500. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [500 Internal Server Error]>\n<CIMultiDictProxy('Content-Type': 'application/json', 'Date': 'Mon, 01 Dec 2025 06:37:37 GMT', 'Transfer-Encoding': 'chunked')>\n>"
+    },
+    {
+      "model": "deepseek-v3.1:671b-cloud",
+      "attempt": 1,
+      "invocation_success": true,
+      "parse_success": true,
+      "content_preview": "{\n    \"key_patterns\": [\"Ascending Triangle\", \"Bullish Flag\"],\n    \"key_levels\": [\"Support: 1.0700\", \"Resistance: 1.0850\"],\n    \"indicators\": [\"RSI Bullish Divergence\", \"MACD Above Signal Line\"],\n    \"summary\": \"Chart menunjukkan konsolidasi dalam tren naik dengan pola bullish, mengindikasikan potensi kelanjutan kenaikan jika resistance tembus.\"\n}",
+      "error": null
+    }
+  ],
+  "error": null,
+  "vision_model_used": "deepseek-v3.1:671b-cloud",
+  "rag_results": [
+    {
+      "rank": 1,
+      "source": "../data\\technical-analysis-course-cambridge.pdf",
+      "rerank_score": 

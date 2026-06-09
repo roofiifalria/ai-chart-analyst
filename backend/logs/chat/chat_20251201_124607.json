@@ -1,0 +1,9 @@
+{
+  "timestamp": "2025-12-01T12:45:55.666502",
+  "mode": "multimodal",
+  "query": "Test from script with image",
+  "history_length": 1,
+  "image_filename": "test_image.png",
+  "ai_response": "\n\n⚠️ **Maaf, terjadi kesalahan saat memproses respons.**\nDetail: Ollama call failed with status code 500. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [500 Internal Server Error]>\n<CIMultiDictProxy('Content-Type': 'application/json', 'Date': 'Mon, 01 Dec 2025 05:46:07 GMT', 'Transfer-Encoding': 'chunked')>\n>",
+  "error": "Ollama call failed with status code 500. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [500 Internal Server Error]>\n<CIMultiDictProxy('Content-Type': 'application/json', 'Date': 'Mon, 01 Dec 2025 05:46:07 GMT', 'Transfer-Encoding': 'chunked')>\n>"
+}

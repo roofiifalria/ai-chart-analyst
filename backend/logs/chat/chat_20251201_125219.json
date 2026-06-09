@@ -1,0 +1,9 @@
+{
+  "timestamp": "2025-12-01T12:52:06.953291",
+  "mode": "multimodal",
+  "query": "Test from script with image",
+  "history_length": 1,
+  "image_filename": "test_image.png",
+  "ai_response": "",
+  "error": null
+}

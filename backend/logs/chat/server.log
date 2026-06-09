@@ -1,0 +1,1364 @@
+2025-12-01 12:32:29,948 INFO ============================================================
+2025-12-01 12:32:29,949 INFO 📥 [REQUEST] Query (first 180 chars): coba analisis ini
+2025-12-01 12:32:29,949 INFO 📥 [REQUEST] Raw history size (chars): 63
+2025-12-01 12:32:29,951 INFO 📥 [REQUEST] Image present: Screenshot 2025-12-01 102718.png
+2025-12-01 12:32:29,951 INFO ============================================================
+2025-12-01 12:32:29,954 DEBUG Saved short request receipt log to logs/chat\request_received_20251201_123229.json
+2025-12-01 12:32:29,954 INFO ✅ [HISTORY] Successfully parsed 1 messages
+2025-12-01 12:32:29,955 INFO 🖼️ [MODE] Multimodal (image: Screenshot 2025-12-01 102718.png)
+2025-12-01 12:32:29,958 INFO ✅ [IMAGE] Converted to base64 (length: 218528 chars)
+2025-12-01 12:32:29,959 INFO 👁️ [VISION] Starting image analysis...
+2025-12-01 12:39:52,699 INFO ✅ [VISION] Raw response (first 220 chars): 
+{"name": "Alice", "age": 30, "city": "New York", "job": "Engineer", "hobby": "Reading"}
+2025-12-01 12:39:52,701 ERROR ❌ [VISION] Error: 4 validation errors for VisionExtraction
+key_patterns
+  Field required [type=missing, input_value={'name': 'Alice', 'age': ...er', 'hobby': 'Reading'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+key_levels
+  Field required [type=missing, input_value={'name': 'Alice', 'age': ...er', 'hobby': 'Reading'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+indicators
+  Field required [type=missing, input_value={'name': 'Alice', 'age': ...er', 'hobby': 'Reading'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+summary
+  Field required [type=missing, input_value={'name': 'Alice', 'age': ...er', 'hobby': 'Reading'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+Traceback (most recent call last):
+  File "C:\Users\roofi\OneDrive - Institut Teknologi Sepuluh Nopember\Magang Batch2\RAG\backend\app\api\chat.py", line 313, in analyze_chart_endpoint
+    extracted_data = VisionExtraction(**vision_json_obj)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roofi\OneDrive - Institut Teknologi Sepuluh Nopember\Magang Batch2\RAG\backend\.venv\Lib\site-packages\pydantic\main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 4 validation errors for VisionExtraction
+key_patterns
+  Field required [type=missing, input_value={'name': 'Alice', 'age': ...er', 'hobby': 'Reading'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+key_levels
+  Field required [type=missing, input_value={'name': 'Alice', 'age': ...er', 'hobby': 'Reading'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+indicators
+  Field required [type=missing, input_value={'name': 'Alice', 'age': ...er', 'hobby': 'Reading'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+summary
+  Field required [type=missing, input_value={'name': 'Alice', 'age': ...er', 'hobby': 'Reading'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+2025-12-01 12:39:52,803 INFO 📚 [RAG] Querying knowledge base with: coba analisis ini
+2025-12-01 12:40:00,808 INFO ✅ [RAG] Found 5 documents
+2025-12-01 12:40:00,815 INFO 🔄 [SYNTHESIS] Building final prompt...
+2025-12-01 12:40:00,851 INFO 🤖 [LLM] Starting stream...
+2025-12-01 12:45:55,659 INFO ============================================================
+2025-12-01 12:45:55,660 INFO 📥 [REQUEST] Query (first 180 chars): Test from script with image
+2025-12-01 12:45:55,660 INFO 📥 [REQUEST] Raw history size (chars): 44
+2025-12-01 12:45:55,661 INFO 📥 [REQUEST] Image present: test_image.png
+2025-12-01 12:45:55,662 INFO ============================================================
+2025-12-01 12:45:55,664 DEBUG Saved short request receipt log to logs/chat\request_received_20251201_124555.json
+2025-12-01 12:45:55,665 INFO ✅ [HISTORY] Successfully parsed 1 messages
+2025-12-01 12:45:55,666 INFO 🖼️ [MODE] Multimodal (image: test_image.png)
+2025-12-01 12:45:55,667 INFO ✅ [IMAGE] Converted to base64 (length: 92 chars)
+2025-12-01 12:45:55,667 INFO 👁️ [VISION] Starting image analysis...
+2025-12-01 12:46:02,857 ERROR ❌ [VISION] Error: Ollama call failed with status code 500. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [500 Internal Server Error]>
+<CIMultiDictProxy('Content-Type': 'application/json', 'Date': 'Mon, 01 Dec 2025 05:46:02 GMT', 'Transfer-Encoding': 'chunked')>
+>
+Traceback (most recent call last):
+  File "C:\Users\roofi\OneDrive - Institut Teknologi Sepuluh Nopember\Magang Batch2\RAG\backend\app\api\chat.py", line 308, in analyze_chart_endpoint
+    def _make_rag_keywords(ed: VisionExtraction, q: str):
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roofi\OneDrive - Institut Teknologi Sepuluh Nopember\Magang Batch2\RAG\backend\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 408, in ainvoke
+    llm_result = await self.agenerate_prompt(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roofi\OneDrive - Institut Teknologi Sepuluh Nopember\Magang Batch2\RAG\backend\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1115, in agenerate_prompt
+    return await self.agenerate(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roofi\OneDrive - Institut Teknologi Sepuluh Nopember\Magang Batch2\RAG\backend\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1073, in agenerate
+    raise exceptions[0]
+  File "C:\Users\roofi\OneDrive - Institut Teknologi Sepuluh Nopember\Magang Batch2\RAG\backend\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1326, in _agenerate_with_cache
+    result = await self._agenerate(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roofi\OneDrive - Institut Teknologi Sepuluh Nopember\Magang Batch2\RAG\backend\.venv\Lib\site-packages\langchain_community\chat_models\ollama.py", line 328, in _agenerate
+    final_chunk = await self._achat_stream_with_aggregation(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roofi\OneDrive - Institut Teknologi Sepuluh Nopember\Magang Batch2\RAG\backend\.venv\Lib\site-packages\langchain_community\chat_models\ollama.py", line 249, in _achat_stream_with_aggregation
+    async for stream_resp in self._acreate_chat_stream(messages, stop, **kwargs):
+  File "C:\Users\roofi\OneDrive - Institut Teknologi Sepuluh Nopember\Magang Batch2\RAG\backend\.venv\Lib\site-packages\langchain_community\chat_models\ollama.py", line 208, in _acreate_chat_stream
+    async for stream_resp in self._acreate_stream(
+  File "C:\Users\roofi\OneDrive - Institut Teknologi Sepuluh Nopember\Magang Batch2\RAG\backend\.venv\Lib\site-packages\langchain_community\llms\ollama.py", line 333, in _acreate_stream
+    raise ValueError(
+ValueError: Ollama call failed with status code 500. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [500 Internal Server Error]>
+<CIMultiDictProxy('Content-Type': 'application/json', 'Date': 'Mon, 01 Dec 2025 05:46:02 GMT', 'Transfer-Encoding': 'chunked')>
+>
+2025-12-01 12:46:02,977 INFO 📚 [RAG] Querying knowledge base with: Test from script with image
+2025-12-01 12:46:07,399 INFO ✅ [RAG] Found 5 documents
+2025-12-01 12:46:07,400 INFO 🔄 [SYNTHESIS] Building final prompt...
+2025-12-01 12:46:07,403 INFO 🤖 [LLM] Starting stream...
+2025-12-01 12:46:07,425 INFO ✅ [LLM] Stream completed. Total length: 0 chars
+2025-12-01 12:46:07,428 INFO 💾 [LOG] Saved chat log to logs/chat\chat_20251201_124607.json
+2025-12-01 12:46:07,968 ERROR ❌ [LLM] Streaming error: Ollama call failed with status code 500. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [500 Internal Server Error]>
+<CIMultiDictProxy('Content-Type': 'application/json', 'Date': 'Mon, 01 Dec 2025 05:46:07 GMT', 'Transfer-Encoding': 'chunked')>
+>
+Traceback (most recent call last):
+  File "C:\Users\roofi\OneDrive - Institut Teknologi Sepuluh Nopember\Magang Batch2\RAG\backend\app\api\chat.py", line 253, in response_streamer
+    async for chunk in llm_generative.astream([final_message]):
+  File "C:\Users\roofi\OneDrive - Institut Teknologi Sepuluh Nopember\Magang Batch2\RAG\backend\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 651, in astream
+    async for chunk in self._astream(
+  File "C:\Users\roofi\OneDrive - Institut Teknologi Sepuluh Nopember\Magang Batch2\RAG\backend\.venv\Lib\site-packages\langchain_community\chat_models\ollama.py", line 369, in _astream
+    async for stream_resp in self._acreate_chat_stream(messages, stop, **kwargs):
+  File "C:\Users\roofi\OneDrive - Institut Teknologi Sepuluh Nopember\Magang Batch2\RAG\backend\.venv\Lib\site-packages\langchain_community\chat_models\ollama.py", line 208, in _acreate_chat_stream
+    async for stream_resp in self._acreate_stream(
+  File "C:\Users\roofi\OneDrive - Institut Teknologi Sepuluh Nopember\Magang Batch2\RAG\backend\.venv\Lib\site-packages\langchain_community\llms\ollama.py", line 333, in _acreate_stream
+    raise ValueError(
+ValueError: Ollama call failed with status code 500. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [500 Internal Server Error]>
+<CIMultiDictProxy('Content-Type': 'application/json', 'Date': 'Mon, 01 Dec 2025 05:46:07 GMT', 'Transfer-Encoding': 'chunked')>
+>
+2025-12-01 12:46:07,973 INFO 💾 [LOG] Saved chat log to logs/chat\chat_20251201_124607.json
+2025-12-01 12:52:06,950 INFO ============================================================
+2025-12-01 12:52:06,950 INFO 📥 [REQUEST] Query (first 180 chars): Test from script with image
+2025-12-01 12:52:06,950 INFO 📥 [REQUEST] Raw history size (chars): 44
+2025-12-01 12:52:06,952 INFO 📥 [REQUEST] Image present: test_image.png
+2025-12-01 12:52:06,952 INFO ============================================================
+2025-12-01 12:52:06,953 DEBUG Saved short request receipt log to logs/chat\request_received_20251201_125206.json
+2025-12-01 12:52:06,953 INFO ✅ [HISTORY] Successfully parsed 1 messages
+2025-12-01 12:52:06,953 INFO 🖼️ [MODE] Multimodal (image: test_image.png)
+2025-12-01 12:52:06,953 INFO ✅ [IMAGE] Converted to base64 (length: 92 chars)
+2025-12-01 12:52:06,953 INFO 👁️ [VISION] Starting image analysis...
+2025-12-01 12:52:08,402 INFO ✅ [VISION] Primary raw response (first 300 chars): 
+2025-12-01 12:52:08,402 WARNING ⚠️ [VISION] Primary model produced unparsable/invalid JSON: Expecting value: line 1 column 1 (char 0)
+2025-12-01 12:52:08,404 DEBUG ⚠️ [VISION] Primary raw content: 
+2025-12-01 12:52:08,404 DEBUG ⚠️ [VISION] No JSON object found in primary response text
+2025-12-01 12:52:08,405 INFO 🔁 [VISION] Attempting fallback model: qwen3-vl:235b-cloud
+2025-12-01 12:52:08,406 WARNING ⚠️ [VISION] Invocation with fallback qwen3-vl:235b-cloud failed: name 'ChatOllama' is not defined
+2025-12-01 12:52:08,406 INFO 🔁 [VISION] Attempting fallback model: qwen3-vl:235b-instruct-cloud
+2025-12-01 12:52:08,406 WARNING ⚠️ [VISION] Invocation with fallback qwen3-vl:235b-instruct-cloud failed: name 'ChatOllama' is not defined
+2025-12-01 12:52:08,407 INFO 🔁 [VISION] Attempting fallback model: glm-4.6:cloud
+2025-12-01 12:52:08,407 WARNING ⚠️ [VISION] Invocation with fallback glm-4.6:cloud failed: name 'ChatOllama' is not defined
+2025-12-01 12:52:08,409 INFO 🔁 [VISION] Attempting fallback model: gpt-oss:20b-cloud
+2025-12-01 12:52:08,409 WARNING ⚠️ [VISION] Invocation with fallback gpt-oss:20b-cloud failed: name 'ChatOllama' is not defined
+2025-12-01 12:52:08,409 INFO 🔁 [VISION] Attempting fallback model: deepseek-v3.1:671b-cloud
+2025-12-01 12:52:08,410 WARNING ⚠️ [VISION] Invocation with fallback deepseek-v3.1:671b-cloud failed: name 'ChatOllama' is not defined
+2025-12-01 12:52:08,410 INFO 📚 [RAG] Querying knowledge base with: Test from script with image
+2025-12-01 12:52:13,371 INFO ✅ [RAG] Found 5 documents
+2025-12-01 12:52:13,372 INFO 🔄 [SYNTHESIS] Building final prompt...
+2025-12-01 12:52:13,379 INFO 🤖 [LLM] Starting stream...
+2025-12-01 12:52:19,407 INFO ✅ [LLM] Stream completed. Total length: 0 chars
+2025-12-01 12:52:19,408 INFO 💾 [LOG] Saved chat log to logs/chat\chat_20251201_125219.json
+2025-12-01 12:53:47,157 INFO ============================================================
+2025-12-01 12:53:47,157 INFO 📥 [REQUEST] Query (first 180 chars): Test from script with image
+2025-12-01 12:53:47,158 INFO 📥 [REQUEST] Raw history size (chars): 44
+2025-12-01 12:53:47,158 INFO 📥 [REQUEST] Image present: test_image.png
+2025-12-01 12:53:47,158 INFO ============================================================
+2025-12-01 12:53:47,160 DEBUG Saved short request receipt log to logs/chat\request_received_20251201_125347.json
+2025-12-01 12:53:47,160 INFO ✅ [HISTORY] Successfully parsed 1 messages
+2025-12-01 12:53:47,160 INFO 🖼️ [MODE] Multimodal (image: test_image.png)
+2025-12-01 12:53:47,160 INFO ✅ [IMAGE] Converted to base64 (length: 92 chars)
+2025-12-01 12:53:47,161 INFO 👁️ [VISION] Starting image analysis...
+2025-12-01 12:53:48,195 INFO ✅ [VISION] Primary raw response (first 300 chars): 
+2025-12-01 12:53:48,195 WARNING ⚠️ [VISION] Primary model produced unparsable/invalid JSON: Expecting value: line 1 column 1 (char 0)
+2025-12-01 12:53:48,195 DEBUG ⚠️ [VISION] Primary raw content: 
+2025-12-01 12:53:48,195 DEBUG ⚠️ [VISION] No JSON object found in primary response text
+2025-12-01 12:53:48,197 INFO 🔁 [VISION] Attempting fallback model: qwen3-vl:235b-cloud
+2025-12-01 12:53:49,190 INFO 🔁 [VISION] Fallback qwen3-vl:235b-cloud response preview: 
+2025-12-01 12:53:49,191 WARNING ⚠️ [VISION] Fallback model qwen3-vl:235b-cloud produced invalid JSON or failed validation: Expecting value: line 1 column 1 (char 0)
+2025-12-01 12:53:49,192 INFO 🔁 [VISION] Attempting fallback model: qwen3-vl:235b-instruct-cloud
+2025-12-01 12:53:50,329 INFO 🔁 [VISION] Fallback qwen3-vl:235b-instruct-cloud response preview: 
+2025-12-01 12:53:50,329 WARNING ⚠️ [VISION] Fallback model qwen3-vl:235b-instruct-cloud produced invalid JSON or failed validation: Expecting value: line 1 column 1 (char 0)
+2025-12-01 12:53:50,329 INFO 🔁 [VISION] Attempting fallback model: glm-4.6:cloud
+2025-12-01 12:53:50,996 WARNING ⚠️ [VISION] Invocation with fallback glm-4.6:cloud failed: Ollama call failed with status code 400. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [400 Bad Request]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Date': 'Mon, 01 Dec 2025 05:53:50 GMT', 'Content-Length': '146')>
+>
+2025-12-01 12:53:50,997 INFO 🔁 [VISION] Attempting fallback model: gpt-oss:20b-cloud
+2025-12-01 12:53:51,682 WARNING ⚠️ [VISION] Invocation with fallback gpt-oss:20b-cloud failed: Ollama call failed with status code 400. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [400 Bad Request]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Date': 'Mon, 01 Dec 2025 05:53:51 GMT', 'Content-Length': '146')>
+>
+2025-12-01 12:53:51,683 INFO 🔁 [VISION] Attempting fallback model: deepseek-v3.1:671b-cloud
+2025-12-01 12:53:54,565 INFO 🔁 [VISION] Fallback deepseek-v3.1:671b-cloud response preview: {
+    "key_patterns": ["Uptrend Channel", "Higher Highs and Higher Lows"],
+    "key_levels": ["Support: 0.00000085", "Resistance: 0.00000110", "Resistance: 0.00000125"],
+    "indicators": ["Volume Increasing on Up Moves"],
+    "summary": "Chart menunjukkan tren naik yang kuat dalam sebuah channel, d
+2025-12-01 12:53:54,575 INFO ✅ [VISION] Successful extraction with fallback model deepseek-v3.1:671b-cloud
+2025-12-01 12:53:54,575 INFO 📚 [RAG] Querying knowledge base with: Uptrend Channel Higher Highs and Higher Lows Volume Increasing on Up Moves Test from script with image
+2025-12-01 12:53:57,272 INFO ✅ [RAG] Found 5 documents
+2025-12-01 12:53:57,272 INFO 🔄 [SYNTHESIS] Building final prompt...
+2025-12-01 12:53:57,280 INFO 🤖 [LLM] Starting stream...
+2025-12-01 12:53:58,303 INFO ✅ [LLM] Stream completed. Total length: 0 chars
+2025-12-01 12:53:58,304 INFO 💾 [LOG] Saved chat log to logs/chat\chat_20251201_125358.json
+2025-12-01 12:55:08,457 INFO ============================================================
+2025-12-01 12:55:08,457 INFO 📥 [REQUEST] Query (first 180 chars): Test from script with image
+2025-12-01 12:55:08,458 INFO 📥 [REQUEST] Raw history size (chars): 44
+2025-12-01 12:55:08,458 INFO 📥 [REQUEST] Image present: test_image.png
+2025-12-01 12:55:08,458 INFO ============================================================
+2025-12-01 12:55:08,459 DEBUG Saved short request receipt log to logs/chat\request_received_20251201_125508.json
+2025-12-01 12:55:08,459 INFO ✅ [HISTORY] Successfully parsed 1 messages
+2025-12-01 12:55:08,460 INFO 🖼️ [MODE] Multimodal (image: test_image.png)
+2025-12-01 12:55:08,460 INFO ✅ [IMAGE] Converted to base64 (length: 92 chars)
+2025-12-01 12:55:08,460 INFO 👁️ [VISION] Starting image analysis...
+2025-12-01 12:55:09,573 INFO ✅ [VISION] Primary raw response (first 300 chars): 
+2025-12-01 12:55:09,574 WARNING ⚠️ [VISION] Primary model produced unparsable/invalid JSON: Expecting value: line 1 column 1 (char 0)
+2025-12-01 12:55:09,574 DEBUG ⚠️ [VISION] Primary raw content: 
+2025-12-01 12:55:09,574 DEBUG ⚠️ [VISION] No JSON object found in primary response text
+2025-12-01 12:55:09,574 INFO 🔁 [VISION] Attempting fallback model: qwen3-vl:235b-cloud
+2025-12-01 12:55:14,640 INFO 🔁 [VISION] Fallback qwen3-vl:235b-cloud response preview: 
+2025-12-01 12:55:14,641 WARNING ⚠️ [VISION] Fallback model qwen3-vl:235b-cloud produced invalid JSON or failed validation: Expecting value: line 1 column 1 (char 0)
+2025-12-01 12:55:14,642 INFO 🔁 [VISION] Attempting fallback model: qwen3-vl:235b-instruct-cloud
+2025-12-01 12:55:15,732 INFO 🔁 [VISION] Fallback qwen3-vl:235b-instruct-cloud response preview: 
+2025-12-01 12:55:15,732 WARNING ⚠️ [VISION] Fallback model qwen3-vl:235b-instruct-cloud produced invalid JSON or failed validation: Expecting value: line 1 column 1 (char 0)
+2025-12-01 12:55:15,733 INFO 🔁 [VISION] Attempting fallback model: glm-4.6:cloud
+2025-12-01 12:55:16,383 WARNING ⚠️ [VISION] Invocation with fallback glm-4.6:cloud failed: Ollama call failed with status code 400. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [400 Bad Request]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Date': 'Mon, 01 Dec 2025 05:55:16 GMT', 'Content-Length': '146')>
+>
+2025-12-01 12:55:16,383 INFO 🔁 [VISION] Attempting fallback model: gpt-oss:20b-cloud
+2025-12-01 12:55:17,108 WARNING ⚠️ [VISION] Invocation with fallback gpt-oss:20b-cloud failed: Ollama call failed with status code 400. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [400 Bad Request]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Date': 'Mon, 01 Dec 2025 05:55:17 GMT', 'Content-Length': '146')>
+>
+2025-12-01 12:55:17,109 INFO 🔁 [VISION] Attempting fallback model: deepseek-v3.1:671b-cloud
+2025-12-01 12:55:19,592 INFO 🔁 [VISION] Fallback deepseek-v3.1:671b-cloud response preview: {
+    "key_patterns": ["Ascending Triangle", "Bullish Flag"],
+    "key_levels": ["Support: 1.0700", "Resistance: 1.0850"],
+    "indicators": ["RSI Bullish Divergence", "MACD Above Signal Line"],
+    "summary": "Chart menunjukkan konsolidasi dalam tren naik dengan potensi breakout di atas resistance 
+2025-12-01 12:55:19,593 INFO ✅ [VISION] Successful extraction with fallback model deepseek-v3.1:671b-cloud
+2025-12-01 12:55:19,593 INFO 📚 [RAG] Querying knowledge base with: Ascending Triangle Bullish Flag RSI Bullish Divergence MACD Above Signal Line Test from script with image
+2025-12-01 12:55:22,851 INFO ✅ [RAG] Found 5 documents
+2025-12-01 12:55:22,852 INFO 🔄 [SYNTHESIS] Building final prompt...
+2025-12-01 12:55:22,854 INFO 🤖 [LLM] Starting stream...
+2025-12-01 12:55:24,594 INFO ✅ [LLM] Stream completed. Total length: 0 chars
+2025-12-01 12:55:24,596 INFO 💾 [LOG] Saved chat log to logs/chat\chat_20251201_125524.json
+2025-12-01 12:56:48,059 INFO ============================================================
+2025-12-01 12:56:48,060 INFO 📥 [REQUEST] Query (first 180 chars): coba analisis ini
+2025-12-01 12:56:48,062 INFO 📥 [REQUEST] Raw history size (chars): 63
+2025-12-01 12:56:48,062 INFO 📥 [REQUEST] Image present: Screenshot 2025-12-01 102718.png
+2025-12-01 12:56:48,064 INFO ============================================================
+2025-12-01 12:56:48,070 DEBUG Saved short request receipt log to logs/chat\request_received_20251201_125648.json
+2025-12-01 12:56:48,071 INFO ✅ [HISTORY] Successfully parsed 1 messages
+2025-12-01 12:56:48,072 INFO 🖼️ [MODE] Multimodal (image: Screenshot 2025-12-01 102718.png)
+2025-12-01 12:56:48,074 INFO ✅ [IMAGE] Converted to base64 (length: 218528 chars)
+2025-12-01 12:56:48,077 INFO 👁️ [VISION] Starting image analysis...
+2025-12-01 12:56:56,071 INFO ✅ [VISION] Primary raw response (first 300 chars): {
+    "key_patterns": [],
+    "key_levels": [4200.0, 4235.707, 4280.0, 4320.0],
+    "indicators": [
+        "Long/Short Entry/Exit signals marked on chart",
+        "Price near recent resistance at 4235.707",
+        "Multiple short entries followed by short exits indicating volatility"
+    ],
+    "
+2025-12-01 12:56:56,072 WARNING ⚠️ [VISION] Primary model produced unparsable/invalid JSON: 4 validation errors for VisionExtraction
+key_levels.0
+  Input should be a valid string [type=string_type, input_value=4200.0, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+key_levels.1
+  Input should be a valid string [type=string_type, input_value=4235.707, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+key_levels.2
+  Input should be a valid string [type=string_type, input_value=4280.0, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+key_levels.3
+  Input should be a valid string [type=string_type, input_value=4320.0, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2025-12-01 12:56:56,073 DEBUG ⚠️ [VISION] Primary raw content: {
+    "key_patterns": [],
+    "key_levels": [4200.0, 4235.707, 4280.0, 4320.0],
+    "indicators": [
+        "Long/Short Entry/Exit signals marked on chart",
+        "Price near recent resistance at 4235.707",
+        "Multiple short entries followed by short exits indicating volatility"
+    ],
+    "summary": "Chart menunjukkan pergerakan harga emas dengan sinyal entry/exit jangka pendek yang sering, menandakan kondisi volatile dengan level resistance sekitar 4235.707."
+}
+2025-12-01 12:56:56,073 WARNING ⚠️ [VISION] Recovered JSON failed validation: 4 validation errors for VisionExtraction
+key_levels.0
+  Input should be a valid string [type=string_type, input_value=4200.0, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+key_levels.1
+  Input should be a valid string [type=string_type, input_value=4235.707, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+key_levels.2
+  Input should be a valid string [type=string_type, input_value=4280.0, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+key_levels.3
+  Input should be a valid string [type=string_type, input_value=4320.0, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2025-12-01 12:56:56,074 INFO 🔁 [VISION] Attempting fallback model: qwen3-vl:235b-cloud
+2025-12-01 12:57:13,543 WARNING ⚠️ [VISION] Invocation with fallback qwen3-vl:235b-cloud failed: Ollama call failed with status code 500. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [500 Internal Server Error]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Date': 'Mon, 01 Dec 2025 05:57:13 GMT', 'Content-Length': '87')>
+>
+2025-12-01 12:57:13,543 INFO 🔁 [VISION] Attempting fallback model: qwen3-vl:235b-instruct-cloud
+2025-12-01 12:57:30,920 INFO 🔁 [VISION] Fallback qwen3-vl:235b-instruct-cloud response preview: {
+    "key_patterns": [],
+    "key_levels": [4200.0, 4235.707, 4280.0, 4320.0],
+    "indicators": [
+        "Long/Short Entry and Exit signals marked on chart",
+        "Price near resistance at 4235.707",
+        "Recent price action showing consolidation after uptrend"
+    ],
+    "summary": "Chart
+2025-12-01 12:57:30,921 WARNING ⚠️ [VISION] Fallback model qwen3-vl:235b-instruct-cloud produced invalid JSON or failed validation: 4 validation errors for VisionExtraction
+key_levels.0
+  Input should be a valid string [type=string_type, input_value=4200.0, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+key_levels.1
+  Input should be a valid string [type=string_type, input_value=4235.707, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+key_levels.2
+  Input should be a valid string [type=string_type, input_value=4280.0, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+key_levels.3
+  Input should be a valid string [type=string_type, input_value=4320.0, input_type=float]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+2025-12-01 12:57:30,923 INFO 🔁 [VISION] Attempting fallback model: glm-4.6:cloud
+2025-12-01 12:57:32,232 WARNING ⚠️ [VISION] Invocation with fallback glm-4.6:cloud failed: Ollama call failed with status code 400. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [400 Bad Request]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Date': 'Mon, 01 Dec 2025 05:57:32 GMT', 'Content-Length': '100')>
+>
+2025-12-01 12:57:32,232 INFO 🔁 [VISION] Attempting fallback model: gpt-oss:20b-cloud
+2025-12-01 12:57:33,843 WARNING ⚠️ [VISION] Invocation with fallback gpt-oss:20b-cloud failed: Ollama call failed with status code 400. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [400 Bad Request]>
+<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Date': 'Mon, 01 Dec 2025 05:57:33 GMT', 'Content-Length': '100')>
+>
+2025-12-01 12:57:33,843 INFO 🔁 [VISION] Attempting fallback model: deepseek-v3.1:671b-cloud
+2025-12-01 12:57:37,964 INFO 🔁 [VISION] Fallback deepseek-v3.1:671b-cloud response preview: {
+    "key_patterns": ["Ascending Triangle", "Bullish Flag"],
+    "key_levels": ["Support: 1.0700", "Resistance: 1.0850"],
+    "indicators": ["RSI Bullish Divergence", "MACD Above Zero Line"],
+    "summary": "Chart menunjukkan konsolidasi bullish dengan pola Ascending Triangle, mengindikasikan poten
+2025-12-01 12:57:37,965 INFO ✅ [VISION] Successful extraction with fallback model deepseek-v3.1:671b-cloud
+2025-12-01 12:57:37,966 INFO 📚 [RAG] Querying knowledge base with: Ascending Triangle Bullish Flag RSI Bullish Divergence MACD Above Zero Line coba analisis ini
+2025-12-01 12:57:41,518 INFO ✅ [RAG] Found 5 documents
+2025-12-01 12:57:41,519 INFO 🔄 [SYNTHESIS] Building final prompt...
+2025-12-01 12:57:41,520 INFO 🤖 [LLM] Starting stream...
+2025-12-01 12:58:32,692 INFO ✅ [LLM] Stream completed. Total length: 3883 chars
+2025-12-01 12:58:32,693 INFO 💾 [LOG] Saved chat log to logs/chat\chat_20251201_125832.json
+2025-12-01 13:10:35,753 INFO ============================================================
+2025-12-01 13:10:35,754 INFO 📥 [REQUEST] Query (first 180 chars): Test from script with image
+2025-12-01 13:10:35,754 INFO 📥 [REQUEST] Raw history size (chars): 44
+2025-12-01 13:10:35,754 INFO 📥 [REQUEST] Image present: test_image.png
+2025-12-01 13:10:35,755 INFO ============================================================
+2025-12-01 13:10:35,756 DEBUG Saved short request receipt log to logs/chat\request_received_20251201_131035.json
+2025-12-01 13:10:35,756 INFO ✅ [HISTORY] Successfully parsed 1 messages
+2025-12-01 13:10:35,756 INFO 🖼️ [MODE] Multimodal (image: test_image.png)
+2025-12-01 13:10:35,756 INFO ✅ [IMAGE] Converted to base64 (length: 92 chars)
+2025-12-01 13:10:35,757 INFO 👁️ [VISION] Starting image analysis...
+2025-12-01 13:10:35,757 INFO 🔁 [VISION] Primary model (qwen3-vl:4b) attempt 1/2
+2025-12-01 13:10:40,427 WARNING ⚠️ [VISION] Primary model attempt 1 failed: Ollama call failed with status code 500. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [500 Internal Server Error]>
+<CIMultiDictProxy('Content-Type': 'application/json', 'Date': 'Mon, 01 Dec 2025 06:10:40 GMT', 'Transfer-Encoding': 'chunked')>
+>
+2025-12-01 13:10:40,428 INFO ⏳ [VISION] Waiting 1.0s before retrying primary model
+2025-12-01 13:10:41,426 INFO ✅ [VISION] Primary raw response (first 300 chars): 
+2025-12-01 13:10:41,426 WARNING ⚠️ [VISION] Primary model produced unparsable/invalid JSON: 'NoneType' object has no attribute 'content'
+2025-12-01 13:10:41,428 DEBUG ⚠️ [VISION] Primary raw content: 
+2025-12-01 13:10:41,428 DEBUG ⚠️ [VISION] No JSON object found in primary response text
+2025-12-01 13:10:41,428 INFO 🔁 [VISION] Primary model (qwen3-vl:4b) attempt 2/2
+2025-12-01 13:10:41,854 WARNING ⚠️ [VISION] Primary model attempt 2 failed: Ollama call failed with status code 500. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [500 Internal Server Error]>
+<CIMultiDictProxy('Content-Type': 'application/json', 'Date': 'Mon, 01 Dec 2025 06:10:41 GMT', 'Transfer-Encoding': 'chunked')>
+>
+2025-12-01 13:10:41,854 ERROR ❌ [VISION] Primary model failed after 2 attempts
+2025-12-01 13:10:41,856 INFO ✅ [VISION] Primary raw response (first 300 chars): 
+2025-12-01 13:10:41,856 WARNING ⚠️ [VISION] Primary model produced unparsable/invalid JSON: 'NoneType' object has no attribute 'content'
+2025-12-01 13:10:41,856 DEBUG ⚠️ [VISION] Primary raw content: 
+2025-12-01 13:10:41,857 DEBUG ⚠️ [VISION] No JSON object found in primary response text
+2025-12-01 13:10:41,857 INFO 🔁 [VISION] Attempting fallback model: deepseek-v3.1:671b-cloud
+2025-12-01 13:10:45,460 INFO 🔁 [VISION] Fallback deepseek-v3.1:671b-cloud response preview: {
+    "key_patterns": ["Ascending Triangle", "Bullish Flag"],
+    "key_levels": ["Support: 1.0700", "Resistance: 1.0850"],
+    "indicators": ["RSI Bullish Divergence", "MACD Above Zero Line"],
+    "summary": "Chart menunjukkan konsolidasi dalam tren naik dengan pola bullish, mengindikasikan potensi 
+2025-12-01 13:10:45,462 INFO ✅ [VISION] Successful extraction with fallback model deepseek-v3.1:671b-cloud
+2025-12-01 13:10:45,463 INFO 📚 [RAG] Querying knowledge base with: Ascending Triangle Bullish Flag RSI Bullish Divergence MACD Above Zero Line Test from script with image
+2025-12-01 13:10:49,118 INFO ✅ [RAG] Found 5 documents
+2025-12-01 13:10:49,118 INFO 🔄 [SYNTHESIS] Building final prompt...
+2025-12-01 13:10:49,127 INFO 🤖 [LLM] Starting stream...
+2025-12-01 13:10:54,198 INFO ✅ [LLM] Stream completed. Total length: 0 chars
+2025-12-01 13:10:54,201 INFO 💾 [LOG] Saved chat log to logs/chat\chat_20251201_131054.json
+2025-12-01 13:13:31,689 INFO ============================================================
+2025-12-01 13:13:31,690 INFO 📥 [REQUEST] Query (first 180 chars): analisis apa pola yang ini
+2025-12-01 13:13:31,692 INFO 📥 [REQUEST] Raw history size (chars): 4137
+2025-12-01 13:13:31,693 INFO 📥 [REQUEST] Image present: Screenshot 2025-11-28 104048.png
+2025-12-01 13:13:31,694 INFO ============================================================
+2025-12-01 13:13:31,697 DEBUG Saved short request receipt log to logs/chat\request_received_20251201_131331.json
+2025-12-01 13:13:31,699 INFO ✅ [HISTORY] Successfully parsed 3 messages
+2025-12-01 13:13:31,702 INFO 🖼️ [MODE] Multimodal (image: Screenshot 2025-11-28 104048.png)
+2025-12-01 13:13:31,708 INFO ✅ [IMAGE] Converted to base64 (length: 545344 chars)
+2025-12-01 13:13:31,710 INFO 👁️ [VISION] Starting image analysis...
+2025-12-01 13:13:31,711 INFO 🔁 [VISION] Primary model (qwen3-vl:4b) attempt 1/2
+2025-12-01 13:17:52,765 INFO ============================================================
+2025-12-01 13:17:52,766 INFO 📥 [REQUEST] Query (first 180 chars): Test from script with image
+2025-12-01 13:17:52,766 INFO 📥 [REQUEST] Raw history size (chars): 44
+2025-12-01 13:17:52,767 INFO 📥 [REQUEST] Image present: test_image.png
+2025-12-01 13:17:52,768 INFO ============================================================
+2025-12-01 13:17:52,770 DEBUG Saved short request receipt log to logs/chat\request_received_20251201_131752.json
+2025-12-01 13:17:52,770 INFO ✅ [HISTORY] Successfully parsed 1 messages
+2025-12-01 13:17:52,771 INFO 🖼️ [MODE] Multimodal (image: test_image.png)
+2025-12-01 13:17:52,772 INFO ✅ [IMAGE] Converted to base64 (length: 92 chars)
+2025-12-01 13:17:52,772 INFO 👁️ [VISION] Starting image analysis...
+2025-12-01 13:17:52,773 INFO 🔁 [VISION] Primary model (qwen3-vl:4b) attempt 1/2
+2025-12-01 13:19:48,452 WARNING ⚠️ [VISION] Primary model attempt 1 failed: Ollama call failed with status code 500. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [500 Internal Server Error]>
+<CIMultiDictProxy('Content-Type': 'application/json', 'Date': 'Mon, 01 Dec 2025 06:19:48 GMT', 'Transfer-Encoding': 'chunked')>
+>
+2025-12-01 13:19:48,453 INFO ⏳ [VISION] Waiting 1.0s before retrying primary model
+2025-12-01 13:19:49,467 INFO ✅ [VISION] Primary raw response (first 300 chars): 
+2025-12-01 13:19:49,468 WARNING ⚠️ [VISION] Primary model produced unparsable/invalid JSON: 'NoneType' object has no attribute 'content'
+2025-12-01 13:19:49,469 DEBUG ⚠️ [VISION] Primary raw content: 
+2025-12-01 13:19:49,469 DEBUG ⚠️ [VISION] No JSON object found in primary response text
+2025-12-01 13:19:49,469 INFO 🔁 [VISION] Primary model (qwen3-vl:4b) attempt 2/2
+2025-12-01 13:30:33,381 INFO ============================================================
+2025-12-01 13:30:33,384 INFO 📥 [REQUEST] Query (first 180 chars): coba analisi pola ini
+2025-12-01 13:30:33,384 INFO 📥 [REQUEST] Raw history size (chars): 4290
+2025-12-01 13:30:33,385 INFO 📥 [REQUEST] Image present: Screenshot 2025-07-02 215356.png
+2025-12-01 13:30:33,386 INFO ============================================================
+2025-12-01 13:30:33,391 DEBUG Saved short request receipt log to logs/chat\request_received_20251201_133033.json
+2025-12-01 13:30:33,392 INFO ✅ [HISTORY] Successfully parsed 5 messages
+2025-12-01 13:30:33,394 INFO 🖼️ [MODE] Multimodal (image: Screenshot 2025-07-02 215356.png)
+2025-12-01 13:30:33,399 INFO ✅ [IMAGE] Converted to base64 (length: 346268 chars)
+2025-12-01 13:30:33,402 INFO 👁️ [VISION] Starting image analysis...
+2025-12-01 13:30:33,404 INFO 🔁 [VISION] Primary model (qwen3-vl:4b) attempt 1/2
+2025-12-01 13:30:40,351 INFO ============================================================
+2025-12-01 13:30:40,351 INFO 📥 [REQUEST] Query (first 180 chars): Test from script with image
+2025-12-01 13:30:40,351 INFO 📥 [REQUEST] Raw history size (chars): 44
+2025-12-01 13:30:40,351 INFO 📥 [REQUEST] Image present: test_image.png
+2025-12-01 13:30:40,352 INFO ============================================================
+2025-12-01 13:30:40,352 DEBUG Saved short request receipt log to logs/chat\request_received_20251201_133040.json
+2025-12-01 13:30:40,353 INFO ✅ [HISTORY] Successfully parsed 1 messages
+2025-12-01 13:30:40,353 INFO 🖼️ [MODE] Multimodal (image: test_image.png)
+2025-12-01 13:30:40,353 INFO ✅ [IMAGE] Converted to base64 (length: 92 chars)
+2025-12-01 13:30:40,353 INFO 👁️ [VISION] Starting image analysis...
+2025-12-01 13:30:40,353 INFO 🔁 [VISION] Primary model (qwen3-vl:4b) attempt 1/2
+2025-12-01 13:37:25,627 WARNING ⚠️ [VISION] Primary model attempt 1 failed: Ollama call failed with status code 500. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [500 Internal Server Error]>
+<CIMultiDictProxy('Content-Type': 'application/json', 'Date': 'Mon, 01 Dec 2025 06:37:25 GMT', 'Transfer-Encoding': 'chunked')>
+>
+2025-12-01 13:37:25,628 INFO ⏳ [VISION] Waiting 1.0s before retrying primary model
+2025-12-01 13:37:26,643 INFO 🔁 [VISION] Primary model (qwen3-vl:4b) attempt 2/2
+2025-12-01 13:37:37,228 WARNING ⚠️ [VISION] Primary model attempt 2 failed: Ollama call failed with status code 500. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [500 Internal Server Error]>
+<CIMultiDictProxy('Content-Type': 'application/json', 'Date': 'Mon, 01 Dec 2025 06:37:37 GMT', 'Transfer-Encoding': 'chunked')>
+>
+2025-12-01 13:37:37,229 ERROR ❌ [VISION] Primary model failed after 2 attempts
+2025-12-01 13:37:37,230 INFO 🔁 [VISION] Attempting fallback model: deepseek-v3.1:671b-cloud
+2025-12-01 13:37:37,233 INFO ✅ [VISION] Primary raw response (first 300 chars): 
+{"0": "0", "1": "0", "2": "0", "3": "0", "4": "0", "5": "0", "6": "0", "1": "0", "2": "0", "3": "0", "4":0, "5": "0", "6": "0"}
+2025-12-01 13:37:37,235 WARNING ⚠️ [VISION] Primary model produced unparsable/invalid JSON: 4 validation errors for VisionExtraction
+key_patterns
+  Field required [type=missing, input_value={'0': '0', '1': '0', '2':...: 0, '5': '0', '6': '0'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+key_levels
+  Field required [type=missing, input_value={'0': '0', '1': '0', '2':...: 0, '5': '0', '6': '0'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+indicators
+  Field required [type=missing, input_value={'0': '0', '1': '0', '2':...: 0, '5': '0', '6': '0'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+summary
+  Field required [type=missing, input_value={'0': '0', '1': '0', '2':...: 0, '5': '0', '6': '0'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+2025-12-01 13:37:37,239 DEBUG ⚠️ [VISION] Primary raw content: 
+{"0": "0", "1": "0", "2": "0", "3": "0", "4": "0", "5": "0", "6": "0", "1": "0", "2": "0", "3": "0", "4":0, "5": "0", "6": "0"}
+2025-12-01 13:37:37,240 WARNING ⚠️ [VISION] Recovered JSON failed validation: 4 validation errors for VisionExtraction
+key_patterns
+  Field required [type=missing, input_value={'0': '0', '1': '0', '2':...: 0, '5': '0', '6': '0'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+key_levels
+  Field required [type=missing, input_value={'0': '0', '1': '0', '2':...: 0, '5': '0', '6': '0'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+indicators
+  Field required [type=missing, input_value={'0': '0', '1': '0', '2':...: 0, '5': '0', '6': '0'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+summary
+  Field required [type=missing, input_value={'0': '0', '1': '0', '2':...: 0, '5': '0', '6': '0'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+2025-12-01 13:37:37,241 INFO ⏳ [VISION] Waiting 1.0s before retrying primary model
+2025-12-01 13:37:38,245 INFO 🔁 [VISION] Primary model (qwen3-vl:4b) attempt 2/2
+2025-12-01 13:37:40,299 INFO 🔁 [VISION] Fallback deepseek-v3.1:671b-cloud response preview: {
+    "key_patterns": ["Ascending Triangle", "Bullish Flag"],
+    "key_levels": ["Support: 1.0700", "Resistance: 1.0850"],
+    "indicators": ["RSI Bullish Divergence", "MACD Above Signal Line"],
+    "summary": "Chart menunjukkan konsolidasi dalam tren naik dengan pola bullish, mengindikasikan potens
+2025-12-01 13:37:40,305 INFO ✅ [VISION] Successful extraction with fallback model deepseek-v3.1:671b-cloud
+2025-12-01 13:37:40,310 INFO 📚 [RAG] Querying knowledge base with: Ascending Triangle Bullish Flag RSI Bullish Divergence MACD Above Signal Line Test from script with image
+2025-12-01 13:37:54,947 INFO 📄 [RAG RESULT] Rank 1 source=../data\technical-analysis-course-cambridge.pdf score=0.8761828 snippet=MACD
+106
+Zero crossover
+A crossing of the MACD line through zero happens when th
+2025-12-01 13:37:54,964 INFO 📄 [RAG RESULT] Rank 2 source=../data\technical-analysis-course-cambridge.pdf score=0.36395 snippet=Relative Strength Index
+126
+Interpretation
+Basic configuration
+ Relative Strengt
+2025-12-01 13:37:54,982 INFO 📄 [RAG RESULT] Rank 3 source=../data\technical-analysis-course-cambridge.pdf score=0.15806782 snippet=Know Sure Thing (KST) Oscillator
+123
+Traditionally, the MACD gives buy and sell 
+2025-12-01 13:37:55,000 INFO 📄 [RAG RESULT] Rank 4 source=../data\technical-analysis-course-cambridge.pdf score=0.088878654 snippet=Relative Strength Index
+127
+Uptrends and downtrends
+In addition to Wilder's orig
+2025-12-01 13:37:55,031 INFO 📄 [RAG RESULT] Rank 5 source=../data\technical-analysis-course-cambridge.pdf score=0.06143923 snippet=MACD
+105
+• MACD = EMA[fast,12] – EMA[slow, 26]
+• signal = EMA[period,9] of MACD
+
+2025-12-01 13:37:55,049 INFO ✅ [RAG] Found 5 documents
+2025-12-01 13:37:55,064 INFO 🔄 [SYNTHESIS] Building final prompt...
+2025-12-01 13:37:55,139 INFO 🤖 [LLM] Starting stream...
+2025-12-01 13:37:56,609 DEBUG 🔸 [LLM CHUNK 0] 
+2025-12-01 13:37:56,874 DEBUG 🔸 [LLM CHUNK 1] 
+2025-12-01 13:37:56,876 DEBUG 🔸 [LLM CHUNK 2] 
+2025-12-01 13:37:56,877 INFO ✅ [LLM] Stream completed. Total length: 0 chars
+2025-12-01 13:37:56,880 ERROR ⚠️ [LOG] Failed to save log: Object of type float32 is not JSON serializable
+2025-12-01 13:40:01,954 INFO ============================================================
+2025-12-01 13:40:01,955 INFO 📥 [REQUEST] Query (first 180 chars): coba analisis chart ini
+2025-12-01 13:40:01,956 INFO 📥 [REQUEST] Raw history size (chars): 4445
+2025-12-01 13:40:01,958 INFO 📥 [REQUEST] Image present: Screenshot 2025-07-02 213433.png
+2025-12-01 13:40:01,959 INFO ============================================================
+2025-12-01 13:40:01,961 DEBUG Saved short request receipt log to logs/chat\request_received_20251201_134001.json
+2025-12-01 13:40:01,963 INFO ✅ [HISTORY] Successfully parsed 7 messages
+2025-12-01 13:40:01,964 INFO 🖼️ [MODE] Multimodal (image: Screenshot 2025-07-02 213433.png)
+2025-12-01 13:40:01,968 INFO ✅ [IMAGE] Converted to base64 (length: 321704 chars)
+2025-12-01 13:40:01,969 INFO 👁️ [VISION] Starting image analysis...
+2025-12-01 13:40:01,970 INFO 🔁 [VISION] Primary model (qwen3-vl:4b) attempt 1/2
+2025-12-01 13:43:03,304 INFO ============================================================
+2025-12-01 13:43:03,307 INFO 📥 [REQUEST] Query (first 180 chars): coba analisis
+2025-12-01 13:43:03,309 INFO 📥 [REQUEST] Raw history size (chars): 4735
+2025-12-01 13:43:03,310 INFO 📥 [REQUEST] Image present: Screenshot 2025-10-02 091706.png
+2025-12-01 13:43:03,311 INFO ============================================================
+2025-12-01 13:43:03,315 DEBUG Saved short request receipt log to logs/chat\request_received_20251201_134303.json
+2025-12-01 13:43:03,317 INFO ✅ [HISTORY] Successfully parsed 11 messages
+2025-12-01 13:43:03,319 INFO 🖼️ [MODE] Multimodal (image: Screenshot 2025-10-02 091706.png)
+2025-12-01 13:43:03,323 INFO ✅ [IMAGE] Converted to base64 (length: 332956 chars)
+2025-12-01 13:43:03,325 INFO 👁️ [VISION] Starting image analysis...
+2025-12-01 13:43:03,326 INFO 🔁 [VISION] Primary model (deepseek-v3.1:671b-cloud) attempt 1/2
+2025-12-01 13:43:09,357 INFO ✅ [VISION] Primary raw response (first 300 chars): {
+    "key_patterns": ["Ascending Triangle", "Bullish Flag"],
+    "key_levels": ["Support: 1.0700", "Resistance: 1.0850"],
+    "indicators": ["RSI Bullish Divergence", "MACD Above Signal Line"],
+    "summary": "Chart menunjukkan konsolidasi bullish dengan pola Ascending Triangle, mengindikasikan pot
+2025-12-01 13:43:09,357 INFO ✅ [VISION] Extracted patterns: ['Ascending Triangle', 'Bullish Flag']
+2025-12-01 13:43:09,359 INFO 📚 [RAG] Querying knowledge base with: Ascending Triangle Bullish Flag RSI Bullish Divergence MACD Above Signal Line coba analisis
+2025-12-01 13:43:12,555 INFO 📄 [RAG RESULT] Rank 1 source=../data\technical-analysis-course-cambridge.pdf score=0.89057374 snippet=MACD
+106
+Zero crossover
+A crossing of the MACD line through zero happens when th
+2025-12-01 13:43:12,555 INFO 📄 [RAG RESULT] Rank 2 source=../data\technical-analysis-course-cambridge.pdf score=0.47269553 snippet=Relative Strength Index
+126
+Interpretation
+Basic configuration
+ Relative Strengt
+2025-12-01 13:43:12,555 INFO 📄 [RAG RESULT] Rank 3 source=../data\technical-analysis-course-cambridge.pdf score=0.20535971 snippet=Relative Strength Index
+127
+Uptrends and downtrends
+In addition to Wilder's orig
+2025-12-01 13:43:12,557 INFO 📄 [RAG RESULT] Rank 4 source=../data\technical-analysis-course-cambridge.pdf score=0.11221824 snippet=Know Sure Thing (KST) Oscillator
+123
+Traditionally, the MACD gives buy and sell 
+2025-12-01 13:43:12,557 INFO 📄 [RAG RESULT] Rank 5 source=../data\technical-analysis-course-cambridge.pdf score=0.03249171 snippet=MACD
+105
+• MACD = EMA[fast,12] – EMA[slow, 26]
+• signal = EMA[period,9] of MACD
+
+2025-12-01 13:43:12,558 INFO ✅ [RAG] Found 5 documents
+2025-12-01 13:43:12,559 INFO 🔄 [SYNTHESIS] Building final prompt...
+2025-12-01 13:43:12,566 INFO 🤖 [LLM] Starting stream...
+2025-12-01 13:43:15,311 DEBUG 🔸 [LLM CHUNK 0] ## Anal
+2025-12-01 13:43:15,312 DEBUG 🔸 [LLM CHUNK 1] isis
+2025-12-01 13:43:15,339 DEBUG 🔸 [LLM CHUNK 2]  Pol
+2025-12-01 13:43:15,339 DEBUG 🔸 [LLM CHUNK 3] a
+2025-12-01 13:43:15,340 DEBUG 🔸 [LLM CHUNK 4]  dan
+2025-12-01 13:43:15,371 DEBUG 🔸 [LLM CHUNK 5]  Ind
+2025-12-01 13:43:15,371 DEBUG 🔸 [LLM CHUNK 6] ik
+2025-12-01 13:43:15,372 DEBUG 🔸 [LLM CHUNK 7] ator
+2025-12-01 13:43:15,401 DEBUG 🔸 [LLM CHUNK 8]  pada
+2025-12-01 13:43:15,401 DEBUG 🔸 [LLM CHUNK 9]  Chart
+2025-12-01 13:43:15,466 DEBUG 🔸 [LLM CHUNK 10]  (
+2025-12-01 13:43:15,467 DEBUG 🔸 [LLM CHUNK 11] E
+2025-12-01 13:43:15,467 DEBUG 🔸 [LLM CHUNK 12] du
+2025-12-01 13:43:15,467 DEBUG 🔸 [LLM CHUNK 13] k
+2025-12-01 13:43:15,468 DEBUG 🔸 [LLM CHUNK 14] asi
+2025-12-01 13:43:15,495 DEBUG 🔸 [LLM CHUNK 15]  Trading
+2025-12-01 13:43:15,527 DEBUG 🔸 [LLM CHUNK 16] )
+
+
+2025-12-01 13:43:15,528 DEBUG 🔸 [LLM CHUNK 17] B
+2025-12-01 13:43:15,558 DEBUG 🔸 [LLM CHUNK 18] erd
+2025-12-01 13:43:15,559 DEBUG 🔸 [LLM CHUNK 19] as
+2025-12-01 13:43:15,559 DEBUG 🔸 [LLM CHUNK 20] arkan
+2025-12-01 13:43:15,755 DEBUG 🔸 [LLM CHUNK 21]  anal
+2025-12-01 13:43:15,756 DEBUG 🔸 [LLM CHUNK 22] isis
+2025-12-01 13:43:15,756 DEBUG 🔸 [LLM CHUNK 23]  chart
+2025-12-01 13:43:15,757 DEBUG 🔸 [LLM CHUNK 24]  yang
+2025-12-01 13:43:15,757 DEBUG 🔸 [LLM CHUNK 25]  Anda
+2025-12-01 13:43:15,757 DEBUG 🔸 [LLM CHUNK 26]  ber
+2025-12-01 13:43:15,757 DEBUG 🔸 [LLM CHUNK 27] ikan
+2025-12-01 13:43:15,758 DEBUG 🔸 [LLM CHUNK 28] ,
+2025-12-01 13:43:15,758 DEBUG 🔸 [LLM CHUNK 29]  berikut
+2025-12-01 13:43:15,758 DEBUG 🔸 [LLM CHUNK 30]  pen
+2025-12-01 13:43:15,759 DEBUG 🔸 [LLM CHUNK 31] jel
+2025-12-01 13:43:15,759 DEBUG 🔸 [LLM CHUNK 32] asan
+2025-12-01 13:43:15,759 DEBUG 🔸 [LLM CHUNK 33]  eduk
+2025-12-01 13:43:15,760 DEBUG 🔸 [LLM CHUNK 34] asi
+2025-12-01 13:43:15,787 DEBUG 🔸 [LLM CHUNK 35]  tentang
+2025-12-01 13:43:15,787 DEBUG 🔸 [LLM CHUNK 36]  pola
+2025-12-01 13:43:15,788 DEBUG 🔸 [LLM CHUNK 37]  dan
+2025-12-01 13:43:15,810 DEBUG 🔸 [LLM CHUNK 38]  ind
+2025-12-01 13:43:15,811 DEBUG 🔸 [LLM CHUNK 39] ik
+2025-12-01 13:43:15,811 DEBUG 🔸 [LLM CHUNK 40] ator
+2025-12-01 13:43:15,842 DEBUG 🔸 [LLM CHUNK 41]  tek
+2025-12-01 13:43:15,842 DEBUG 🔸 [LLM CHUNK 42] nis
+2025-12-01 13:43:15,843 DEBUG 🔸 [LLM CHUNK 43]  yang
+2025-12-01 13:43:15,983 DEBUG 🔸 [LLM CHUNK 44]  ter
+2025-12-01 13:43:15,984 DEBUG 🔸 [LLM CHUNK 45] ident
+2025-12-01 13:43:15,985 DEBUG 🔸 [LLM CHUNK 46] ifikasi
+2025-12-01 13:43:15,985 DEBUG 🔸 [LLM CHUNK 47] :
+
+
+2025-12-01 13:43:15,986 DEBUG 🔸 [LLM CHUNK 48] ###
+2025-12-01 13:43:15,986 DEBUG 🔸 [LLM CHUNK 49]  Pol
+2025-12-01 13:43:15,987 DEBUG 🔸 [LLM CHUNK 50] a
+2025-12-01 13:43:15,987 DEBUG 🔸 [LLM CHUNK 51]  H
+2025-12-01 13:43:15,987 DEBUG 🔸 [LLM CHUNK 52] arga
+2025-12-01 13:43:15,989 DEBUG 🔸 [LLM CHUNK 53]  yang
+2025-12-01 13:43:15,989 DEBUG 🔸 [LLM CHUNK 54]  Ter
+2025-12-01 13:43:16,000 DEBUG 🔸 [LLM CHUNK 55] ident
+2025-12-01 13:43:16,000 DEBUG 🔸 [LLM CHUNK 56] ifikasi
+2025-12-01 13:43:16,002 DEBUG 🔸 [LLM CHUNK 57] 
+
+2025-12-01 13:43:16,032 DEBUG 🔸 [LLM CHUNK 58] *
+2025-12-01 13:43:16,034 DEBUG 🔸 [LLM CHUNK 59] P
+2025-12-01 13:43:16,035 DEBUG 🔸 [LLM CHUNK 60] ola
+2025-12-01 13:43:16,062 DEBUG 🔸 [LLM CHUNK 61] -p
+2025-12-01 13:43:16,062 DEBUG 🔸 [LLM CHUNK 62] ola
+2025-12-01 13:43:16,062 DEBUG 🔸 [LLM CHUNK 63]  berikut
+2025-12-01 13:43:16,094 DEBUG 🔸 [LLM CHUNK 64]  merupakan
+2025-12-01 13:43:16,094 DEBUG 🔸 [LLM CHUNK 65]  konse
+2025-12-01 13:43:16,124 DEBUG 🔸 [LLM CHUNK 66] p
+2025-12-01 13:43:16,125 DEBUG 🔸 [LLM CHUNK 67]  eduk
+2025-12-01 13:43:16,157 DEBUG 🔸 [LLM CHUNK 68] asi
+2025-12-01 13:43:16,157 DEBUG 🔸 [LLM CHUNK 69]  untuk
+2025-12-01 13:43:16,189 DEBUG 🔸 [LLM CHUNK 70]  memahami
+2025-12-01 13:43:16,189 DEBUG 🔸 [LLM CHUNK 71]  struktur
+2025-12-01 13:43:16,192 DEBUG 🔸 [LLM CHUNK 72]  per
+2025-12-01 13:43:16,220 DEBUG 🔸 [LLM CHUNK 73] ger
+2025-12-01 13:43:16,221 DEBUG 🔸 [LLM CHUNK 74] akan
+2025-12-01 13:43:16,222 DEBUG 🔸 [LLM CHUNK 75]  harga
+2025-12-01 13:43:17,045 DEBUG 🔸 [LLM CHUNK 76] :
+2025-12-01 13:43:17,046 DEBUG 🔸 [LLM CHUNK 77] *
+
+
+2025-12-01 13:43:17,047 DEBUG 🔸 [LLM CHUNK 78] -
+2025-12-01 13:43:17,947 DEBUG 🔸 [LLM CHUNK 79]  **
+2025-12-01 13:43:17,948 DEBUG 🔸 [LLM CHUNK 80] Asc
+2025-12-01 13:43:17,949 DEBUG 🔸 [LLM CHUNK 81] ending
+2025-12-01 13:43:17,978 DEBUG 🔸 [LLM CHUNK 82]  Triangle
+2025-12-01 13:43:17,979 DEBUG 🔸 [LLM CHUNK 83] **
+2025-12-01 13:43:17,979 DEBUG 🔸 [LLM CHUNK 84]   
+
+2025-12-01 13:43:18,007 DEBUG 🔸 [LLM CHUNK 85]  
+2025-12-01 13:43:18,008 DEBUG 🔸 [LLM CHUNK 86]  Pol
+2025-12-01 13:43:18,009 DEBUG 🔸 [LLM CHUNK 87] a
+2025-12-01 13:43:18,043 DEBUG 🔸 [LLM CHUNK 88]  ini
+2025-12-01 13:43:18,105 DEBUG 🔸 [LLM CHUNK 89]  terb
+2025-12-01 13:43:18,105 DEBUG 🔸 [LLM CHUNK 90] entuk
+2025-12-01 13:43:18,106 DEBUG 🔸 [LLM CHUNK 91]  ketika
+2025-12-01 13:43:18,106 DEBUG 🔸 [LLM CHUNK 92] :
+
+2025-12-01 13:43:18,106 DEBUG 🔸 [LLM CHUNK 93]  
+2025-12-01 13:43:18,107 DEBUG 🔸 [LLM CHUNK 94]  -
+2025-12-01 13:43:18,107 DEBUG 🔸 [LLM CHUNK 95]  *
+2025-12-01 13:43:18,130 DEBUG 🔸 [LLM CHUNK 96] G
+2025-12-01 13:43:18,130 DEBUG 🔸 [LLM CHUNK 97] aris
+2025-12-01 13:43:18,135 DEBUG 🔸 [LLM CHUNK 98]  resistance
+2025-12-01 13:43:18,160 DEBUG 🔸 [LLM CHUNK 99]  horizontal
+2025-12-01 13:43:18,161 DEBUG 🔸 [LLM CHUNK 100] *
+2025-12-01 13:43:18,161 DEBUG 🔸 [LLM CHUNK 101]  (
+2025-12-01 13:43:18,190 DEBUG 🔸 [LLM CHUNK 102] level
+2025-12-01 13:43:18,191 DEBUG 🔸 [LLM CHUNK 103]  harga
+2025-12-01 13:43:18,191 DEBUG 🔸 [LLM CHUNK 104]  yang
+2025-12-01 13:43:18,220 DEBUG 🔸 [LLM CHUNK 105]  sul
+2025-12-01 13:43:18,221 DEBUG 🔸 [LLM CHUNK 106] it
+2025-12-01 13:43:18,221 DEBUG 🔸 [LLM CHUNK 107]  dit
+2025-12-01 13:43:18,249 DEBUG 🔸 [LLM CHUNK 108] emb
+2025-12-01 13:43:18,250 DEBUG 🔸 [LLM CHUNK 109] us
+2025-12-01 13:43:18,250 DEBUG 🔸 [LLM CHUNK 110]  ke
+2025-12-01 13:43:19,591 DEBUG 🔸 [LLM CHUNK 111]  atas
+2025-12-01 13:43:19,592 DEBUG 🔸 [LLM CHUNK 112] )
+
+2025-12-01 13:43:19,592 DEBUG 🔸 [LLM CHUNK 113]  
+2025-12-01 13:43:21,217 DEBUG 🔸 [LLM CHUNK 114]  -
+2025-12-01 13:43:21,218 DEBUG 🔸 [LLM CHUNK 115]  *
+2025-12-01 13:43:21,495 DEBUG 🔸 [LLM CHUNK 116] G
+2025-12-01 13:43:21,496 DEBUG 🔸 [LLM CHUNK 117] aris
+2025-12-01 13:43:21,496 DEBUG 🔸 [LLM CHUNK 118]  support
+2025-12-01 13:43:21,917 DEBUG 🔸 [LLM CHUNK 119]  na
+2025-12-01 13:43:21,919 DEBUG 🔸 [LLM CHUNK 120] ik
+2025-12-01 13:43:21,920 DEBUG 🔸 [LLM CHUNK 121] *
+2025-12-01 13:43:21,953 DEBUG 🔸 [LLM CHUNK 122]  (
+2025-12-01 13:43:21,953 DEBUG 🔸 [LLM CHUNK 123] h
+2025-12-01 13:43:21,953 DEBUG 🔸 [LLM CHUNK 124] arga
+2025-12-01 13:43:21,985 DEBUG 🔸 [LLM CHUNK 125]  ter
+2025-12-01 13:43:21,986 DEBUG 🔸 [LLM CHUNK 126] end
+2025-12-01 13:43:21,987 DEBUG 🔸 [LLM CHUNK 127] ah
+2025-12-01 13:43:22,019 DEBUG 🔸 [LLM CHUNK 128]  terus
+2025-12-01 13:43:22,076 DEBUG 🔸 [LLM CHUNK 129]  meningkat
+2025-12-01 13:43:22,077 DEBUG 🔸 [LLM CHUNK 130] )
+
+2025-12-01 13:43:22,077 DEBUG 🔸 [LLM CHUNK 131]   
+
+2025-12-01 13:43:22,078 DEBUG 🔸 [LLM CHUNK 132]  
+2025-12-01 13:43:22,078 DEBUG 🔸 [LLM CHUNK 133]  **
+2025-12-01 13:43:22,086 DEBUG 🔸 [LLM CHUNK 134] K
+2025-12-01 13:43:22,086 DEBUG 🔸 [LLM CHUNK 135] onse
+2025-12-01 13:43:22,087 DEBUG 🔸 [LLM CHUNK 136] p
+2025-12-01 13:43:22,117 DEBUG 🔸 [LLM CHUNK 137]  eduk
+2025-12-01 13:43:22,118 DEBUG 🔸 [LLM CHUNK 138] asi
+2025-12-01 13:43:22,151 DEBUG 🔸 [LLM CHUNK 139] **:
+2025-12-01 13:43:22,151 DEBUG 🔸 [LLM CHUNK 140]  Pol
+2025-12-01 13:43:22,184 DEBUG 🔸 [LLM CHUNK 141] a
+2025-12-01 13:43:22,185 DEBUG 🔸 [LLM CHUNK 142]  ini
+2025-12-01 13:43:22,187 DEBUG 🔸 [LLM CHUNK 143]  umum
+2025-12-01 13:43:22,219 DEBUG 🔸 [LLM CHUNK 144] nya
+2025-12-01 13:43:22,220 DEBUG 🔸 [LLM CHUNK 145]  di
+2025-12-01 13:43:22,221 DEBUG 🔸 [LLM CHUNK 146] anggap
+2025-12-01 13:43:22,251 DEBUG 🔸 [LLM CHUNK 147]  sebagai
+2025-12-01 13:43:22,252 DEBUG 🔸 [LLM CHUNK 148]  pola
+2025-12-01 13:43:22,284 DEBUG 🔸 [LLM CHUNK 149]  *
+2025-12-01 13:43:22,284 DEBUG 🔸 [LLM CHUNK 150] kel
+2025-12-01 13:43:22,317 DEBUG 🔸 [LLM CHUNK 151] anj
+2025-12-01 13:43:22,318 DEBUG 🔸 [LLM CHUNK 152] utan
+2025-12-01 13:43:22,318 DEBUG 🔸 [LLM CHUNK 153]  tren
+2025-12-01 13:43:22,349 DEBUG 🔸 [LLM CHUNK 154]  bullish
+2025-12-01 13:43:22,382 DEBUG 🔸 [LLM CHUNK 155] *.
+2025-12-01 13:43:22,417 DEBUG 🔸 [LLM CHUNK 156]  Form
+2025-12-01 13:43:22,464 DEBUG 🔸 [LLM CHUNK 157] asi
+2025-12-01 13:43:22,464 DEBUG 🔸 [LLM CHUNK 158]  ini
+2025-12-01 13:43:22,479 DEBUG 🔸 [LLM CHUNK 159]  menunjukkan
+2025-12-01 13:43:22,479 DEBUG 🔸 [LLM CHUNK 160]  bahwa
+2025-12-01 13:43:22,479 DEBUG 🔸 [LLM CHUNK 161]  pemb
+2025-12-01 13:43:22,509 DEBUG 🔸 [LLM CHUNK 162] eli
+2025-12-01 13:43:22,509 DEBUG 🔸 [LLM CHUNK 163]  semakin
+2025-12-01 13:43:22,539 DEBUG 🔸 [LLM CHUNK 164]  ag
+2025-12-01 13:43:22,539 DEBUG 🔸 [LLM CHUNK 165] res
+2025-12-01 13:43:22,540 DEBUG 🔸 [LLM CHUNK 166] if
+2025-12-01 13:43:22,774 DEBUG 🔸 [LLM CHUNK 167]  dengan
+2025-12-01 13:43:22,775 DEBUG 🔸 [LLM CHUNK 168]  terus
+2025-12-01 13:43:22,815 DEBUG 🔸 [LLM CHUNK 169]  mend
+2025-12-01 13:43:22,847 DEBUG 🔸 [LLM CHUNK 170] or
+2025-12-01 13:43:22,847 DEBUG 🔸 [LLM CHUNK 171] ong
+2025-12-01 13:43:22,847 DEBUG 🔸 [LLM CHUNK 172]  harga
+2025-12-01 13:43:22,878 DEBUG 🔸 [LLM CHUNK 173]  dasar
+2025-12-01 13:43:22,909 DEBUG 🔸 [LLM CHUNK 174]  lebih
+2025-12-01 13:43:22,940 DEBUG 🔸 [LLM CHUNK 175]  tinggi
+2025-12-01 13:43:22,940 DEBUG 🔸 [LLM CHUNK 176] ,
+2025-12-01 13:43:22,940 DEBUG 🔸 [LLM CHUNK 177]  s
+2025-12-01 13:43:22,971 DEBUG 🔸 [LLM CHUNK 178] ementara
+2025-12-01 13:43:22,971 DEBUG 🔸 [LLM CHUNK 179]  pen
+2025-12-01 13:43:23,001 DEBUG 🔸 [LLM CHUNK 180] j
+2025-12-01 13:43:23,001 DEBUG 🔸 [LLM CHUNK 181] ual
+2025-12-01 13:43:23,002 DEBUG 🔸 [LLM CHUNK 182]  kons
+2025-12-01 13:43:23,031 DEBUG 🔸 [LLM CHUNK 183] isten
+2025-12-01 13:43:23,031 DEBUG 🔸 [LLM CHUNK 184]  mem
+2025-12-01 13:43:23,062 DEBUG 🔸 [LLM CHUNK 185] pert
+2025-12-01 13:43:23,062 DEBUG 🔸 [LLM CHUNK 186] ah
+2025-12-01 13:43:23,062 DEBUG 🔸 [LLM CHUNK 187] ankan
+2025-12-01 13:43:23,092 DEBUG 🔸 [LLM CHUNK 188]  level
+2025-12-01 13:43:23,092 DEBUG 🔸 [LLM CHUNK 189]  resistance
+2025-12-01 13:43:23,093 DEBUG 🔸 [LLM CHUNK 190]  tertentu
+2025-12-01 13:43:23,122 DEBUG 🔸 [LLM CHUNK 191] .
+
+
+2025-12-01 13:43:23,123 DEBUG 🔸 [LLM CHUNK 192] -
+2025-12-01 13:43:23,123 DEBUG 🔸 [LLM CHUNK 193]  **
+2025-12-01 13:43:23,151 DEBUG 🔸 [LLM CHUNK 194] Bull
+2025-12-01 13:43:23,153 DEBUG 🔸 [LLM CHUNK 195] ish
+2025-12-01 13:43:23,153 DEBUG 🔸 [LLM CHUNK 196]  Flag
+2025-12-01 13:43:23,182 DEBUG 🔸 [LLM CHUNK 197] **
+2025-12-01 13:43:23,183 DEBUG 🔸 [LLM CHUNK 198]   
+
+2025-12-01 13:43:23,183 DEBUG 🔸 [LLM CHUNK 199]  
+2025-12-01 13:43:23,213 DEBUG 🔸 [LLM CHUNK 200]  Pol
+2025-12-01 13:43:23,213 DEBUG 🔸 [LLM CHUNK 201] a
+2025-12-01 13:43:23,213 DEBUG 🔸 [LLM CHUNK 202]  ini
+2025-12-01 13:43:23,245 DEBUG 🔸 [LLM CHUNK 203]  biasanya
+2025-12-01 13:43:23,276 DEBUG 🔸 [LLM CHUNK 204]  muncul
+2025-12-01 13:43:23,361 DEBUG 🔸 [LLM CHUNK 205]  setelah
+2025-12-01 13:43:23,362 DEBUG 🔸 [LLM CHUNK 206]  per
+2025-12-01 13:43:23,362 DEBUG 🔸 [LLM CHUNK 207] ger
+2025-12-01 13:43:23,362 DEBUG 🔸 [LLM CHUNK 208] akan
+2025-12-01 13:43:23,362 DEBUG 🔸 [LLM CHUNK 209]  harga
+2025-12-01 13:43:23,363 DEBUG 🔸 [LLM CHUNK 210]  na
+2025-12-01 13:43:23,363 DEBUG 🔸 [LLM CHUNK 211] ik
+2025-12-01 13:43:23,363 DEBUG 🔸 [LLM CHUNK 212]  yang
+2025-12-01 13:43:23,392 DEBUG 🔸 [LLM CHUNK 213]  kuat
+2025-12-01 13:43:23,393 DEBUG 🔸 [LLM CHUNK 214]  (*
+2025-12-01 13:43:23,423 DEBUG 🔸 [LLM CHUNK 215] flag
+2025-12-01 13:43:23,469 DEBUG 🔸 [LLM CHUNK 216] pole
+2025-12-01 13:43:23,469 DEBUG 🔸 [LLM CHUNK 217] *)
+2025-12-01 13:43:23,532 DEBUG 🔸 [LLM CHUNK 218]  di
+2025-12-01 13:43:23,533 DEBUG 🔸 [LLM CHUNK 219] ikuti
+2025-12-01 13:43:23,539 DEBUG 🔸 [LLM CHUNK 220]  kons
+2025-12-01 13:43:23,572 DEBUG 🔸 [LLM CHUNK 221] olid
+2025-12-01 13:43:23,573 DEBUG 🔸 [LLM CHUNK 222] asi
+2025-12-01 13:43:23,573 DEBUG 🔸 [LLM CHUNK 223]  (*
+2025-12-01 13:43:23,599 DEBUG 🔸 [LLM CHUNK 224] flag
+2025-12-01 13:43:23,635 DEBUG 🔸 [LLM CHUNK 225] *
+2025-12-01 13:43:23,635 DEBUG 🔸 [LLM CHUNK 226] ):
+
+2025-12-01 13:43:23,635 DEBUG 🔸 [LLM CHUNK 227]  
+2025-12-01 13:43:23,672 DEBUG 🔸 [LLM CHUNK 228]  -
+2025-12-01 13:43:23,673 DEBUG 🔸 [LLM CHUNK 229]  *
+2025-12-01 13:43:23,711 DEBUG 🔸 [LLM CHUNK 230] B
+2025-12-01 13:43:23,711 DEBUG 🔸 [LLM CHUNK 231] entuk
+2025-12-01 13:43:23,711 DEBUG 🔸 [LLM CHUNK 232]  kons
+2025-12-01 13:43:23,723 DEBUG 🔸 [LLM CHUNK 233] olid
+2025-12-01 13:43:23,723 DEBUG 🔸 [LLM CHUNK 234] asi
+2025-12-01 13:43:23,724 DEBUG 🔸 [LLM CHUNK 235]  men
+2025-12-01 13:43:23,745 DEBUG 🔸 [LLM CHUNK 236] yer
+2025-12-01 13:43:23,769 DEBUG 🔸 [LLM CHUNK 237] up
+2025-12-01 13:43:23,770 DEBUG 🔸 [LLM CHUNK 238] ai
+2025-12-01 13:43:23,795 DEBUG 🔸 [LLM CHUNK 239]  bend
+2025-12-01 13:43:23,795 DEBUG 🔸 [LLM CHUNK 240] era
+2025-12-01 13:43:23,795 DEBUG 🔸 [LLM CHUNK 241] *
+2025-12-01 13:43:23,836 DEBUG 🔸 [LLM CHUNK 242]  yang
+2025-12-01 13:43:23,836 DEBUG 🔸 [LLM CHUNK 243]  m
+2025-12-01 13:43:23,841 DEBUG 🔸 [LLM CHUNK 244] iring
+2025-12-01 13:43:23,841 DEBUG 🔸 [LLM CHUNK 245]  ke
+2025-12-01 13:43:23,871 DEBUG 🔸 [LLM CHUNK 246]  bawah
+2025-12-01 13:43:23,871 DEBUG 🔸 [LLM CHUNK 247] 
+
+2025-12-01 13:43:23,872 DEBUG 🔸 [LLM CHUNK 248]  
+2025-12-01 13:43:23,901 DEBUG 🔸 [LLM CHUNK 249]  -
+2025-12-01 13:43:23,901 DEBUG 🔸 [LLM CHUNK 250]  *
+2025-12-01 13:43:23,901 DEBUG 🔸 [LLM CHUNK 251] Volume
+2025-12-01 13:43:23,929 DEBUG 🔸 [LLM CHUNK 252]  biasanya
+2025-12-01 13:43:23,958 DEBUG 🔸 [LLM CHUNK 253]  men
+2025-12-01 13:43:23,991 DEBUG 🔸 [LLM CHUNK 254] urun
+2025-12-01 13:43:23,992 DEBUG 🔸 [LLM CHUNK 255] *
+2025-12-01 13:43:23,992 DEBUG 🔸 [LLM CHUNK 256]  selama
+2025-12-01 13:43:24,017 DEBUG 🔸 [LLM CHUNK 257]  form
+2025-12-01 13:43:24,047 DEBUG 🔸 [LLM CHUNK 258] asi
+2025-12-01 13:43:24,047 DEBUG 🔸 [LLM CHUNK 259]  pola
+2025-12-01 13:43:24,076 DEBUG 🔸 [LLM CHUNK 260] 
+  
+
+2025-12-01 13:43:24,077 DEBUG 🔸 [LLM CHUNK 261]  
+2025-12-01 13:43:24,078 DEBUG 🔸 [LLM CHUNK 262]  **
+2025-12-01 13:43:24,106 DEBUG 🔸 [LLM CHUNK 263] K
+2025-12-01 13:43:24,106 DEBUG 🔸 [LLM CHUNK 264] onse
+2025-12-01 13:43:24,107 DEBUG 🔸 [LLM CHUNK 265] p
+2025-12-01 13:43:24,134 DEBUG 🔸 [LLM CHUNK 266]  eduk
+2025-12-01 13:43:24,135 DEBUG 🔸 [LLM CHUNK 267] asi
+2025-12-01 13:43:24,136 DEBUG 🔸 [LLM CHUNK 268] **:
+2025-12-01 13:43:24,165 DEBUG 🔸 [LLM CHUNK 269]  Bull
+2025-12-01 13:43:24,166 DEBUG 🔸 [LLM CHUNK 270] ish
+2025-12-01 13:43:24,166 DEBUG 🔸 [LLM CHUNK 271]  Flag
+2025-12-01 13:43:24,195 DEBUG 🔸 [LLM CHUNK 272]  merupakan
+2025-12-01 13:43:24,196 DEBUG 🔸 [LLM CHUNK 273]  pola
+2025-12-01 13:43:24,196 DEBUG 🔸 [LLM CHUNK 274]  kel
+2025-12-01 13:43:24,222 DEBUG 🔸 [LLM CHUNK 275] anj
+2025-12-01 13:43:24,223 DEBUG 🔸 [LLM CHUNK 276] utan
+2025-12-01 13:43:24,223 DEBUG 🔸 [LLM CHUNK 277]  tren
+2025-12-01 13:43:24,251 DEBUG 🔸 [LLM CHUNK 278]  yang
+2025-12-01 13:43:24,252 DEBUG 🔸 [LLM CHUNK 279]  meng
+2025-12-01 13:43:24,280 DEBUG 🔸 [LLM CHUNK 280] ind
+2025-12-01 13:43:24,281 DEBUG 🔸 [LLM CHUNK 281] ikas
+2025-12-01 13:43:24,282 DEBUG 🔸 [LLM CHUNK 282] ikan
+2025-12-01 13:43:24,306 DEBUG 🔸 [LLM CHUNK 283]  periode
+2025-12-01 13:43:24,332 DEBUG 🔸 [LLM CHUNK 284]  ist
+2025-12-01 13:43:24,333 DEBUG 🔸 [LLM CHUNK 285] ira
+2025-12-01 13:43:24,357 DEBUG 🔸 [LLM CHUNK 286] hat
+2025-12-01 13:43:24,357 DEBUG 🔸 [LLM CHUNK 287]  sebelum
+2025-12-01 13:43:24,387 DEBUG 🔸 [LLM CHUNK 288]  tren
+2025-12-01 13:43:24,442 DEBUG 🔸 [LLM CHUNK 289]  utama
+2025-12-01 13:43:24,501 DEBUG 🔸 [LLM CHUNK 290]  ber
+2025-12-01 13:43:24,530 DEBUG 🔸 [LLM CHUNK 291] lan
+2025-12-01 13:43:24,531 DEBUG 🔸 [LLM CHUNK 292] jut
+2025-12-01 13:43:24,532 DEBUG 🔸 [LLM CHUNK 293] .
+
+
+2025-12-01 13:43:24,532 DEBUG 🔸 [LLM CHUNK 294] ###
+2025-12-01 13:43:24,533 DEBUG 🔸 [LLM CHUNK 295]  Level
+2025-12-01 13:43:24,659 DEBUG 🔸 [LLM CHUNK 296]  Tek
+2025-12-01 13:43:24,666 DEBUG 🔸 [LLM CHUNK 297] nis
+2025-12-01 13:43:24,667 DEBUG 🔸 [LLM CHUNK 298]  Pent
+2025-12-01 13:43:24,667 DEBUG 🔸 [LLM CHUNK 299] ing
+2025-12-01 13:43:24,668 DEBUG 🔸 [LLM CHUNK 300] 
+
+2025-12-01 13:43:24,692 DEBUG 🔸 [LLM CHUNK 301] -
+2025-12-01 13:43:24,709 DEBUG 🔸 [LLM CHUNK 302]  **
+2025-12-01 13:43:24,709 DEBUG 🔸 [LLM CHUNK 303] Support
+2025-12-01 13:43:24,710 DEBUG 🔸 [LLM CHUNK 304] :
+2025-12-01 13:43:24,726 DEBUG 🔸 [LLM CHUNK 305]  
+2025-12-01 13:43:24,727 DEBUG 🔸 [LLM CHUNK 306] 1
+2025-12-01 13:43:24,727 DEBUG 🔸 [LLM CHUNK 307] .
+2025-12-01 13:43:24,728 DEBUG 🔸 [LLM CHUNK 308] 070
+2025-12-01 13:43:24,728 DEBUG 🔸 [LLM CHUNK 309] 0
+2025-12-01 13:43:24,729 DEBUG 🔸 [LLM CHUNK 310] **
+2025-12-01 13:43:24,747 DEBUG 🔸 [LLM CHUNK 311]  -
+2025-12-01 13:43:24,749 DEBUG 🔸 [LLM CHUNK 312]  Level
+2025-12-01 13:43:24,751 DEBUG 🔸 [LLM CHUNK 313]  dimana
+2025-12-01 13:43:24,784 DEBUG 🔸 [LLM CHUNK 314]  harga
+2025-12-01 13:43:24,787 DEBUG 🔸 [LLM CHUNK 315]  c
+2025-12-01 13:43:25,265 DEBUG 🔸 [LLM CHUNK 316] ender
+2025-12-01 13:43:25,266 DEBUG 🔸 [LLM CHUNK 317] ung
+2025-12-01 13:43:25,267 DEBUG 🔸 [LLM CHUNK 318]  menem
+2025-12-01 13:43:25,874 DEBUG 🔸 [LLM CHUNK 319] ukan
+2025-12-01 13:43:25,878 DEBUG 🔸 [LLM CHUNK 320]  daya
+2025-12-01 13:43:25,914 DEBUG 🔸 [LLM CHUNK 321]  bel
+2025-12-01 13:43:25,914 DEBUG 🔸 [LLM CHUNK 322] i
+2025-12-01 13:43:25,916 DEBUG 🔸 [LLM CHUNK 323] 
+
+2025-12-01 13:43:25,936 DEBUG 🔸 [LLM CHUNK 324] -
+2025-12-01 13:43:25,936 DEBUG 🔸 [LLM CHUNK 325]  **
+2025-12-01 13:43:25,937 DEBUG 🔸 [LLM CHUNK 326] Res
+2025-12-01 13:43:25,966 DEBUG 🔸 [LLM CHUNK 327] istance
+2025-12-01 13:43:25,966 DEBUG 🔸 [LLM CHUNK 328] :
+2025-12-01 13:43:26,032 DEBUG 🔸 [LLM CHUNK 329]  
+2025-12-01 13:43:26,033 DEBUG 🔸 [LLM CHUNK 330] 1
+2025-12-01 13:43:26,034 DEBUG 🔸 [LLM CHUNK 331] .
+2025-12-01 13:43:26,034 DEBUG 🔸 [LLM CHUNK 332] 085
+2025-12-01 13:43:26,035 DEBUG 🔸 [LLM CHUNK 333] 0
+2025-12-01 13:43:26,035 DEBUG 🔸 [LLM CHUNK 334] **
+2025-12-01 13:43:26,056 DEBUG 🔸 [LLM CHUNK 335]  -
+2025-12-01 13:43:26,057 DEBUG 🔸 [LLM CHUNK 336]  Level
+2025-12-01 13:43:26,063 DEBUG 🔸 [LLM CHUNK 337]  dimana
+2025-12-01 13:43:26,087 DEBUG 🔸 [LLM CHUNK 338]  harga
+2025-12-01 13:43:26,089 DEBUG 🔸 [LLM CHUNK 339]  c
+2025-12-01 13:43:26,116 DEBUG 🔸 [LLM CHUNK 340] ender
+2025-12-01 13:43:26,116 DEBUG 🔸 [LLM CHUNK 341] ung
+2025-12-01 13:43:26,117 DEBUG 🔸 [LLM CHUNK 342]  mengalami
+2025-12-01 13:43:26,145 DEBUG 🔸 [LLM CHUNK 343]  tekanan
+2025-12-01 13:43:26,146 DEBUG 🔸 [LLM CHUNK 344]  j
+2025-12-01 13:43:26,175 DEBUG 🔸 [LLM CHUNK 345] ual
+2025-12-01 13:43:26,175 DEBUG 🔸 [LLM CHUNK 346] 
+
+
+2025-12-01 13:43:26,205 DEBUG 🔸 [LLM CHUNK 347] ###
+2025-12-01 13:43:26,206 DEBUG 🔸 [LLM CHUNK 348]  Anal
+2025-12-01 13:43:26,270 DEBUG 🔸 [LLM CHUNK 349] isis
+2025-12-01 13:43:26,270 DEBUG 🔸 [LLM CHUNK 350]  Ind
+2025-12-01 13:43:26,271 DEBUG 🔸 [LLM CHUNK 351] ik
+2025-12-01 13:43:26,271 DEBUG 🔸 [LLM CHUNK 352] ator
+2025-12-01 13:43:26,272 DEBUG 🔸 [LLM CHUNK 353]  Tek
+2025-12-01 13:43:26,377 DEBUG 🔸 [LLM CHUNK 354] nis
+2025-12-01 13:43:26,378 DEBUG 🔸 [LLM CHUNK 355] 
+
+
+2025-12-01 13:43:26,379 DEBUG 🔸 [LLM CHUNK 356] ####
+2025-12-01 13:43:26,462 DEBUG 🔸 [LLM CHUNK 357]  R
+2025-12-01 13:43:26,463 DEBUG 🔸 [LLM CHUNK 358] SI
+2025-12-01 13:43:26,464 DEBUG 🔸 [LLM CHUNK 359]  Bull
+2025-12-01 13:43:26,465 DEBUG 🔸 [LLM CHUNK 360] ish
+2025-12-01 13:43:26,466 DEBUG 🔸 [LLM CHUNK 361]  Div
+2025-12-01 13:43:26,466 DEBUG 🔸 [LLM CHUNK 362] erg
+2025-12-01 13:43:26,467 DEBUG 🔸 [LLM CHUNK 363] ence
+2025-12-01 13:43:26,468 DEBUG 🔸 [LLM CHUNK 364] 
+
+2025-12-01 13:43:26,469 DEBUG 🔸 [LLM CHUNK 365] B
+2025-12-01 13:43:26,526 DEBUG 🔸 [LLM CHUNK 366] erd
+2025-12-01 13:43:26,527 DEBUG 🔸 [LLM CHUNK 367] as
+2025-12-01 13:43:26,528 DEBUG 🔸 [LLM CHUNK 368] arkan
+2025-12-01 13:43:26,529 DEBUG 🔸 [LLM CHUNK 369]  refer
+2025-12-01 13:43:26,529 DEBUG 🔸 [LLM CHUNK 370] ensi
+2025-12-01 13:43:26,530 DEBUG 🔸 [LLM CHUNK 371]  Cambridge
+2025-12-01 13:43:26,586 DEBUG 🔸 [LLM CHUNK 372]  Technical
+2025-12-01 13:43:26,586 DEBUG 🔸 [LLM CHUNK 373]  Analysis
+2025-12-01 13:43:26,587 DEBUG 🔸 [LLM CHUNK 374] :
+
+2025-12-01 13:43:26,598 DEBUG 🔸 [LLM CHUNK 375] -
+2025-12-01 13:43:26,599 DEBUG 🔸 [LLM CHUNK 376]  **
+2025-12-01 13:43:26,599 DEBUG 🔸 [LLM CHUNK 377] Div
+2025-12-01 13:43:26,620 DEBUG 🔸 [LLM CHUNK 378] erg
+2025-12-01 13:43:26,620 DEBUG 🔸 [LLM CHUNK 379] ensi
+2025-12-01 13:43:26,650 DEBUG 🔸 [LLM CHUNK 380]  bullish
+2025-12-01 13:43:26,650 DEBUG 🔸 [LLM CHUNK 381] **
+2025-12-01 13:43:26,651 DEBUG 🔸 [LLM CHUNK 382]  terjadi
+2025-12-01 13:43:26,677 DEBUG 🔸 [LLM CHUNK 383]  ketika
+2025-12-01 13:43:26,677 DEBUG 🔸 [LLM CHUNK 384]  harga
+2025-12-01 13:43:26,708 DEBUG 🔸 [LLM CHUNK 385]  membuat
+2025-12-01 13:43:26,709 DEBUG 🔸 [LLM CHUNK 386]  lower
+2025-12-01 13:43:26,736 DEBUG 🔸 [LLM CHUNK 387]  low
+2025-12-01 13:43:26,763 DEBUG 🔸 [LLM CHUNK 388]  (
+2025-12-01 13:43:26,763 DEBUG 🔸 [LLM CHUNK 389] rend
+2025-12-01 13:43:26,789 DEBUG 🔸 [LLM CHUNK 390] ah
+2025-12-01 13:43:26,789 DEBUG 🔸 [LLM CHUNK 391]  lebih
+2025-12-01 13:43:26,816 DEBUG 🔸 [LLM CHUNK 392]  rendah
+2025-12-01 13:43:26,817 DEBUG 🔸 [LLM CHUNK 393] )
+2025-12-01 13:43:26,818 DEBUG 🔸 [LLM CHUNK 394]  tetapi
+2025-12-01 13:43:26,842 DEBUG 🔸 [LLM CHUNK 395]  R
+2025-12-01 13:43:26,843 DEBUG 🔸 [LLM CHUNK 396] SI
+2025-12-01 13:43:26,844 DEBUG 🔸 [LLM CHUNK 397]  membuat
+2025-12-01 13:43:26,869 DEBUG 🔸 [LLM CHUNK 398]  higher
+2025-12-01 13:43:26,870 DEBUG 🔸 [LLM CHUNK 399]  low
+2025-12-01 13:43:26,871 DEBUG 🔸 [LLM CHUNK 400]  (
+2025-12-01 13:43:26,896 DEBUG 🔸 [LLM CHUNK 401] rend
+2025-12-01 13:43:26,897 DEBUG 🔸 [LLM CHUNK 402] ah
+2025-12-01 13:43:26,898 DEBUG 🔸 [LLM CHUNK 403]  lebih
+2025-12-01 13:43:26,923 DEBUG 🔸 [LLM CHUNK 404]  tinggi
+2025-12-01 13:43:26,923 DEBUG 🔸 [LLM CHUNK 405] )
+
+2025-12-01 13:43:26,924 DEBUG 🔸 [LLM CHUNK 406] -
+2025-12-01 13:43:26,950 DEBUG 🔸 [LLM CHUNK 407]  Men
+2025-12-01 13:43:26,976 DEBUG 🔸 [LLM CHUNK 408] urut
+2025-12-01 13:43:26,977 DEBUG 🔸 [LLM CHUNK 409]  Andrew
+2025-12-01 13:43:27,003 DEBUG 🔸 [LLM CHUNK 410]  Card
+2025-12-01 13:43:27,003 DEBUG 🔸 [LLM CHUNK 411] well
+2025-12-01 13:43:27,003 DEBUG 🔸 [LLM CHUNK 412] ,
+2025-12-01 13:43:27,029 DEBUG 🔸 [LLM CHUNK 413]  dalam
+2025-12-01 13:43:27,056 DEBUG 🔸 [LLM CHUNK 414]  **
+2025-12-01 13:43:27,083 DEBUG 🔸 [LLM CHUNK 415] upt
+2025-12-01 13:43:27,083 DEBUG 🔸 [LLM CHUNK 416] rend
+2025-12-01 13:43:27,084 DEBUG 🔸 [LLM CHUNK 417] **,
+2025-12-01 13:43:27,109 DEBUG 🔸 [LLM CHUNK 418]  R
+2025-12-01 13:43:27,110 DEBUG 🔸 [LLM CHUNK 419] SI
+2025-12-01 13:43:27,110 DEBUG 🔸 [LLM CHUNK 420]  c
+2025-12-01 13:43:27,135 DEBUG 🔸 [LLM CHUNK 421] ender
+2025-12-01 13:43:27,136 DEBUG 🔸 [LLM CHUNK 422] ung
+2025-12-01 13:43:27,136 DEBUG 🔸 [LLM CHUNK 423]  berada
+2025-12-01 13:43:27,163 DEBUG 🔸 [LLM CHUNK 424]  antara
+2025-12-01 13:43:27,164 DEBUG 🔸 [LLM CHUNK 425]  level
+2025-12-01 13:43:27,189 DEBUG 🔸 [LLM CHUNK 426]  
+2025-12-01 13:43:27,189 DEBUG 🔸 [LLM CHUNK 427] 40
+2025-12-01 13:43:27,190 DEBUG 🔸 [LLM CHUNK 428] -
+2025-12-01 13:43:27,338 DEBUG 🔸 [LLM CHUNK 429] 80
+2025-12-01 13:43:27,340 DEBUG 🔸 [LLM CHUNK 430] 
+
+2025-12-01 13:43:27,341 DEBUG 🔸 [LLM CHUNK 431] -
+2025-12-01 13:43:27,342 DEBUG 🔸 [LLM CHUNK 432]  Div
+2025-12-01 13:43:27,343 DEBUG 🔸 [LLM CHUNK 433] erg
+2025-12-01 13:43:27,344 DEBUG 🔸 [LLM CHUNK 434] ensi
+2025-12-01 13:43:27,345 DEBUG 🔸 [LLM CHUNK 435]  ini
+2025-12-01 13:43:27,348 DEBUG 🔸 [LLM CHUNK 436]  meng
+2025-12-01 13:43:27,348 DEBUG 🔸 [LLM CHUNK 437] ind
+2025-12-01 13:43:27,350 DEBUG 🔸 [LLM CHUNK 438] ikas
+2025-12-01 13:43:27,351 DEBUG 🔸 [LLM CHUNK 439] ikan
+2025-12-01 13:43:27,352 DEBUG 🔸 [LLM CHUNK 440]  **
+2025-12-01 13:43:27,557 DEBUG 🔸 [LLM CHUNK 441] ke
+2025-12-01 13:43:27,593 DEBUG 🔸 [LLM CHUNK 442] lem
+2025-12-01 13:43:27,593 DEBUG 🔸 [LLM CHUNK 443] ahan
+2025-12-01 13:43:27,620 DEBUG 🔸 [LLM CHUNK 444]  momentum
+2025-12-01 13:43:27,621 DEBUG 🔸 [LLM CHUNK 445]  pen
+2025-12-01 13:43:27,651 DEBUG 🔸 [LLM CHUNK 446] ur
+2025-12-01 13:43:27,652 DEBUG 🔸 [LLM CHUNK 447] unan
+2025-12-01 13:43:27,652 DEBUG 🔸 [LLM CHUNK 448] **
+2025-12-01 13:43:27,679 DEBUG 🔸 [LLM CHUNK 449]  mes
+2025-12-01 13:43:27,680 DEBUG 🔸 [LLM CHUNK 450] kip
+2025-12-01 13:43:27,680 DEBUG 🔸 [LLM CHUNK 451] un
+2025-12-01 13:43:27,708 DEBUG 🔸 [LLM CHUNK 452]  harga
+2025-12-01 13:43:27,709 DEBUG 🔸 [LLM CHUNK 453]  masih
+2025-12-01 13:43:27,737 DEBUG 🔸 [LLM CHUNK 454]  tur
+2025-12-01 13:43:27,738 DEBUG 🔸 [LLM CHUNK 455] un
+2025-12-01 13:43:27,739 DEBUG 🔸 [LLM CHUNK 456] 
+
+
+2025-12-01 13:43:27,765 DEBUG 🔸 [LLM CHUNK 457] ####
+2025-12-01 13:43:27,766 DEBUG 🔸 [LLM CHUNK 458]  MAC
+2025-12-01 13:43:27,794 DEBUG 🔸 [LLM CHUNK 459] D
+2025-12-01 13:43:27,796 DEBUG 🔸 [LLM CHUNK 460]  Above
+2025-12-01 13:43:28,027 DEBUG 🔸 [LLM CHUNK 461]  Signal
+2025-12-01 13:43:28,028 DEBUG 🔸 [LLM CHUNK 462]  Line
+2025-12-01 13:43:28,029 DEBUG 🔸 [LLM CHUNK 463] 
+
+2025-12-01 13:43:28,067 DEBUG 🔸 [LLM CHUNK 464] Men
+2025-12-01 13:43:28,096 DEBUG 🔸 [LLM CHUNK 465] urut
+2025-12-01 13:43:28,096 DEBUG 🔸 [LLM CHUNK 466]  sumber
+2025-12-01 13:43:28,126 DEBUG 🔸 [LLM CHUNK 467]  Cambridge
+2025-12-01 13:43:28,155 DEBUG 🔸 [LLM CHUNK 468] :
+
+2025-12-01 13:43:28,155 DEBUG 🔸 [LLM CHUNK 469] -
+2025-12-01 13:43:28,156 DEBUG 🔸 [LLM CHUNK 470]  **
+2025-12-01 13:43:28,185 DEBUG 🔸 [LLM CHUNK 471] MAC
+2025-12-01 13:43:28,186 DEBUG 🔸 [LLM CHUNK 472] D
+2025-12-01 13:43:28,186 DEBUG 🔸 [LLM CHUNK 473]  =
+2025-12-01 13:43:28,214 DEBUG 🔸 [LLM CHUNK 474]  EMA
+2025-12-01 13:43:28,214 DEBUG 🔸 [LLM CHUNK 475] (
+2025-12-01 13:43:28,244 DEBUG 🔸 [LLM CHUNK 476] 12
+2025-12-01 13:43:28,245 DEBUG 🔸 [LLM CHUNK 477] )
+2025-12-01 13:43:28,245 DEBUG 🔸 [LLM CHUNK 478]  -
+2025-12-01 13:43:28,274 DEBUG 🔸 [LLM CHUNK 479]  EMA
+2025-12-01 13:43:28,275 DEBUG 🔸 [LLM CHUNK 480] (
+2025-12-01 13:43:28,275 DEBUG 🔸 [LLM CHUNK 481] 26
+2025-12-01 13:43:28,304 DEBUG 🔸 [LLM CHUNK 482] )**
+2025-12-01 13:43:28,304 DEBUG 🔸 [LLM CHUNK 483]  dengan
+2025-12-01 13:43:28,334 DEBUG 🔸 [LLM CHUNK 484]  signal
+2025-12-01 13:43:28,364 DEBUG 🔸 [LLM CHUNK 485]  line
+2025-12-01 13:43:28,365 DEBUG 🔸 [LLM CHUNK 486]  sebagai
+2025-12-01 13:43:28,393 DEBUG 🔸 [LLM CHUNK 487]  EMA
+2025-12-01 13:43:28,393 DEBUG 🔸 [LLM CHUNK 488] (
+2025-12-01 13:43:28,394 DEBUG 🔸 [LLM CHUNK 489] 9
+2025-12-01 13:43:28,421 DEBUG 🔸 [LLM CHUNK 490] )
+2025-12-01 13:43:28,421 DEBUG 🔸 [LLM CHUNK 491]  dari
+2025-12-01 13:43:28,423 DEBUG 🔸 [LLM CHUNK 492]  MAC
+2025-12-01 13:43:28,451 DEBUG 🔸 [LLM CHUNK 493] D
+2025-12-01 13:43:28,451 DEBUG 🔸 [LLM CHUNK 494] 
+
+2025-12-01 13:43:28,452 DEBUG 🔸 [LLM CHUNK 495] -
+2025-12-01 13:43:28,480 DEBUG 🔸 [LLM CHUNK 496]  Ket
+2025-12-01 13:43:28,509 DEBUG 🔸 [LLM CHUNK 497] ika
+2025-12-01 13:43:28,509 DEBUG 🔸 [LLM CHUNK 498]  MAC
+2025-12-01 13:43:28,538 DEBUG 🔸 [LLM CHUNK 499] D
+2025-12-01 13:43:28,539 DEBUG 🔸 [LLM CHUNK 500]  berada
+2025-12-01 13:43:28,566 DEBUG 🔸 [LLM CHUNK 501]  di
+2025-12-01 13:43:28,567 DEBUG 🔸 [LLM CHUNK 502]  atas
+2025-12-01 13:43:28,567 DEBUG 🔸 [LLM CHUNK 503]  signal
+2025-12-01 13:43:28,595 DEBUG 🔸 [LLM CHUNK 504]  line
+2025-12-01 13:43:28,595 DEBUG 🔸 [LLM CHUNK 505] ,
+2025-12-01 13:43:28,624 DEBUG 🔸 [LLM CHUNK 506]  ini
+2025-12-01 13:43:28,624 DEBUG 🔸 [LLM CHUNK 507]  menunjukkan
+2025-12-01 13:43:28,625 DEBUG 🔸 [LLM CHUNK 508]  **
+2025-12-01 13:43:28,652 DEBUG 🔸 [LLM CHUNK 509] moment
+2025-12-01 13:43:28,654 DEBUG 🔸 [LLM CHUNK 510] um
+2025-12-01 13:43:28,654 DEBUG 🔸 [LLM CHUNK 511]  bullish
+2025-12-01 13:43:28,681 DEBUG 🔸 [LLM CHUNK 512]  j
+2025-12-01 13:43:28,710 DEBUG 🔸 [LLM CHUNK 513] angka
+2025-12-01 13:43:28,712 DEBUG 🔸 [LLM CHUNK 514]  pend
+2025-12-01 13:43:28,739 DEBUG 🔸 [LLM CHUNK 515] ek
+2025-12-01 13:43:28,739 DEBUG 🔸 [LLM CHUNK 516] **
+
+2025-12-01 13:43:28,768 DEBUG 🔸 [LLM CHUNK 517] -
+2025-12-01 13:43:28,769 DEBUG 🔸 [LLM CHUNK 518]  Namun
+2025-12-01 13:43:29,001 DEBUG 🔸 [LLM CHUNK 519]  perlu
+2025-12-01 13:43:29,039 DEBUG 🔸 [LLM CHUNK 520]  kon
+2025-12-01 13:43:29,069 DEBUG 🔸 [LLM CHUNK 521] f
+2025-12-01 13:43:29,070 DEBUG 🔸 [LLM CHUNK 522] irm
+2025-12-01 13:43:29,071 DEBUG 🔸 [LLM CHUNK 523] asi
+2025-12-01 13:43:29,100 DEBUG 🔸 [LLM CHUNK 524]  dari
+2025-12-01 13:43:29,100 DEBUG 🔸 [LLM CHUNK 525]  faktor
+2025-12-01 13:43:29,127 DEBUG 🔸 [LLM CHUNK 526]  lain
+2025-12-01 13:43:29,127 DEBUG 🔸 [LLM CHUNK 527]  untuk
+2025-12-01 13:43:29,157 DEBUG 🔸 [LLM CHUNK 528]  mengurangi
+2025-12-01 13:43:29,185 DEBUG 🔸 [LLM CHUNK 529]  false
+2025-12-01 13:43:29,186 DEBUG 🔸 [LLM CHUNK 530]  signal
+2025-12-01 13:43:29,215 DEBUG 🔸 [LLM CHUNK 531]  (
+2025-12-01 13:43:29,215 DEBUG 🔸 [LLM CHUNK 532] s
+2025-12-01 13:43:29,243 DEBUG 🔸 [LLM CHUNK 533] iny
+2025-12-01 13:43:29,271 DEBUG 🔸 [LLM CHUNK 534] al
+2025-12-01 13:43:29,272 DEBUG 🔸 [LLM CHUNK 535]  pals
+2025-12-01 13:43:29,300 DEBUG 🔸 [LLM CHUNK 536] u
+2025-12-01 13:43:29,301 DEBUG 🔸 [LLM CHUNK 537] )
+
+
+2025-12-01 13:43:29,302 DEBUG 🔸 [LLM CHUNK 538] ###
+2025-12-01 13:43:29,329 DEBUG 🔸 [LLM CHUNK 539]  K
+2025-12-01 13:43:29,329 DEBUG 🔸 [LLM CHUNK 540] onse
+2025-12-01 13:43:29,330 DEBUG 🔸 [LLM CHUNK 541] p
+2025-12-01 13:43:29,359 DEBUG 🔸 [LLM CHUNK 542]  Edu
+2025-12-01 13:43:29,359 DEBUG 🔸 [LLM CHUNK 543] k
+2025-12-01 13:43:29,360 DEBUG 🔸 [LLM CHUNK 544] asi
+2025-12-01 13:43:29,387 DEBUG 🔸 [LLM CHUNK 545]  Pent
+2025-12-01 13:43:29,387 DEBUG 🔸 [LLM CHUNK 546] ing
+2025-12-01 13:43:29,387 DEBUG 🔸 [LLM CHUNK 547] 
+
+2025-12-01 13:43:29,431 DEBUG 🔸 [LLM CHUNK 548] >
+2025-12-01 13:43:29,431 DEBUG 🔸 [LLM CHUNK 549]  -
+2025-12-01 13:43:29,464 DEBUG 🔸 [LLM CHUNK 550]  *
+2025-12-01 13:43:29,504 DEBUG 🔸 [LLM CHUNK 551] Technical
+2025-12-01 13:43:29,505 DEBUG 🔸 [LLM CHUNK 552]  Analysis
+2025-12-01 13:43:29,505 DEBUG 🔸 [LLM CHUNK 553]  Course
+2025-12-01 13:43:29,510 DEBUG 🔸 [LLM CHUNK 554]  (
+2025-12-01 13:43:29,556 DEBUG 🔸 [LLM CHUNK 555] Cambridge
+2025-12-01 13:43:29,557 DEBUG 🔸 [LLM CHUNK 556] )*
+2025-12-01 13:43:29,581 DEBUG 🔸 [LLM CHUNK 557] :
+2025-12-01 13:43:29,581 DEBUG 🔸 [LLM CHUNK 558]  Pol
+2025-12-01 13:43:29,604 DEBUG 🔸 [LLM CHUNK 559] a
+2025-12-01 13:43:29,605 DEBUG 🔸 [LLM CHUNK 560]  seperti
+2025-12-01 13:43:29,643 DEBUG 🔸 [LLM CHUNK 561]  Asc
+2025-12-01 13:43:29,644 DEBUG 🔸 [LLM CHUNK 562] ending
+2025-12-01 13:43:29,644 DEBUG 🔸 [LLM CHUNK 563]  Triangle
+2025-12-01 13:43:29,698 DEBUG 🔸 [LLM CHUNK 564]  mem
+2025-12-01 13:43:29,698 DEBUG 🔸 [LLM CHUNK 565] erl
+2025-12-01 13:43:29,710 DEBUG 🔸 [LLM CHUNK 566] ukan
+2025-12-01 13:43:29,711 DEBUG 🔸 [LLM CHUNK 567]  kon
+2025-12-01 13:43:29,748 DEBUG 🔸 [LLM CHUNK 568] f
+2025-12-01 13:43:29,749 DEBUG 🔸 [LLM CHUNK 569] irm
+2025-12-01 13:43:29,750 DEBUG 🔸 [LLM CHUNK 570] asi
+2025-12-01 13:43:29,783 DEBUG 🔸 [LLM CHUNK 571]  volume
+2025-12-01 13:43:29,784 DEBUG 🔸 [LLM CHUNK 572]  pada
+2025-12-01 13:43:29,784 DEBUG 🔸 [LLM CHUNK 573]  breakout
+2025-12-01 13:43:29,784 DEBUG 🔸 [LLM CHUNK 574] 
+
+2025-12-01 13:43:29,799 DEBUG 🔸 [LLM CHUNK 575] >
+2025-12-01 13:43:29,799 DEBUG 🔸 [LLM CHUNK 576]  -
+2025-12-01 13:43:29,801 DEBUG 🔸 [LLM CHUNK 577]  *
+2025-12-01 13:43:29,816 DEBUG 🔸 [LLM CHUNK 578] Pr
+2025-12-01 13:43:29,841 DEBUG 🔸 [LLM CHUNK 579] insip
+2025-12-01 13:43:29,843 DEBUG 🔸 [LLM CHUNK 580]  Div
+2025-12-01 13:43:29,867 DEBUG 🔸 [LLM CHUNK 581] erg
+2025-12-01 13:43:29,867 DEBUG 🔸 [LLM CHUNK 582] ence
+2025-12-01 13:43:29,869 DEBUG 🔸 [LLM CHUNK 583] *
+2025-12-01 13:43:29,894 DEBUG 🔸 [LLM CHUNK 584] :
+2025-12-01 13:43:29,894 DEBUG 🔸 [LLM CHUNK 585]  Bull
+2025-12-01 13:43:29,919 DEBUG 🔸 [LLM CHUNK 586] ish
+2025-12-01 13:43:29,920 DEBUG 🔸 [LLM CHUNK 587]  divergence
+2025-12-01 13:43:29,944 DEBUG 🔸 [LLM CHUNK 588]  pada
+2025-12-01 13:43:29,946 DEBUG 🔸 [LLM CHUNK 589]  R
+2025-12-01 13:43:29,946 DEBUG 🔸 [LLM CHUNK 590] SI
+2025-12-01 13:43:29,970 DEBUG 🔸 [LLM CHUNK 591]  memberikan
+2025-12-01 13:43:29,970 DEBUG 🔸 [LLM CHUNK 592]  early
+2025-12-01 13:43:29,995 DEBUG 🔸 [LLM CHUNK 593]  warning
+2025-12-01 13:43:29,995 DEBUG 🔸 [LLM CHUNK 594]  tentang
+2025-12-01 13:43:29,996 DEBUG 🔸 [LLM CHUNK 595]  perubahan
+2025-12-01 13:43:30,020 DEBUG 🔸 [LLM CHUNK 596]  momentum
+2025-12-01 13:43:30,020 DEBUG 🔸 [LLM CHUNK 597] 
+
+2025-12-01 13:43:30,046 DEBUG 🔸 [LLM CHUNK 598] >
+2025-12-01 13:43:30,047 DEBUG 🔸 [LLM CHUNK 599]  -
+2025-12-01 13:43:30,048 DEBUG 🔸 [LLM CHUNK 600]  *
+2025-12-01 13:43:30,073 DEBUG 🔸 [LLM CHUNK 601] Kon
+2025-12-01 13:43:30,073 DEBUG 🔸 [LLM CHUNK 602] f
+2025-12-01 13:43:30,074 DEBUG 🔸 [LLM CHUNK 603] irm
+2025-12-01 13:43:30,096 DEBUG 🔸 [LLM CHUNK 604] asi
+2025-12-01 13:43:30,097 DEBUG 🔸 [LLM CHUNK 605]  S
+2025-12-01 13:43:30,126 DEBUG 🔸 [LLM CHUNK 606] iny
+2025-12-01 13:43:30,127 DEBUG 🔸 [LLM CHUNK 607] al
+2025-12-01 13:43:30,127 DEBUG 🔸 [LLM CHUNK 608] *
+2025-12-01 13:43:30,149 DEBUG 🔸 [LLM CHUNK 609] :
+2025-12-01 13:43:30,149 DEBUG 🔸 [LLM CHUNK 610]  Sel
+2025-12-01 13:43:30,151 DEBUG 🔸 [LLM CHUNK 611] alu
+2025-12-01 13:43:30,174 DEBUG 🔸 [LLM CHUNK 612]  gun
+2025-12-01 13:43:30,174 DEBUG 🔸 [LLM CHUNK 613] akan
+2025-12-01 13:43:30,175 DEBUG 🔸 [LLM CHUNK 614]  multiple
+2025-12-01 13:43:30,199 DEBUG 🔸 [LLM CHUNK 615]  ind
+2025-12-01 13:43:30,201 DEBUG 🔸 [LLM CHUNK 616] ik
+2025-12-01 13:43:30,201 DEBUG 🔸 [LLM CHUNK 617] ator
+2025-12-01 13:43:30,226 DEBUG 🔸 [LLM CHUNK 618]  untuk
+2025-12-01 13:43:30,226 DEBUG 🔸 [LLM CHUNK 619]  kon
+2025-12-01 13:43:30,227 DEBUG 🔸 [LLM CHUNK 620] f
+2025-12-01 13:43:30,251 DEBUG 🔸 [LLM CHUNK 621] irm
+2025-12-01 13:43:30,251 DEBUG 🔸 [LLM CHUNK 622] asi
+2025-12-01 13:43:30,252 DEBUG 🔸 [LLM CHUNK 623] ,
+2025-12-01 13:43:30,277 DEBUG 🔸 [LLM CHUNK 624]  tidak
+2025-12-01 13:43:30,277 DEBUG 🔸 [LLM CHUNK 625]  berg
+2025-12-01 13:43:30,302 DEBUG 🔸 [LLM CHUNK 626] antung
+2025-12-01 13:43:30,302 DEBUG 🔸 [LLM CHUNK 627]  pada
+2025-12-01 13:43:30,302 DEBUG 🔸 [LLM CHUNK 628]  satu
+2025-12-01 13:43:30,327 DEBUG 🔸 [LLM CHUNK 629]  alat
+2025-12-01 13:43:30,328 DEBUG 🔸 [LLM CHUNK 630]  anal
+2025-12-01 13:43:30,353 DEBUG 🔸 [LLM CHUNK 631] isis
+2025-12-01 13:43:30,353 DEBUG 🔸 [LLM CHUNK 632]  saja
+2025-12-01 13:43:30,377 DEBUG 🔸 [LLM CHUNK 633] 
+
+
+2025-12-01 13:43:30,379 DEBUG 🔸 [LLM CHUNK 634] ###
+2025-12-01 13:43:30,406 DEBUG 🔸 [LLM CHUNK 635]  Cat
+2025-12-01 13:43:30,430 DEBUG 🔸 [LLM CHUNK 636] atan
+2025-12-01 13:43:30,431 DEBUG 🔸 [LLM CHUNK 637]  Edu
+2025-12-01 13:43:30,453 DEBUG 🔸 [LLM CHUNK 638] k
+2025-12-01 13:43:30,480 DEBUG 🔸 [LLM CHUNK 639] asi
+2025-12-01 13:43:30,480 DEBUG 🔸 [LLM CHUNK 640] 
+
+2025-12-01 13:43:30,481 DEBUG 🔸 [LLM CHUNK 641] **
+2025-12-01 13:43:30,505 DEBUG 🔸 [LLM CHUNK 642] P
+2025-12-01 13:43:30,506 DEBUG 🔸 [LLM CHUNK 643] enting
+2025-12-01 13:43:30,507 DEBUG 🔸 [LLM CHUNK 644]  untuk
+2025-12-01 13:43:30,531 DEBUG 🔸 [LLM CHUNK 645]  di
+2025-12-01 13:43:30,555 DEBUG 🔸 [LLM CHUNK 646] ing
+2025-12-01 13:43:30,556 DEBUG 🔸 [LLM CHUNK 647] at
+2025-12-01 13:43:30,557 DEBUG 🔸 [LLM CHUNK 648] **
+2025-12-01 13:43:30,583 DEBUG 🔸 [LLM CHUNK 649] :
+2025-12-01 13:43:30,608 DEBUG 🔸 [LLM CHUNK 650] 
+
+2025-12-01 13:43:30,609 DEBUG 🔸 [LLM CHUNK 651] -
+2025-12-01 13:43:30,610 DEBUG 🔸 [LLM CHUNK 652]  Anal
+2025-12-01 13:43:30,632 DEBUG 🔸 [LLM CHUNK 653] isis
+2025-12-01 13:43:30,632 DEBUG 🔸 [LLM CHUNK 654]  tek
+2025-12-01 13:43:30,658 DEBUG 🔸 [LLM CHUNK 655] nis
+2025-12-01 13:43:30,659 DEBUG 🔸 [LLM CHUNK 656]  adalah
+2025-12-01 13:43:30,659 DEBUG 🔸 [LLM CHUNK 657]  alat
+2025-12-01 13:43:30,684 DEBUG 🔸 [LLM CHUNK 658]  untuk
+2025-12-01 13:43:30,685 DEBUG 🔸 [LLM CHUNK 659]  memahami
+2025-12-01 13:43:30,688 DEBUG 🔸 [LLM CHUNK 660]  prob
+2025-12-01 13:43:30,709 DEBUG 🔸 [LLM CHUNK 661] abilit
+2025-12-01 13:43:30,711 DEBUG 🔸 [LLM CHUNK 662] as
+2025-12-01 13:43:30,712 DEBUG 🔸 [LLM CHUNK 663] ,
+2025-12-01 13:43:30,733 DEBUG 🔸 [LLM CHUNK 664]  bukan
+2025-12-01 13:43:30,735 DEBUG 🔸 [LLM CHUNK 665]  pred
+2025-12-01 13:43:30,759 DEBUG 🔸 [LLM CHUNK 666] iksi
+2025-12-01 13:43:30,760 DEBUG 🔸 [LLM CHUNK 667]  pasti
+2025-12-01 13:43:30,786 DEBUG 🔸 [LLM CHUNK 668] 
+
+2025-12-01 13:43:30,786 DEBUG 🔸 [LLM CHUNK 669] -
+2025-12-01 13:43:30,787 DEBUG 🔸 [LLM CHUNK 670]  Break
+2025-12-01 13:43:30,809 DEBUG 🔸 [LLM CHUNK 671] out
+2025-12-01 13:43:30,812 DEBUG 🔸 [LLM CHUNK 672]  dari
+2025-12-01 13:43:30,812 DEBUG 🔸 [LLM CHUNK 673]  pola
+2025-12-01 13:43:30,836 DEBUG 🔸 [LLM CHUNK 674]  bisa
+2025-12-01 13:43:30,861 DEBUG 🔸 [LLM CHUNK 675]  gag
+2025-12-01 13:43:30,887 DEBUG 🔸 [LLM CHUNK 676] al
+2025-12-01 13:43:30,888 DEBUG 🔸 [LLM CHUNK 677]  (
+2025-12-01 13:43:30,912 DEBUG 🔸 [LLM CHUNK 678] false
+2025-12-01 13:43:30,913 DEBUG 🔸 [LLM CHUNK 679]  breakout
+2025-12-01 13:43:31,148 DEBUG 🔸 [LLM CHUNK 680] )
+2025-12-01 13:43:31,183 DEBUG 🔸 [LLM CHUNK 681]  sehingga
+2025-12-01 13:43:31,185 DEBUG 🔸 [LLM CHUNK 682]  perlu
+2025-12-01 13:43:31,210 DEBUG 🔸 [LLM CHUNK 683]  man
+2025-12-01 13:43:31,236 DEBUG 🔸 [LLM CHUNK 684] aj
+2025-12-01 13:43:31,237 DEBUG 🔸 [LLM CHUNK 685] emen
+2025-12-01 13:43:31,263 DEBUG 🔸 [LLM CHUNK 686]  risiko
+2025-12-01 13:43:31,263 DEBUG 🔸 [LLM CHUNK 687] 
+
+2025-12-01 13:43:31,288 DEBUG 🔸 [LLM CHUNK 688] -
+2025-12-01 13:43:31,289 DEBUG 🔸 [LLM CHUNK 689]  Edu
+2025-12-01 13:43:31,314 DEBUG 🔸 [LLM CHUNK 690] k
+2025-12-01 13:43:31,315 DEBUG 🔸 [LLM CHUNK 691] asi
+2025-12-01 13:43:31,315 DEBUG 🔸 [LLM CHUNK 692]  trading
+2025-12-01 13:43:31,339 DEBUG 🔸 [LLM CHUNK 693]  bert
+2025-12-01 13:43:31,339 DEBUG 🔸 [LLM CHUNK 694] ujuan
+2025-12-01 13:43:31,340 DEBUG 🔸 [LLM CHUNK 695]  memb
+2025-12-01 13:43:31,365 DEBUG 🔸 [LLM CHUNK 696] angun
+2025-12-01 13:43:31,365 DEBUG 🔸 [LLM CHUNK 697]  pem
+2025-12-01 13:43:31,389 DEBUG 🔸 [LLM CHUNK 698] ah
+2025-12-01 13:43:31,390 DEBUG 🔸 [LLM CHUNK 699] aman
+2025-12-01 13:43:31,414 DEBUG 🔸 [LLM CHUNK 700]  metod
+2025-12-01 13:43:31,440 DEBUG 🔸 [LLM CHUNK 701] ologi
+2025-12-01 13:43:31,466 DEBUG 🔸 [LLM CHUNK 702] ,
+2025-12-01 13:43:31,466 DEBUG 🔸 [LLM CHUNK 703]  bukan
+2025-12-01 13:43:31,467 DEBUG 🔸 [LLM CHUNK 704]  memberikan
+2025-12-01 13:43:31,490 DEBUG 🔸 [LLM CHUNK 705]  sin
+2025-12-01 13:43:31,516 DEBUG 🔸 [LLM CHUNK 706] yal
+2025-12-01 13:43:31,516 DEBUG 🔸 [LLM CHUNK 707]  trading
+2025-12-01 13:43:31,541 DEBUG 🔸 [LLM CHUNK 708] 
+
+
+2025-12-01 13:43:31,541 DEBUG 🔸 [LLM CHUNK 709] Sem
+2025-12-01 13:43:31,541 DEBUG 🔸 [LLM CHUNK 710] oga
+2025-12-01 13:43:31,566 DEBUG 🔸 [LLM CHUNK 711]  pen
+2025-12-01 13:43:31,568 DEBUG 🔸 [LLM CHUNK 712] jel
+2025-12-01 13:43:31,568 DEBUG 🔸 [LLM CHUNK 713] asan
+2025-12-01 13:43:31,592 DEBUG 🔸 [LLM CHUNK 714]  ini
+2025-12-01 13:43:31,592 DEBUG 🔸 [LLM CHUNK 715]  membantu
+2025-12-01 13:43:31,617 DEBUG 🔸 [LLM CHUNK 716]  memper
+2025-12-01 13:43:31,617 DEBUG 🔸 [LLM CHUNK 717] d
+2025-12-01 13:43:31,643 DEBUG 🔸 [LLM CHUNK 718] alam
+2025-12-01 13:43:31,643 DEBUG 🔸 [LLM CHUNK 719]  pem
+2025-12-01 13:43:31,669 DEBUG 🔸 [LLM CHUNK 720] ah
+2025-12-01 13:43:31,670 DEBUG 🔸 [LLM CHUNK 721] aman
+2025-12-01 13:43:31,670 DEBUG 🔸 [LLM CHUNK 722]  Anda
+2025-12-01 13:43:31,692 DEBUG 🔸 [LLM CHUNK 723]  tentang
+2025-12-01 13:43:31,693 DEBUG 🔸 [LLM CHUNK 724]  anal
+2025-12-01 13:43:31,717 DEBUG 🔸 [LLM CHUNK 725] isis
+2025-12-01 13:43:31,717 DEBUG 🔸 [LLM CHUNK 726]  tek
+2025-12-01 13:43:31,740 DEBUG 🔸 [LLM CHUNK 727] nis
+2025-12-01 13:43:31,740 DEBUG 🔸 [LLM CHUNK 728] !
+2025-12-01 13:43:31,765 DEBUG 🔸 [LLM CHUNK 729]  🌟
+2025-12-01 13:43:31,766 DEBUG 🔸 [LLM CHUNK 730]   
+
+2025-12-01 13:43:31,789 DEBUG 🔸 [LLM CHUNK 731] *
+2025-12-01 13:43:31,789 DEBUG 🔸 [LLM CHUNK 732] T
+2025-12-01 13:43:31,790 DEBUG 🔸 [LLM CHUNK 733] ujuan
+2025-12-01 13:43:31,813 DEBUG 🔸 [LLM CHUNK 734]  eduk
+2025-12-01 13:43:31,813 DEBUG 🔸 [LLM CHUNK 735] asi
+2025-12-01 13:43:31,814 DEBUG 🔸 [LLM CHUNK 736]  adalah
+2025-12-01 13:43:31,837 DEBUG 🔸 [LLM CHUNK 737]  memb
+2025-12-01 13:43:31,837 DEBUG 🔸 [LLM CHUNK 738] angun
+2025-12-01 13:43:31,839 DEBUG 🔸 [LLM CHUNK 739]  ker
+2025-12-01 13:43:31,861 DEBUG 🔸 [LLM CHUNK 740] angka
+2025-12-01 13:43:31,861 DEBUG 🔸 [LLM CHUNK 741]  anal
+2025-12-01 13:43:31,885 DEBUG 🔸 [LLM CHUNK 742] isis
+2025-12-01 13:43:31,885 DEBUG 🔸 [LLM CHUNK 743]  yang
+2025-12-01 13:43:31,886 DEBUG 🔸 [LLM CHUNK 744]  solid
+2025-12-01 13:43:31,909 DEBUG 🔸 [LLM CHUNK 745] ,
+2025-12-01 13:43:31,909 DEBUG 🔸 [LLM CHUNK 746]  bukan
+2025-12-01 13:43:31,910 DEBUG 🔸 [LLM CHUNK 747]  mem
+2025-12-01 13:43:31,933 DEBUG 🔸 [LLM CHUNK 748] pred
+2025-12-01 13:43:31,933 DEBUG 🔸 [LLM CHUNK 749] iksi
+2025-12-01 13:43:31,934 DEBUG 🔸 [LLM CHUNK 750]  per
+2025-12-01 13:43:31,958 DEBUG 🔸 [LLM CHUNK 751] ger
+2025-12-01 13:43:31,958 DEBUG 🔸 [LLM CHUNK 752] akan
+2025-12-01 13:43:31,959 DEBUG 🔸 [LLM CHUNK 753]  harga
+2025-12-01 13:43:32,189 DEBUG 🔸 [LLM CHUNK 754] .*
+2025-12-01 13:43:32,191 DEBUG 🔸 [LLM CHUNK 755] 
+2025-12-01 13:43:32,404 DEBUG 🔸 [LLM CHUNK 756] 
+2025-12-01 13:43:32,412 DEBUG 🔸 [LLM CHUNK 757] 
+2025-12-01 13:43:32,420 INFO ✅ [LLM] Stream completed. Total length: 2936 chars
+2025-12-01 13:43:32,445 ERROR ⚠️ [LOG] Failed to save log: Object of type float32 is not JSON serializable

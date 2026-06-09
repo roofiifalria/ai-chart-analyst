@@ -16,3 +16,4 @@ chromadb
 
 # Ditambahkan untuk notebook agar bisa baca .env
 python-dotenv
+requests

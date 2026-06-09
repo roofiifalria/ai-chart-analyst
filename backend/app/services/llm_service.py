@@ -9,10 +9,11 @@ print("LLM Service: Menghubungkan ke Ollama...")
 
 # 1. LLM Generatif (Untuk berpikir dan menjawab)
 # Ini adalah model standar untuk sintesis akhir.
+# HAPUS parameter mirostat/tfs_z jika ada untuk menghilangkan warning
 llm_generative = ChatOllama(
     model=settings.GENERATIVE_MODEL,
     base_url=settings.OLLAMA_BASE_URL,
-    temperature=0.2,  # Sedikit kreatif, tapi tetap faktual
+    temperature=0.2,  
 )
 
 # 2. LLM Visi (Untuk ekstraksi JSON)
@@ -21,8 +22,8 @@ llm_generative = ChatOllama(
 llm_vision_json = ChatOllama(
     model=settings.VISION_MODEL,
     base_url=settings.OLLAMA_BASE_URL,
-    format="json",  # <-- Kuncinya ada di sini
-    temperature=0.0   # Harus sangat kaku dan faktual
+    format="json",
+    temperature=0.0   
 )
 
 print("LLM Service: Terhubung.")

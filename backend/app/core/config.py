@@ -17,6 +17,14 @@ class Settings(BaseSettings):
     VISION_MODEL: str
     GENERATIVE_MODEL: str
     EMBEDDING_MODEL: str
+    # Optional comma-separated list of fallback vision models (used when primary fails)
+    VISION_FALLBACK_MODELS: str = "deepseek-v3.1:671b-cloud"
+    # Number of times to retry the primary vision model if it returns 500 or transient errors
+    VISION_MAX_RETRIES: int = 2
+    # Seconds delay between retries of the primary vision model
+    VISION_RETRY_DELAY: float = 1.0
+    # Optional embedding model used specifically for reranking (calculate cosine similarity)
+    RERANK_EMBEDDING_MODEL: str = "ms-marco-MiniLM-L-12-v2"
     
     CHROMA_API_KEY: str
     CHROMA_TENANT: str
