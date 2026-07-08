@@ -1,0 +1,179 @@
+{
+  "cases": [
+    {
+      "case_id": "chart_001",
+      "query": "Jelaskan pola dan indikator chart ini",
+      "image_path": "backend/evaluation/dataset/images/bnb_1.png",
+      "expected_key_patterns": [
+        "Lower High",
+        "Downtrend",
+        "Bearish Continuation"
+      ],
+      "expected_key_levels": [
+        "Support 568",
+        "Resistance 578"
+      ],
+      "expected_indicators": [
+        "Momentum Bearish",
+        "Selling Pressure"
+      ],
+      "expected_answer_keywords": [
+        "bearish",
+        "turun",
+        "support",
+        "lower high",
+        "downtrend"
+      ]
+    },
+    {
+      "case_id": "chart_002",
+      "query": "Jelaskan pola dan indikator chart ini",
+      "image_path": "backend/evaluation/dataset/images/xrp_1.png",
+      "expected_key_patterns": [
+        "Downtrend",
+        "Bearish Breakdown",
+        "Lower Low"
+      ],
+      "expected_key_levels": [
+        "Support 1.09",
+        "Resistance 1.13"
+      ],
+      "expected_indicators": [
+        "Strong Bearish Momentum",
+        "Selling Pressure"
+      ],
+      "expected_answer_keywords": [
+        "bearish",
+        "breakdown",
+        "support",
+        "lower low",
+        "turun"
+      ]
+    },
+    {
+      "case_id": "chart_003",
+      "query": "Jelaskan pola dan indikator chart ini",
+      "image_path": "backend/evaluation/dataset/images/sol_1.png",
+      "expected_key_patterns": [
+        "Bearish Continuation",
+        "Breakdown",
+        "Lower High"
+      ],
+      "expected_key_levels": [
+        "Support 78",
+        "Resistance 81"
+      ],
+      "expected_indicators": [
+        "Momentum Bearish",
+        "Selling Pressure"
+      ],
+      "expected_answer_keywords": [
+        "bearish",
+        "support",
+        "breakdown",
+        "downtrend",
+        "momentum"
+      ]
+    },
+    {
+      "case_id": "chart_004",
+      "query": "Jelaskan pola dan indikator chart ini",
+      "image_path": "backend/evaluation/dataset/images/link_1.png",
+      "expected_key_patterns": [
+        "Lower High",
+        "Bearish Trend",
+        "Support Test"
+      ],
+      "expected_key_levels": [
+        "Support 7.68",
+        "Resistance 7.95"
+      ],
+      "expected_indicators": [
+        "Weak Momentum",
+        "Bearish Bias"
+      ],
+      "expected_answer_keywords": [
+        "bearish",
+        "support",
+        "downtrend",
+        "lower high",
+        "seller"
+      ]
+    },
+    {
+      "case_id": "chart_005",
+      "query": "Jelaskan pola dan indikator chart ini",
+      "image_path": "backend/evaluation/dataset/images/btc_1.png",
+      "expected_key_patterns": [
+        "Lower High",
+        "Bearish Pullback",
+        "Downtrend"
+      ],
+      "expected_key_levels": [
+        "Support 62700",
+        "Resistance 64000"
+      ],
+      "expected_indicators": [
+        "Bearish Momentum",
+        "Selling Pressure"
+      ],
+      "expected_answer_keywords": [
+        "bearish",
+        "pullback",
+        "support",
+        "lower high",
+        "turun"
+      ]
+    },
+    {
+      "case_id": "chart_006",
+      "query": "Jelaskan pola dan indikator chart ini",
+      "image_path": "backend/evaluation/dataset/images/gold_1.png",
+      "expected_key_patterns": [
+        "Pullback",
+        "Range",
+        "Potential Rebound"
+      ],
+      "expected_key_levels": [
+        "Support 4100",
+        "Resistance 4140"
+      ],
+      "expected_indicators": [
+        "Neutral Momentum",
+        "Consolidation"
+      ],
+      "expected_answer_keywords": [
+        "konsolidasi",
+        "support",
+        "resistance",
+        "pullback",
+        "netral"
+      ]
+    },
+    {
+      "case_id": "chart_007",
+      "query": "Jelaskan pola dan indikator chart ini",
+      "image_path": "backend/evaluation/dataset/images/eth_1.png",
+      "expected_key_patterns": [
+        "Lower High",
+        "Bearish Continuation",
+        "Downtrend"
+      ],
+      "expected_key_levels": [
+        "Support 1745",
+        "Resistance 1780"
+      ],
+      "expected_indicators": [
+        "Momentum Bearish",
+        "Selling Pressure"
+      ],
+      "expected_answer_keywords": [
+        "bearish",
+        "downtrend",
+        "support",
+        "lower high",
+        "breakdown"
+      ]
+    }
+  ]
+}
