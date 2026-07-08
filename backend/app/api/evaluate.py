@@ -99,7 +99,6 @@ async def get_result_endpoint(filename: str):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-
 @router.get("/evaluate/dataset")
 async def get_dataset_endpoint():
     """Lihat isi dataset ground truth yang sedang dipakai untuk evaluasi."""

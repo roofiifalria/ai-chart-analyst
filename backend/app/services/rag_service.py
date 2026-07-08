@@ -1,6 +1,6 @@
 import chromadb
-from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_community.vectorstores import Chroma
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from app.core.config import settings
 from flashrank import Ranker, RerankRequest # <-- 1. IMPOR FLASHRANK
@@ -127,11 +127,14 @@ def query_knowledge_base(query_text: str, k: int = 3) -> list[Document]:
         # ---------------------------------------------
 
         # Kembalikan ke format Document LangChain
+        # SESUDAH
         final_docs = []
         for res in top_results:
-            # attach optional similarity score to metadata for easier logging upstream
             meta = res['meta'].copy() if isinstance(res['meta'], dict) else {}
-            meta['rerank_score'] = res.get('score')
+            raw_score = res.get('score')
+            # FlashRank mengembalikan numpy.float32 — konversi ke Python float
+            # native di sini supaya semua konsumen di hilir (chat.py, evaluation) aman
+            meta['rerank_score'] = float(raw_score) if raw_score is not None else None
             final_docs.append(Document(
                 page_content=res['text'], 
                 metadata=meta

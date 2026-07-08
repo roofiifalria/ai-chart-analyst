@@ -1,0 +1,298 @@
+{
+  "timestamp": "2026-07-08T10:42:09.760975",
+  "mode": "multimodal",
+  "query": "bantu saya analisis chart ini",
+  "history_length": 5,
+  "image_filename": "Screenshot 2026-07-08 093519.png",
+  "ai_response": "Halo! Saya **AI Chart Analyst**, asisten edukasi trading Anda. Mari kita bedah bersama chart yang baru saja Anda unggah untuk memahami struktur pasar dan pola yang sedang terbentuk.\n\n## 📊 Analisis Teknikal Chart\n\nBerdasarkan data visual, harga saat ini sedang berada dalam",
+  "stream_chunks": [
+    {
+      "index": 0,
+      "text_preview": "Halo"
+    },
+    {
+      "index": 1,
+      "text_preview": "!"
+    },
+    {
+      "index": 2,
+      "text_preview": " Saya"
+    },
+    {
+      "index": 3,
+      "text_preview": " **"
+    },
+    {
+      "index": 4,
+      "text_preview": "AI"
+    },
+    {
+      "index": 5,
+      "text_preview": " Chart"
+    },
+    {
+      "index": 6,
+      "text_preview": " Analyst"
+    },
+    {
+      "index": 7,
+      "text_preview": "**,"
+    },
+    {
+      "index": 8,
+      "text_preview": " as"
+    },
+    {
+      "index": 9,
+      "text_preview": "isten"
+    },
+    {
+      "index": 10,
+      "text_preview": " eduk"
+    },
+    {
+      "index": 11,
+      "text_preview": "asi"
+    },
+    {
+      "index": 12,
+      "text_preview": " trading"
+    },
+    {
+      "index": 13,
+      "text_preview": " Anda"
+    },
+    {
+      "index": 14,
+      "text_preview": "."
+    },
+    {
+      "index": 15,
+      "text_preview": " Mari"
+    },
+    {
+      "index": 16,
+      "text_preview": " kita"
+    },
+    {
+      "index": 17,
+      "text_preview": " bed"
+    },
+    {
+      "index": 18,
+      "text_preview": "ah"
+    },
+    {
+      "index": 19,
+      "text_preview": " bersama"
+    },
+    {
+      "index": 20,
+      "text_preview": " chart"
+    },
+    {
+      "index": 21,
+      "text_preview": " yang"
+    },
+    {
+      "index": 22,
+      "text_preview": " baru"
+    },
+    {
+      "index": 23,
+      "text_preview": " saja"
+    },
+    {
+      "index": 24,
+      "text_preview": " Anda"
+    },
+    {
+      "index": 25,
+      "text_preview": " ungg"
+    },
+    {
+      "index": 26,
+      "text_preview": "ah"
+    },
+    {
+      "index": 27,
+      "text_preview": " untuk"
+    },
+    {
+      "index": 28,
+      "text_preview": " memahami"
+    },
+    {
+      "index": 29,
+      "text_preview": " struktur"
+    },
+    {
+      "index": 30,
+      "text_preview": " pasar"
+    },
+    {
+      "index": 31,
+      "text_preview": " dan"
+    },
+    {
+      "index": 32,
+      "text_preview": " pola"
+    },
+    {
+      "index": 33,
+      "text_preview": " yang"
+    },
+    {
+      "index": 34,
+      "text_preview": " sedang"
+    },
+    {
+      "index": 35,
+      "text_preview": " terbentuk"
+    },
+    {
+      "index": 36,
+      "text_preview": "."
+    },
+    {
+      "index": 37,
+      "text_preview": "\n\n"
+    },
+    {
+      "index": 38,
+      "text_preview": "##"
+    },
+    {
+      "index": 39,
+      "text_preview": " "
+    },
+    {
+      "index": 40,
+      "text_preview": "📊"
+    },
+    {
+      "index": 41,
+      "text_preview": " Anal"
+    },
+    {
+      "index": 42,
+      "text_preview": "isis"
+    },
+    {
+      "index": 43,
+      "text_preview": " Teknik"
+    },
+    {
+      "index": 44,
+      "text_preview": "al"
+    },
+    {
+      "index": 45,
+      "text_preview": " Chart"
+    },
+    {
+      "index": 46,
+      "text_preview": "\n\n"
+    },
+    {
+      "index": 47,
+      "text_preview": "B"
+    },
+    {
+      "index": 48,
+      "text_preview": "erdas"
+    },
+    {
+      "index": 49,
+      "text_preview": "arkan"
+    },
+    {
+      "index": 50,
+      "text_preview": " data"
+    },
+    {
+      "index": 51,
+      "text_preview": " visual"
+    },
+    {
+      "index": 52,
+      "text_preview": ","
+    },
+    {
+      "index": 53,
+      "text_preview": " harga"
+    },
+    {
+      "index": 54,
+      "text_preview": " saat"
+    },
+    {
+      "index": 55,
+      "text_preview": " ini"
+    },
+    {
+      "index": 56,
+      "text_preview": " sedang"
+    },
+    {
+      "index": 57,
+      "text_preview": " berada"
+    },
+    {
+      "index": 58,
+      "text_preview": " dalam"
+    },
+    {
+      "index": 59,
+      "text_preview": ""
+    },
+    {
+      "index": 60,
+      "text_preview": ""
+    }
+  ],
+  "vision_attempts": [
+    {
+      "model": "gemma4:31b-cloud",
+      "attempt": 1,
+      "invocation_success": true,
+      "parse_success": true,
+      "content_preview": "```json\n{\n    \"key_patterns\": [\"Triple Top\", \"Descending Triangle (forming)\"],\n    \"key_levels\": [\"Resistance: 8.100\", \"Support: 7.689\"],\n    \"indicators\": [\"Price rejection at 8.100\", \"Breakdown of recent support level\"],\n    \"summary\": \"Harga sedang mengalami fase konsolidasi dengan kecenderungan bearish setelah gagal menembus resistance 8.100, saat ini sedang menguji level support kritis di 7.689.\"\n}\n```",
+      "error": null
+    }
+  ],
+  "error": null,
+  "vision_model_used": "gemma4:31b-cloud",
+  "rag_results": [
+    {
+      "rank": 1,
+      "source": "../data\\technical-analysis-course-cambridge.pdf",
+      "rerank_score": 0.07398258149623871,
+      "snippet": "Broadening top\n55\n Broadening Top confirmation\nOther Chart Patterns\n• Candlestick pattern\n• Double Top & Double Bottom\n• Gaps (Technical analysis)\n• Head and Shoulders Top & Bottom\n• The Island Revers"
+    },
+    {
+      "rank": 2,
+      "source": "../data\\technical-analysis-course-cambridge.pdf",
+      "rerank_score": 0.06395240128040314,
+      "snippet": "Double top and double bottom\n52\nDouble bottom\n Double bottom confirmation\nA double bottom is the end formation in a\ndeclining market. It is identical to the double\ntop, except for the inverse relation"
+    },
+    {
+      "rank": 3,
+      "source": "../data\\technical-analysis-course-cambridge.pdf",
+      "rerank_score": 0.05320464447140694,
+      "snippet": "Triple top and triple bottom\n53\n Opportunity\nThere are several different trading strategies that can be employed to take advantage\nof this formation. Of course, first and second peaks are perfect poin"
+    },
+    {
+      "rank": 4,
+      "source": "../data\\technical-analysis-course-cambridge.pdf",
+      "rerank_score": 0.01643713377416134,
+      "snippet": "Triangle (chart pattern)\n59\nThe Descending Triangle\nThe descending triangle is formed when the market makes lower highs and the same level lows. These patterns are\nnormally seen in a downtrend and vie"
+    },
+    {
+      "rank": 5,
+      "source": "../data\\technical-analysis-course-cambridge.pdf",
+      "rerank_score": 0.009130817838013172,
+      "snippet": "Double top and double bottom\n51\nDouble top and double bottom\nDouble top and double bottom are reversal chart patterns observed in the technical analysis of financial trading\nmarkets of stocks, commodi"
+    }
+  ]
+}

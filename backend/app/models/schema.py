@@ -50,8 +50,8 @@ class EvaluateRequest(BaseModel):
         json_schema_extra = {
             "example": {
                 "model_combinations": [
-                    {"vision_model": "qwen2.5vl:7b", "generative_model": "llama3.1:8b"},
-                    {"vision_model": "llava:13b", "generative_model": "mistral:7b"}
+                    {"vision_model": "kimi-k2.7-code:cloud", "generative_model": "qwen3-vl:4b"},
+                    {"vision_model": "gemma4:31b-cloud", "generative_model": "qwen3-vl:4b"}
                 ]
             }
         }

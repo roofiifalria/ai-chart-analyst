@@ -1,0 +1,81 @@
+{
+  "timestamp": "2026-07-08T10:09:17.434098",
+  "mode": "multimodal",
+  "query": "coba analisis ini",
+  "history_length": 3,
+  "image_filename": "Screenshot 2026-07-08 093519.png",
+  "ai_response": "Halo! Saya adalah",
+  "stream_chunks": [
+    {
+      "index": 0,
+      "text_preview": "Halo"
+    },
+    {
+      "index": 1,
+      "text_preview": "!"
+    },
+    {
+      "index": 2,
+      "text_preview": " Saya"
+    },
+    {
+      "index": 3,
+      "text_preview": " adalah"
+    },
+    {
+      "index": 4,
+      "text_preview": ""
+    },
+    {
+      "index": 5,
+      "text_preview": ""
+    }
+  ],
+  "vision_attempts": [
+    {
+      "model": "gemma4:31b-cloud",
+      "attempt": 1,
+      "invocation_success": false,
+      "parse_success": false,
+      "content_preview": null,
+      "error": "Ollama call failed with status code 503. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [503 Service Unavailable]>\n<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 08 Jul 2026 03:09:26 GMT', 'Content-Length': '199')>\n>"
+    },
+    {
+      "model": "gemma4:31b-cloud",
+      "attempt": 2,
+      "invocation_success": false,
+      "parse_success": false,
+      "content_preview": null,
+      "error": "Ollama call failed with status code 503. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [503 Service Unavailable]>\n<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 08 Jul 2026 03:09:31 GMT', 'Content-Length': '199')>\n>"
+    },
+    {
+      "model": "gemma4:31b-cloud",
+      "attempt": 1,
+      "invocation_success": false,
+      "parse_success": false,
+      "content_preview": null,
+      "error": "Ollama call failed with status code 503. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [503 Service Unavailable]>\n<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 08 Jul 2026 03:09:36 GMT', 'Content-Length': '199')>\n>"
+    },
+    {
+      "model": "deepseek-v3.1:671b-cloud",
+      "attempt": 2,
+      "invocation_success": false,
+      "parse_success": false,
+      "content_preview": null,
+      "error": "Ollama call failed with status code 403. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [403 Forbidden]>\n<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 08 Jul 2026 03:09:37 GMT', 'Content-Length': '180')>\n>"
+    },
+    {
+      "model": "qwen3-vl:235b-instruct-cloud",
+      "attempt": 3,
+      "invocation_success": false,
+      "parse_success": false,
+      "content_preview": null,
+      "error": "Ollama call failed with status code 410. Details: <bound method ClientResponse.text of <ClientResponse(http://localhost:11434/api/chat) [410 Gone]>\n<CIMultiDictProxy('Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 08 Jul 2026 03:09:38 GMT', 'Content-Length': '160')>\n>"
+    }
+  ],
+  "error": null,
+  "rag_results": [
+    {
+      "rank": 1,
+      "source": "../data\\technical-analysis-course-cambridge.pdf",
+      "rerank_score": 

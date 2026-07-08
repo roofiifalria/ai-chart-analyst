@@ -11,12 +11,32 @@ from typing import Optional, List
 # Impor service kita
 from app.services.rag_service import query_knowledge_base
 from app.services.llm_service import llm_generative, llm_vision_json
-from langchain_community.chat_models import ChatOllama
+from langchain_ollama import ChatOllama
 from app.core.config import settings
 from app.models.schema import VisionExtraction
 from langchain_core.messages import HumanMessage
 import logging
 
+# rag_service.py — 2 baris ini
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import Chroma
+# ganti jadi:
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_chroma import Chroma
+
+import numpy as np
+
+class NumpySafeEncoder(json.JSONEncoder):
+    """Jaring pengaman: encoder JSON yang aman untuk tipe numpy (float32, int64, ndarray)
+    kalau-kalau ada nilai numpy lain yang lolos dari sumbernya."""
+    def default(self, obj):
+        if isinstance(obj, np.floating):
+            return float(obj)
+        if isinstance(obj, np.integer):
+            return int(obj)
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        return super().default(obj)
 # --- KONFIGURASI LOGGING ---
 CHAT_LOG_DIR = "logs/chat"
 os.makedirs(CHAT_LOG_DIR, exist_ok=True)
@@ -286,7 +306,7 @@ async def analyze_chart_endpoint(
             filename = f"chat_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
             filepath = os.path.join(CHAT_LOG_DIR, filename)
             with open(filepath, "w", encoding="utf-8") as f:
-                json.dump(log_data, f, indent=2, ensure_ascii=False)
+                json.dump(log_data, f, indent=2, ensure_ascii=False, cls=NumpySafeEncoder)
             logger.info("💾 [LOG] Saved chat log to %s", filepath)
         except Exception as e:
             logger.error("⚠️ [LOG] Failed to save log: %s", e)
@@ -508,11 +528,8 @@ async def analyze_chart_endpoint(
                 rag_context=rag_context
             )
             
-            final_message = HumanMessage(content=[
-                {"type": "text", "text": final_prompt},
-                image_message
-            ])
-            
+            final_message = HumanMessage(content=final_prompt)
+
             return StreamingResponse(
                 response_streamer(final_message, log_data), 
                 media_type="text/plain"
