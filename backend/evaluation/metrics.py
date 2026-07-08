@@ -52,6 +52,13 @@ from typing import Any, Dict, List
 # Normalisasi & pencocokan label
 # ---------------------------------------------------------------------------
 
+# Koma/titik yang menjadi PEMISAH RIBUAN di antara digit (mis. "73,000" atau
+# "73.000") harus DIHAPUS, bukan diubah jadi spasi -- kalau tidak, "73,000"
+# dan "73000" dianggap dua label berbeda ("support 73 000" vs "support
+# 73000") padahal keduanya sama persis secara nilai. Ini harus dijalankan
+# SEBELUM _PUNCT_TO_SPACE_RE supaya koma/titik ribuan sempat dihapus dulu
+# sebelum aturan umum (yang mengubah tanda baca lain jadi spasi) berjalan.
+_THOUSANDS_SEP_RE = re.compile(r"(?<=\d)[.,](?=\d{3}(?:\D|$))")
 _PUNCT_TO_SPACE_RE = re.compile(r"[-_.,;:/\\]+")
 _MULTI_SPACE_RE = re.compile(r"\s+")
 
@@ -60,10 +67,14 @@ def _normalize_label(label: Any) -> str:
     """
     Normalisasi satu label untuk pencocokan case-insensitive + fuzzy ringan.
     Contoh: " Golden_Cross " dan "golden-cross" -> "golden cross"
+    Contoh angka: "Support: 73,000" dan "Support 73000" -> "support 73000"
+    (koma ribuan dihapus terlebih dahulu, bukan diubah jadi spasi, supaya
+    angka yang nilainya sama tetap cocok meski format penulisannya beda).
     """
     if label is None:
         return ""
     text = str(label).strip().lower()
+    text = _THOUSANDS_SEP_RE.sub("", text)
     text = _PUNCT_TO_SPACE_RE.sub(" ", text)
     text = _MULTI_SPACE_RE.sub(" ", text).strip()
     return text

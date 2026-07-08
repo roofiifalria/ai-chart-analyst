@@ -148,15 +148,39 @@ def _extract_json_from_text(text: str) -> Optional[dict]:
         return None
 
 
-def _run_vision_model(model_name: str, image_b64: str, query: str) -> Dict[str, Any]:
+def _try_parse_vision_response(raw_content: str) -> Optional[dict]:
     """
-    Jalankan satu model Ollama sebagai vision model untuk satu gambar,
-    kembalikan dict hasil ekstraksi (key_patterns, key_levels, indicators, summary)
-    beserta metadata (latency, error jika ada).
+    Coba parse response vision model menjadi dict tervalidasi VisionExtraction.
+    Mengembalikan dict hasil .dict() jika berhasil, None jika gagal.
+    Mencoba json.loads() langsung dulu, lalu fallback ke ekstraksi substring
+    JSON dari teks (menangani kasus model membungkus JSON dengan markdown
+    fence ```json ... ``` atau menambahkan teks pembuka/penutup).
     """
-    result = {
+    if not raw_content:
+        return None
+    try:
+        parsed = json.loads(raw_content)
+    except Exception:
+        parsed = _extract_json_from_text(raw_content)
+    if not parsed:
+        return None
+    try:
+        validated = VisionExtraction(**parsed)
+        return validated.dict()
+    except Exception:
+        return None
+
+
+def _invoke_vision_once(model_name: str, image_b64: str) -> Dict[str, Any]:
+    """
+    Satu kali panggilan (tanpa retry) ke satu model vision. Mengembalikan
+    dict beserta raw_content, latency, dan error jika invoke() sendiri
+    melempar exception (mis. 503, timeout, koneksi putus).
+    """
+    attempt = {
         "model": model_name,
-        "success": False,
+        "invocation_success": False,
+        "parse_success": False,
         "latency_sec": None,
         "raw_content": None,
         "extracted": None,
@@ -181,26 +205,126 @@ def _run_vision_model(model_name: str, image_b64: str, query: str) -> Dict[str, 
         start = time.time()
         response = vision_instance.invoke([vision_message])
         elapsed = time.time() - start
-        result["latency_sec"] = round(elapsed, 3)
-        result["raw_content"] = getattr(response, "content", "")
+        attempt["latency_sec"] = round(elapsed, 3)
+        attempt["invocation_success"] = True
+        attempt["raw_content"] = getattr(response, "content", "")
 
-        try:
-            parsed = json.loads(result["raw_content"])
-        except Exception:
-            parsed = _extract_json_from_text(result["raw_content"])
-
-        if parsed:
-            validated = VisionExtraction(**parsed)
-            result["extracted"] = validated.dict()
-            result["success"] = True
+        extracted = _try_parse_vision_response(attempt["raw_content"])
+        if extracted:
+            attempt["extracted"] = extracted
+            attempt["parse_success"] = True
         else:
-            result["error"] = "Gagal parsing JSON dari respons vision model"
+            attempt["error"] = "Gagal parsing JSON dari respons vision model"
 
     except Exception as e:
-        result["error"] = str(e)
-        logger.warning("⚠️ [EVAL] Vision model %s gagal: %s", model_name, e)
+        attempt["error"] = str(e)
 
-    return result
+    return attempt
+
+
+def _run_vision_model_with_fallback(model_name: str, image_b64: str, query: str) -> Dict[str, Any]:
+    """
+    Jalankan vision model dengan retry + fallback, mengikuti pola yang sudah
+    dipakai (dan terbukti bekerja) di app/api/chat.py:
+
+    1. Coba model utama (`model_name`) hingga `settings.VISION_MAX_RETRIES` kali,
+       dengan jeda `settings.VISION_RETRY_DELAY` detik antar percobaan. Ini
+       menangani kegagalan SEMENTARA seperti 503 "model overloaded" atau
+       response yang terpotong di tengah jalan (raw JSON tidak lengkap).
+    2. Jika model utama tetap gagal setelah semua retry, coba tiap model di
+       `settings.VISION_FALLBACK_MODELS` (comma-separated) secara berurutan,
+       masing-masing SATU kali percobaan (tanpa retry berlapis, supaya waktu
+       evaluasi tidak membengkak jika banyak case saat semua model penuh).
+    3. Kembalikan dict dengan field yang SAMA seperti _run_vision_model lama
+       (`model`, `success`, `latency_sec`, `raw_content`, `extracted`, `error`)
+       PLUS field baru:
+       - `model_used`: model mana yang akhirnya berhasil (bisa beda dari
+         `model_name` jika yang berhasil adalah salah satu fallback)
+       - `attempts`: rincian semua percobaan (model, sukses/gagal, error)
+         untuk transparansi di laporan evaluasi -- supaya jelas apakah
+         suatu case "gagal murni" atau "berhasil tapi baru di percobaan ke-N
+         / lewat model fallback".
+    """
+    all_attempts: List[Dict[str, Any]] = []
+
+    max_retries = getattr(settings, "VISION_MAX_RETRIES", None)
+    max_retries = max_retries if max_retries is not None else 1
+    retry_delay = getattr(settings, "VISION_RETRY_DELAY", None)
+    retry_delay = retry_delay if retry_delay is not None else 1.0
+
+    # --- STEP 1: retry model utama ---
+    for attempt_num in range(1, max_retries + 1):
+        logger.info(
+            "🔁 [EVAL][VISION] Model utama (%s) percobaan %s/%s",
+            model_name, attempt_num, max_retries,
+        )
+        attempt = _invoke_vision_once(model_name, image_b64)
+        attempt["attempt_number"] = attempt_num
+        all_attempts.append(attempt)
+
+        if attempt["parse_success"]:
+            return {
+                "model": model_name,
+                "model_used": model_name,
+                "success": True,
+                "latency_sec": attempt["latency_sec"],
+                "raw_content": attempt["raw_content"],
+                "extracted": attempt["extracted"],
+                "error": None,
+                "attempts": all_attempts,
+            }
+
+        logger.warning(
+            "⚠️ [EVAL][VISION] Model utama %s percobaan %s/%s gagal: %s",
+            model_name, attempt_num, max_retries, attempt["error"],
+        )
+        if attempt_num < max_retries:
+            time.sleep(retry_delay)
+
+    # --- STEP 2: model utama gagal total setelah semua retry -> coba fallback ---
+    fallback_raw = getattr(settings, "VISION_FALLBACK_MODELS", "") or ""
+    fallback_models = [m.strip() for m in fallback_raw.split(",") if m.strip()]
+    # Jangan ulangi model utama sebagai fallback jika kebetulan tercantum juga
+    fallback_models = [m for m in fallback_models if m != model_name]
+
+    for alt_model in fallback_models:
+        logger.info("🔁 [EVAL][VISION] Mencoba model fallback: %s", alt_model)
+        attempt = _invoke_vision_once(alt_model, image_b64)
+        attempt["attempt_number"] = len(all_attempts) + 1
+        all_attempts.append(attempt)
+
+        if attempt["parse_success"]:
+            logger.info("✅ [EVAL][VISION] Berhasil dengan model fallback: %s", alt_model)
+            return {
+                "model": model_name,
+                "model_used": alt_model,
+                "success": True,
+                "latency_sec": attempt["latency_sec"],
+                "raw_content": attempt["raw_content"],
+                "extracted": attempt["extracted"],
+                "error": None,
+                "attempts": all_attempts,
+            }
+        logger.warning(
+            "⚠️ [EVAL][VISION] Model fallback %s gagal: %s", alt_model, attempt["error"],
+        )
+
+    # --- STEP 3: semua model (utama + fallback) gagal ---
+    last_error = all_attempts[-1]["error"] if all_attempts else "Tidak ada percobaan yang dilakukan"
+    logger.error(
+        "❌ [EVAL][VISION] Semua model gagal (utama + %s fallback) untuk 1 case. Error terakhir: %s",
+        len(fallback_models), last_error,
+    )
+    return {
+        "model": model_name,
+        "model_used": None,
+        "success": False,
+        "latency_sec": None,
+        "raw_content": all_attempts[-1]["raw_content"] if all_attempts else None,
+        "extracted": None,
+        "error": last_error,
+        "attempts": all_attempts,
+    }
 
 
 def _run_generative_model(
@@ -290,8 +414,13 @@ def evaluate_single_case(
     if has_image:
         image_b64 = _image_to_base64(image_path)
         if image_b64:
-            vision_result = _run_vision_model(vision_model, image_b64, query)
+            vision_result = _run_vision_model_with_fallback(vision_model, image_b64, query)
             case_result["vision"] = vision_result
+            # Catat model yang SEBENARNYA berhasil (bisa beda dari vision_model
+            # jika yang berhasil adalah salah satu VISION_FALLBACK_MODELS),
+            # supaya laporan evaluasi transparan soal model mana yang benar-
+            # benar menghasilkan ekstraksi ini.
+            case_result["vision_model_used"] = vision_result.get("model_used")
             if vision_result["success"]:
                 vision_extracted = vision_result["extracted"]
                 vision_json_str = json.dumps(vision_extracted, ensure_ascii=False)
@@ -547,9 +676,19 @@ def _build_txt_report(comparison_result: Dict[str, Any]) -> str:
         add(f">> Model: vision={summary['vision_model']} | generative={summary['generative_model']}")
         for case in summary["case_results"]:
             overall = case["scores"]["case_overall"]
+            vision_used = case.get("vision_model_used")
+            # Tandai jelas jika hasil case ini datang dari FALLBACK model
+            # (bukan model utama yang diminta), supaya tidak salah dibaca
+            # seolah-olah model utama yang berperforma baik.
+            fallback_note = ""
+            if vision_used and vision_used != summary["vision_model"]:
+                fallback_note = f" [⚠️ FALLBACK: vision aktual={vision_used}]"
+            elif vision_used is None and case.get("vision") is not None:
+                fallback_note = " [❌ SEMUA VISION MODEL GAGAL]"
             add(
                 f"   [{case['case_id']}] query=\"{case['query'][:60]}\" "
                 f"-> F1={overall['f1_score']} P={overall['precision']} R={overall['recall']}"
+                f"{fallback_note}"
             )
 
     add("")
