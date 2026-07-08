@@ -1,0 +1,2518 @@
+{
+  "timestamp": "2026-06-09T20:32:32.038510",
+  "mode": "multimodal",
+  "query": "ini pola apa namanya dan perkiraan akan kemana harganya",
+  "history_length": 1,
+  "image_filename": "Screenshot 2026-06-09 203209.png",
+  "ai_response": "Halo! Saya AI Chart Analyst. Mari kita bedah bersama tampilan chart BTCUSDT pada timeframe 15 menit ini untuk tujuan edukasi.\n\n## Analisis Pola Chart\n\nBerdasarkan pergerakan harga yang terlihat, pola yang sedang terbentuk adalah **Descending Triangle** (Segitiga Menurun).\n\n### Apa itu Descending Triangle?\nSesuai dengan referensi teknikal, **Descending Triangle** adalah pola yang terbentuk ketika pasar membuat titik tertinggi yang semakin rendah (**Lower Highs**) namun memiliki level terendah yang relatif sama atau datar (**Flat Support**).\n\nDalam chart Anda, kita bisa melihat:\n*   **Garis Atas (Resistance):** Harga mencoba naik namun selalu gagal mencapai titik tertinggi sebelumnya, membentuk garis miring menurun.\n*   **Garis Bawah (Support):** Harga tertahan di area yang relatif sama, menciptakan lantai atau dasar yang kuat.\n\n---\n\n## Analisis Level Harga & Momentum\n\nBerikut adalah poin-poin penting dari struktur harga saat ini:\n\n*   **Resistance Utama:** Berada di kisaran **64,200**. Ini adalah area di mana tekanan jual cenderung lebih kuat daripada tekanan beli.\n*   **Support Utama:** Berada di kisaran **61,400**. Ini adalah area \"lantai\" yang saat ini sedang diuji oleh harga.\n*   **Harga Saat Ini:** Berada di **62,538.80**, yang menunjukkan posisi harga sedang berada di tengah-tengah pola tersebut.\n\n**Momentum:**\nSaat ini terlihat adanya **Bearish Momentum**. Hal ini ditandai dengan terbentuknya *Lower Highs*, yang artinya pembeli (bulls) semakin kehilangan kekuatan untuk mendorong harga naik lebih tinggi, sementara penjual (bears) semakin agresif menekan harga turun.\n\n---\n\n## Edukasi: Kemana Arah Harga Selanjutnya?\n\nDalam teori analisis teknikal, **Descending Triangle** biasanya dianggap sebagai **Continuation Pattern** (pola kelanjutan). Artinya:\n\n1.  **Skenario Umum (Bearish):** Jika harga menembus (*breakout*) garis support di **61,400**, pola ini mengonfirmasi bahwa tren penurunan akan berlanjut.\n2.  **Skenario Alternatif (Bullish Reversal):** Meskipun jarang pada pola ini, jika harga mampu menembus garis resistance atas dengan volume yang kuat, maka pola ini bisa berubah menjadi sinyal pembalikan arah (reversal) menuju tren naik.\n\n### Ringkasan untuk Pembelajaran:\n*   **Pola:** Descending Triangle.\n*   **Karakteristik:** Lower Highs + Flat Support.\n*   **Fokus Pantauan:** Perhatikan apakah harga akan mampu bertahan di area support **61,400** atau justru menembusnya ke bawah.\n\n*Disclaimer: Analisis ini bertujuan untuk edukasi mengenai pola chart dan bukan merupakan saran investasi atau instruksi untuk melakukan transaksi jual/beli.*",
+  "stream_chunks": [
+    {
+      "index": 0,
+      "text_preview": "Halo"
+    },
+    {
+      "index": 1,
+      "text_preview": "!"
+    },
+    {
+      "index": 2,
+      "text_preview": " Saya"
+    },
+    {
+      "index": 3,
+      "text_preview": " AI"
+    },
+    {
+      "index": 4,
+      "text_preview": " Chart"
+    },
+    {
+      "index": 5,
+      "text_preview": " Analyst"
+    },
+    {
+      "index": 6,
+      "text_preview": "."
+    },
+    {
+      "index": 7,
+      "text_preview": " Mari"
+    },
+    {
+      "index": 8,
+      "text_preview": " kita"
+    },
+    {
+      "index": 9,
+      "text_preview": " bed"
+    },
+    {
+      "index": 10,
+      "text_preview": "ah"
+    },
+    {
+      "index": 11,
+      "text_preview": " bersama"
+    },
+    {
+      "index": 12,
+      "text_preview": " tampilan"
+    },
+    {
+      "index": 13,
+      "text_preview": " chart"
+    },
+    {
+      "index": 14,
+      "text_preview": " BTC"
+    },
+    {
+      "index": 15,
+      "text_preview": "US"
+    },
+    {
+      "index": 16,
+      "text_preview": "DT"
+    },
+    {
+      "index": 17,
+      "text_preview": " pada"
+    },
+    {
+      "index": 18,
+      "text_preview": " timeframe"
+    },
+    {
+      "index": 19,
+      "text_preview": " "
+    },
+    {
+      "index": 20,
+      "text_preview": "1"
+    },
+    {
+      "index": 21,
+      "text_preview": "5"
+    },
+    {
+      "index": 22,
+      "text_preview": " menit"
+    },
+    {
+      "index": 23,
+      "text_preview": " ini"
+    },
+    {
+      "index": 24,
+      "text_preview": " untuk"
+    },
+    {
+      "index": 25,
+      "text_preview": " tujuan"
+    },
+    {
+      "index": 26,
+      "text_preview": " eduk"
+    },
+    {
+      "index": 27,
+      "text_preview": "asi"
+    },
+    {
+      "index": 28,
+      "text_preview": "."
+    },
+    {
+      "index": 29,
+      "text_preview": "\n\n"
+    },
+    {
+      "index": 30,
+      "text_preview": "##"
+    },
+    {
+      "index": 31,
+      "text_preview": " Anal"
+    },
+    {
+      "index": 32,
+      "text_preview": "isis"
+    },
+    {
+      "index": 33,
+      "text_preview": " Pol"
+    },
+    {
+      "index": 34,
+      "text_preview": "a"
+    },
+    {
+      "index": 35,
+      "text_preview": " Chart"
+    },
+    {
+      "index": 36,
+      "text_preview": "\n\n"
+    },
+    {
+      "index": 37,
+      "text_preview": "B"
+    },
+    {
+      "index": 38,
+      "text_preview": "erdas"
+    },
+    {
+      "index": 39,
+      "text_preview": "arkan"
+    },
+    {
+      "index": 40,
+      "text_preview": " per"
+    },
+    {
+      "index": 41,
+      "text_preview": "ger"
+    },
+    {
+      "index": 42,
+      "text_preview": "akan"
+    },
+    {
+      "index": 43,
+      "text_preview": " harga"
+    },
+    {
+      "index": 44,
+      "text_preview": " yang"
+    },
+    {
+      "index": 45,
+      "text_preview": " terlihat"
+    },
+    {
+      "index": 46,
+      "text_preview": ","
+    },
+    {
+      "index": 47,
+      "text_preview": " pola"
+    },
+    {
+      "index": 48,
+      "text_preview": " yang"
+    },
+    {
+      "index": 49,
+      "text_preview": " sedang"
+    },
+    {
+      "index": 50,
+      "text_preview": " terbentuk"
+    },
+    {
+      "index": 51,
+      "text_preview": " adalah"
+    },
+    {
+      "index": 52,
+      "text_preview": " **"
+    },
+    {
+      "index": 53,
+      "text_preview": "Descending"
+    },
+    {
+      "index": 54,
+      "text_preview": " Triangle"
+    },
+    {
+      "index": 55,
+      "text_preview": "**"
+    },
+    {
+      "index": 56,
+      "text_preview": " ("
+    },
+    {
+      "index": 57,
+      "text_preview": "Seg"
+    },
+    {
+      "index": 58,
+      "text_preview": "it"
+    },
+    {
+      "index": 59,
+      "text_preview": "iga"
+    },
+    {
+      "index": 60,
+      "text_preview": " Men"
+    },
+    {
+      "index": 61,
+      "text_preview": "urun"
+    },
+    {
+      "index": 62,
+      "text_preview": ")."
+    },
+    {
+      "index": 63,
+      "text_preview": "\n\n"
+    },
+    {
+      "index": 64,
+      "text_preview": "###"
+    },
+    {
+      "index": 65,
+      "text_preview": " Apa"
+    },
+    {
+      "index": 66,
+      "text_preview": " itu"
+    },
+    {
+      "index": 67,
+      "text_preview": " Desc"
+    },
+    {
+      "index": 68,
+      "text_preview": "ending"
+    },
+    {
+      "index": 69,
+      "text_preview": " Triangle"
+    },
+    {
+      "index": 70,
+      "text_preview": "?"
+    },
+    {
+      "index": 71,
+      "text_preview": "\n"
+    },
+    {
+      "index": 72,
+      "text_preview": "S"
+    },
+    {
+      "index": 73,
+      "text_preview": "esu"
+    },
+    {
+      "index": 74,
+      "text_preview": "ai"
+    },
+    {
+      "index": 75,
+      "text_preview": " dengan"
+    },
+    {
+      "index": 76,
+      "text_preview": " refer"
+    },
+    {
+      "index": 77,
+      "text_preview": "ensi"
+    },
+    {
+      "index": 78,
+      "text_preview": " tekn"
+    },
+    {
+      "index": 79,
+      "text_preview": "ikal"
+    },
+    {
+      "index": 80,
+      "text_preview": ","
+    },
+    {
+      "index": 81,
+      "text_preview": " **"
+    },
+    {
+      "index": 82,
+      "text_preview": "Descending"
+    },
+    {
+      "index": 83,
+      "text_preview": " Triangle"
+    },
+    {
+      "index": 84,
+      "text_preview": "**"
+    },
+    {
+      "index": 85,
+      "text_preview": " adalah"
+    },
+    {
+      "index": 86,
+      "text_preview": " pola"
+    },
+    {
+      "index": 87,
+      "text_preview": " yang"
+    },
+    {
+      "index": 88,
+      "text_preview": " terbentuk"
+    },
+    {
+      "index": 89,
+      "text_preview": " ketika"
+    },
+    {
+      "index": 90,
+      "text_preview": " pasar"
+    },
+    {
+      "index": 91,
+      "text_preview": " membuat"
+    },
+    {
+      "index": 92,
+      "text_preview": " titik"
+    },
+    {
+      "index": 93,
+      "text_preview": " tertinggi"
+    },
+    {
+      "index": 94,
+      "text_preview": " yang"
+    },
+    {
+      "index": 95,
+      "text_preview": " semakin"
+    },
+    {
+      "index": 96,
+      "text_preview": " rendah"
+    },
+    {
+      "index": 97,
+      "text_preview": " (**"
+    },
+    {
+      "index": 98,
+      "text_preview": "Lower"
+    },
+    {
+      "index": 99,
+      "text_preview": " High"
+    },
+    {
+      "index": 100,
+      "text_preview": "s"
+    },
+    {
+      "index": 101,
+      "text_preview": "**)"
+    },
+    {
+      "index": 102,
+      "text_preview": " namun"
+    },
+    {
+      "index": 103,
+      "text_preview": " memiliki"
+    },
+    {
+      "index": 104,
+      "text_preview": " level"
+    },
+    {
+      "index": 105,
+      "text_preview": " ter"
+    },
+    {
+      "index": 106,
+      "text_preview": "end"
+    },
+    {
+      "index": 107,
+      "text_preview": "ah"
+    },
+    {
+      "index": 108,
+      "text_preview": " yang"
+    },
+    {
+      "index": 109,
+      "text_preview": " relatif"
+    },
+    {
+      "index": 110,
+      "text_preview": " sama"
+    },
+    {
+      "index": 111,
+      "text_preview": " atau"
+    },
+    {
+      "index": 112,
+      "text_preview": " datar"
+    },
+    {
+      "index": 113,
+      "text_preview": " (**"
+    },
+    {
+      "index": 114,
+      "text_preview": "Flat"
+    },
+    {
+      "index": 115,
+      "text_preview": " Support"
+    },
+    {
+      "index": 116,
+      "text_preview": "**"
+    },
+    {
+      "index": 117,
+      "text_preview": ")."
+    },
+    {
+      "index": 118,
+      "text_preview": "\n\n"
+    },
+    {
+      "index": 119,
+      "text_preview": "Dalam"
+    },
+    {
+      "index": 120,
+      "text_preview": " chart"
+    },
+    {
+      "index": 121,
+      "text_preview": " Anda"
+    },
+    {
+      "index": 122,
+      "text_preview": ","
+    },
+    {
+      "index": 123,
+      "text_preview": " kita"
+    },
+    {
+      "index": 124,
+      "text_preview": " bisa"
+    },
+    {
+      "index": 125,
+      "text_preview": " melihat"
+    },
+    {
+      "index": 126,
+      "text_preview": ":"
+    },
+    {
+      "index": 127,
+      "text_preview": "\n"
+    },
+    {
+      "index": 128,
+      "text_preview": "*"
+    },
+    {
+      "index": 129,
+      "text_preview": "   "
+    },
+    {
+      "index": 130,
+      "text_preview": "**"
+    },
+    {
+      "index": 131,
+      "text_preview": "G"
+    },
+    {
+      "index": 132,
+      "text_preview": "aris"
+    },
+    {
+      "index": 133,
+      "text_preview": " At"
+    },
+    {
+      "index": 134,
+      "text_preview": "as"
+    },
+    {
+      "index": 135,
+      "text_preview": " ("
+    },
+    {
+      "index": 136,
+      "text_preview": "Resistance"
+    },
+    {
+      "index": 137,
+      "text_preview": "):"
+    },
+    {
+      "index": 138,
+      "text_preview": "**"
+    },
+    {
+      "index": 139,
+      "text_preview": " Harga"
+    },
+    {
+      "index": 140,
+      "text_preview": " mencoba"
+    },
+    {
+      "index": 141,
+      "text_preview": " naik"
+    },
+    {
+      "index": 142,
+      "text_preview": " namun"
+    },
+    {
+      "index": 143,
+      "text_preview": " selalu"
+    },
+    {
+      "index": 144,
+      "text_preview": " gagal"
+    },
+    {
+      "index": 145,
+      "text_preview": " mencapai"
+    },
+    {
+      "index": 146,
+      "text_preview": " titik"
+    },
+    {
+      "index": 147,
+      "text_preview": " tertinggi"
+    },
+    {
+      "index": 148,
+      "text_preview": " sebelumnya"
+    },
+    {
+      "index": 149,
+      "text_preview": ","
+    },
+    {
+      "index": 150,
+      "text_preview": " membentuk"
+    },
+    {
+      "index": 151,
+      "text_preview": " garis"
+    },
+    {
+      "index": 152,
+      "text_preview": " m"
+    },
+    {
+      "index": 153,
+      "text_preview": "iring"
+    },
+    {
+      "index": 154,
+      "text_preview": " menurun"
+    },
+    {
+      "index": 155,
+      "text_preview": "."
+    },
+    {
+      "index": 156,
+      "text_preview": "\n"
+    },
+    {
+      "index": 157,
+      "text_preview": "*"
+    },
+    {
+      "index": 158,
+      "text_preview": "   "
+    },
+    {
+      "index": 159,
+      "text_preview": "**"
+    },
+    {
+      "index": 160,
+      "text_preview": "G"
+    },
+    {
+      "index": 161,
+      "text_preview": "aris"
+    },
+    {
+      "index": 162,
+      "text_preview": " B"
+    },
+    {
+      "index": 163,
+      "text_preview": "awah"
+    },
+    {
+      "index": 164,
+      "text_preview": " ("
+    },
+    {
+      "index": 165,
+      "text_preview": "Support"
+    },
+    {
+      "index": 166,
+      "text_preview": "):"
+    },
+    {
+      "index": 167,
+      "text_preview": "**"
+    },
+    {
+      "index": 168,
+      "text_preview": " Harga"
+    },
+    {
+      "index": 169,
+      "text_preview": " tert"
+    },
+    {
+      "index": 170,
+      "text_preview": "ahan"
+    },
+    {
+      "index": 171,
+      "text_preview": " di"
+    },
+    {
+      "index": 172,
+      "text_preview": " area"
+    },
+    {
+      "index": 173,
+      "text_preview": " yang"
+    },
+    {
+      "index": 174,
+      "text_preview": " relatif"
+    },
+    {
+      "index": 175,
+      "text_preview": " sama"
+    },
+    {
+      "index": 176,
+      "text_preview": ","
+    },
+    {
+      "index": 177,
+      "text_preview": " menciptakan"
+    },
+    {
+      "index": 178,
+      "text_preview": " lantai"
+    },
+    {
+      "index": 179,
+      "text_preview": " atau"
+    },
+    {
+      "index": 180,
+      "text_preview": " dasar"
+    },
+    {
+      "index": 181,
+      "text_preview": " yang"
+    },
+    {
+      "index": 182,
+      "text_preview": " kuat"
+    },
+    {
+      "index": 183,
+      "text_preview": "."
+    },
+    {
+      "index": 184,
+      "text_preview": "\n\n"
+    },
+    {
+      "index": 185,
+      "text_preview": "---"
+    },
+    {
+      "index": 186,
+      "text_preview": "\n\n"
+    },
+    {
+      "index": 187,
+      "text_preview": "##"
+    },
+    {
+      "index": 188,
+      "text_preview": " Anal"
+    },
+    {
+      "index": 189,
+      "text_preview": "isis"
+    },
+    {
+      "index": 190,
+      "text_preview": " Level"
+    },
+    {
+      "index": 191,
+      "text_preview": " Harga"
+    },
+    {
+      "index": 192,
+      "text_preview": " &"
+    },
+    {
+      "index": 193,
+      "text_preview": " Momentum"
+    },
+    {
+      "index": 194,
+      "text_preview": "\n\n"
+    },
+    {
+      "index": 195,
+      "text_preview": "Berikut"
+    },
+    {
+      "index": 196,
+      "text_preview": " adalah"
+    },
+    {
+      "index": 197,
+      "text_preview": " poin"
+    },
+    {
+      "index": 198,
+      "text_preview": "-"
+    },
+    {
+      "index": 199,
+      "text_preview": "po"
+    },
+    {
+      "index": 200,
+      "text_preview": "in"
+    },
+    {
+      "index": 201,
+      "text_preview": " penting"
+    },
+    {
+      "index": 202,
+      "text_preview": " dari"
+    },
+    {
+      "index": 203,
+      "text_preview": " struktur"
+    },
+    {
+      "index": 204,
+      "text_preview": " harga"
+    },
+    {
+      "index": 205,
+      "text_preview": " saat"
+    },
+    {
+      "index": 206,
+      "text_preview": " ini"
+    },
+    {
+      "index": 207,
+      "text_preview": ":"
+    },
+    {
+      "index": 208,
+      "text_preview": "\n\n"
+    },
+    {
+      "index": 209,
+      "text_preview": "*"
+    },
+    {
+      "index": 210,
+      "text_preview": "   "
+    },
+    {
+      "index": 211,
+      "text_preview": "**"
+    },
+    {
+      "index": 212,
+      "text_preview": "Resistance"
+    },
+    {
+      "index": 213,
+      "text_preview": " Utama"
+    },
+    {
+      "index": 214,
+      "text_preview": ":**"
+    },
+    {
+      "index": 215,
+      "text_preview": " Ber"
+    },
+    {
+      "index": 216,
+      "text_preview": "ada"
+    },
+    {
+      "index": 217,
+      "text_preview": " di"
+    },
+    {
+      "index": 218,
+      "text_preview": " kis"
+    },
+    {
+      "index": 219,
+      "text_preview": "aran"
+    },
+    {
+      "index": 220,
+      "text_preview": " **"
+    },
+    {
+      "index": 221,
+      "text_preview": "6"
+    },
+    {
+      "index": 222,
+      "text_preview": "4"
+    },
+    {
+      "index": 223,
+      "text_preview": ","
+    },
+    {
+      "index": 224,
+      "text_preview": "2"
+    },
+    {
+      "index": 225,
+      "text_preview": "0"
+    },
+    {
+      "index": 226,
+      "text_preview": "0"
+    },
+    {
+      "index": 227,
+      "text_preview": "**."
+    },
+    {
+      "index": 228,
+      "text_preview": " Ini"
+    },
+    {
+      "index": 229,
+      "text_preview": " adalah"
+    },
+    {
+      "index": 230,
+      "text_preview": " area"
+    },
+    {
+      "index": 231,
+      "text_preview": " di"
+    },
+    {
+      "index": 232,
+      "text_preview": " mana"
+    },
+    {
+      "index": 233,
+      "text_preview": " tekanan"
+    },
+    {
+      "index": 234,
+      "text_preview": " jual"
+    },
+    {
+      "index": 235,
+      "text_preview": " cenderung"
+    },
+    {
+      "index": 236,
+      "text_preview": " lebih"
+    },
+    {
+      "index": 237,
+      "text_preview": " kuat"
+    },
+    {
+      "index": 238,
+      "text_preview": " daripada"
+    },
+    {
+      "index": 239,
+      "text_preview": " tekanan"
+    },
+    {
+      "index": 240,
+      "text_preview": " beli"
+    },
+    {
+      "index": 241,
+      "text_preview": "."
+    },
+    {
+      "index": 242,
+      "text_preview": "\n"
+    },
+    {
+      "index": 243,
+      "text_preview": "*"
+    },
+    {
+      "index": 244,
+      "text_preview": "   "
+    },
+    {
+      "index": 245,
+      "text_preview": "**"
+    },
+    {
+      "index": 246,
+      "text_preview": "Support"
+    },
+    {
+      "index": 247,
+      "text_preview": " Utama"
+    },
+    {
+      "index": 248,
+      "text_preview": ":**"
+    },
+    {
+      "index": 249,
+      "text_preview": " Ber"
+    },
+    {
+      "index": 250,
+      "text_preview": "ada"
+    },
+    {
+      "index": 251,
+      "text_preview": " di"
+    },
+    {
+      "index": 252,
+      "text_preview": " kis"
+    },
+    {
+      "index": 253,
+      "text_preview": "aran"
+    },
+    {
+      "index": 254,
+      "text_preview": " **"
+    },
+    {
+      "index": 255,
+      "text_preview": "6"
+    },
+    {
+      "index": 256,
+      "text_preview": "1"
+    },
+    {
+      "index": 257,
+      "text_preview": ","
+    },
+    {
+      "index": 258,
+      "text_preview": "4"
+    },
+    {
+      "index": 259,
+      "text_preview": "0"
+    },
+    {
+      "index": 260,
+      "text_preview": "0"
+    },
+    {
+      "index": 261,
+      "text_preview": "**."
+    },
+    {
+      "index": 262,
+      "text_preview": " Ini"
+    },
+    {
+      "index": 263,
+      "text_preview": " adalah"
+    },
+    {
+      "index": 264,
+      "text_preview": " area"
+    },
+    {
+      "index": 265,
+      "text_preview": " \""
+    },
+    {
+      "index": 266,
+      "text_preview": "lant"
+    },
+    {
+      "index": 267,
+      "text_preview": "ai"
+    },
+    {
+      "index": 268,
+      "text_preview": "\""
+    },
+    {
+      "index": 269,
+      "text_preview": " yang"
+    },
+    {
+      "index": 270,
+      "text_preview": " saat"
+    },
+    {
+      "index": 271,
+      "text_preview": " ini"
+    },
+    {
+      "index": 272,
+      "text_preview": " sedang"
+    },
+    {
+      "index": 273,
+      "text_preview": " di"
+    },
+    {
+      "index": 274,
+      "text_preview": "uji"
+    },
+    {
+      "index": 275,
+      "text_preview": " oleh"
+    },
+    {
+      "index": 276,
+      "text_preview": " harga"
+    },
+    {
+      "index": 277,
+      "text_preview": "."
+    },
+    {
+      "index": 278,
+      "text_preview": "\n"
+    },
+    {
+      "index": 279,
+      "text_preview": "*"
+    },
+    {
+      "index": 280,
+      "text_preview": "   "
+    },
+    {
+      "index": 281,
+      "text_preview": "**"
+    },
+    {
+      "index": 282,
+      "text_preview": "Harga"
+    },
+    {
+      "index": 283,
+      "text_preview": " Saat"
+    },
+    {
+      "index": 284,
+      "text_preview": " Ini"
+    },
+    {
+      "index": 285,
+      "text_preview": ":**"
+    },
+    {
+      "index": 286,
+      "text_preview": " Ber"
+    },
+    {
+      "index": 287,
+      "text_preview": "ada"
+    },
+    {
+      "index": 288,
+      "text_preview": " di"
+    },
+    {
+      "index": 289,
+      "text_preview": " **"
+    },
+    {
+      "index": 290,
+      "text_preview": "6"
+    },
+    {
+      "index": 291,
+      "text_preview": "2"
+    },
+    {
+      "index": 292,
+      "text_preview": ","
+    },
+    {
+      "index": 293,
+      "text_preview": "5"
+    },
+    {
+      "index": 294,
+      "text_preview": "3"
+    },
+    {
+      "index": 295,
+      "text_preview": "8"
+    },
+    {
+      "index": 296,
+      "text_preview": "."
+    },
+    {
+      "index": 297,
+      "text_preview": "8"
+    },
+    {
+      "index": 298,
+      "text_preview": "0"
+    },
+    {
+      "index": 299,
+      "text_preview": "**,"
+    },
+    {
+      "index": 300,
+      "text_preview": " yang"
+    },
+    {
+      "index": 301,
+      "text_preview": " menunjukkan"
+    },
+    {
+      "index": 302,
+      "text_preview": " posisi"
+    },
+    {
+      "index": 303,
+      "text_preview": " harga"
+    },
+    {
+      "index": 304,
+      "text_preview": " sedang"
+    },
+    {
+      "index": 305,
+      "text_preview": " berada"
+    },
+    {
+      "index": 306,
+      "text_preview": " di"
+    },
+    {
+      "index": 307,
+      "text_preview": " tengah"
+    },
+    {
+      "index": 308,
+      "text_preview": "-"
+    },
+    {
+      "index": 309,
+      "text_preview": "t"
+    },
+    {
+      "index": 310,
+      "text_preview": "engah"
+    },
+    {
+      "index": 311,
+      "text_preview": " pola"
+    },
+    {
+      "index": 312,
+      "text_preview": " tersebut"
+    },
+    {
+      "index": 313,
+      "text_preview": "."
+    },
+    {
+      "index": 314,
+      "text_preview": "\n\n"
+    },
+    {
+      "index": 315,
+      "text_preview": "**"
+    },
+    {
+      "index": 316,
+      "text_preview": "Moment"
+    },
+    {
+      "index": 317,
+      "text_preview": "um"
+    },
+    {
+      "index": 318,
+      "text_preview": ":**"
+    },
+    {
+      "index": 319,
+      "text_preview": "\n"
+    },
+    {
+      "index": 320,
+      "text_preview": "Saat"
+    },
+    {
+      "index": 321,
+      "text_preview": " ini"
+    },
+    {
+      "index": 322,
+      "text_preview": " terlihat"
+    },
+    {
+      "index": 323,
+      "text_preview": " adanya"
+    },
+    {
+      "index": 324,
+      "text_preview": " **"
+    },
+    {
+      "index": 325,
+      "text_preview": "Bear"
+    },
+    {
+      "index": 326,
+      "text_preview": "ish"
+    },
+    {
+      "index": 327,
+      "text_preview": " Momentum"
+    },
+    {
+      "index": 328,
+      "text_preview": "**."
+    },
+    {
+      "index": 329,
+      "text_preview": " Hal"
+    },
+    {
+      "index": 330,
+      "text_preview": " ini"
+    },
+    {
+      "index": 331,
+      "text_preview": " dit"
+    },
+    {
+      "index": 332,
+      "text_preview": "and"
+    },
+    {
+      "index": 333,
+      "text_preview": "ai"
+    },
+    {
+      "index": 334,
+      "text_preview": " dengan"
+    },
+    {
+      "index": 335,
+      "text_preview": " terbentuk"
+    },
+    {
+      "index": 336,
+      "text_preview": "nya"
+    },
+    {
+      "index": 337,
+      "text_preview": " *"
+    },
+    {
+      "index": 338,
+      "text_preview": "Lower"
+    },
+    {
+      "index": 339,
+      "text_preview": " High"
+    },
+    {
+      "index": 340,
+      "text_preview": "s"
+    },
+    {
+      "index": 341,
+      "text_preview": "*,"
+    },
+    {
+      "index": 342,
+      "text_preview": " yang"
+    },
+    {
+      "index": 343,
+      "text_preview": " artinya"
+    },
+    {
+      "index": 344,
+      "text_preview": " pemb"
+    },
+    {
+      "index": 345,
+      "text_preview": "eli"
+    },
+    {
+      "index": 346,
+      "text_preview": " ("
+    },
+    {
+      "index": 347,
+      "text_preview": "bull"
+    },
+    {
+      "index": 348,
+      "text_preview": "s"
+    },
+    {
+      "index": 349,
+      "text_preview": ")"
+    },
+    {
+      "index": 350,
+      "text_preview": " semakin"
+    },
+    {
+      "index": 351,
+      "text_preview": " kehilangan"
+    },
+    {
+      "index": 352,
+      "text_preview": " kekuatan"
+    },
+    {
+      "index": 353,
+      "text_preview": " untuk"
+    },
+    {
+      "index": 354,
+      "text_preview": " mendorong"
+    },
+    {
+      "index": 355,
+      "text_preview": " harga"
+    },
+    {
+      "index": 356,
+      "text_preview": " naik"
+    },
+    {
+      "index": 357,
+      "text_preview": " lebih"
+    },
+    {
+      "index": 358,
+      "text_preview": " tinggi"
+    },
+    {
+      "index": 359,
+      "text_preview": ","
+    },
+    {
+      "index": 360,
+      "text_preview": " sementara"
+    },
+    {
+      "index": 361,
+      "text_preview": " penj"
+    },
+    {
+      "index": 362,
+      "text_preview": "ual"
+    },
+    {
+      "index": 363,
+      "text_preview": " ("
+    },
+    {
+      "index": 364,
+      "text_preview": "bears"
+    },
+    {
+      "index": 365,
+      "text_preview": ")"
+    },
+    {
+      "index": 366,
+      "text_preview": " semakin"
+    },
+    {
+      "index": 367,
+      "text_preview": " agres"
+    },
+    {
+      "index": 368,
+      "text_preview": "if"
+    },
+    {
+      "index": 369,
+      "text_preview": " men"
+    },
+    {
+      "index": 370,
+      "text_preview": "ekan"
+    },
+    {
+      "index": 371,
+      "text_preview": " harga"
+    },
+    {
+      "index": 372,
+      "text_preview": " turun"
+    },
+    {
+      "index": 373,
+      "text_preview": "."
+    },
+    {
+      "index": 374,
+      "text_preview": "\n\n"
+    },
+    {
+      "index": 375,
+      "text_preview": "---"
+    },
+    {
+      "index": 376,
+      "text_preview": "\n\n"
+    },
+    {
+      "index": 377,
+      "text_preview": "##"
+    },
+    {
+      "index": 378,
+      "text_preview": " Edu"
+    },
+    {
+      "index": 379,
+      "text_preview": "k"
+    },
+    {
+      "index": 380,
+      "text_preview": "asi"
+    },
+    {
+      "index": 381,
+      "text_preview": ":"
+    },
+    {
+      "index": 382,
+      "text_preview": " Kem"
+    },
+    {
+      "index": 383,
+      "text_preview": "ana"
+    },
+    {
+      "index": 384,
+      "text_preview": " A"
+    },
+    {
+      "index": 385,
+      "text_preview": "rah"
+    },
+    {
+      "index": 386,
+      "text_preview": " Harga"
+    },
+    {
+      "index": 387,
+      "text_preview": " Selanjutnya"
+    },
+    {
+      "index": 388,
+      "text_preview": "?"
+    },
+    {
+      "index": 389,
+      "text_preview": "\n\n"
+    },
+    {
+      "index": 390,
+      "text_preview": "Dalam"
+    },
+    {
+      "index": 391,
+      "text_preview": " teori"
+    },
+    {
+      "index": 392,
+      "text_preview": " analisis"
+    },
+    {
+      "index": 393,
+      "text_preview": " tekn"
+    },
+    {
+      "index": 394,
+      "text_preview": "ikal"
+    },
+    {
+      "index": 395,
+      "text_preview": ","
+    },
+    {
+      "index": 396,
+      "text_preview": " **"
+    },
+    {
+      "index": 397,
+      "text_preview": "Descending"
+    },
+    {
+      "index": 398,
+      "text_preview": " Triangle"
+    },
+    {
+      "index": 399,
+      "text_preview": "**"
+    },
+    {
+      "index": 400,
+      "text_preview": " biasanya"
+    },
+    {
+      "index": 401,
+      "text_preview": " dianggap"
+    },
+    {
+      "index": 402,
+      "text_preview": " sebagai"
+    },
+    {
+      "index": 403,
+      "text_preview": " **"
+    },
+    {
+      "index": 404,
+      "text_preview": "Cont"
+    },
+    {
+      "index": 405,
+      "text_preview": "inuation"
+    },
+    {
+      "index": 406,
+      "text_preview": " Pattern"
+    },
+    {
+      "index": 407,
+      "text_preview": "**"
+    },
+    {
+      "index": 408,
+      "text_preview": " ("
+    },
+    {
+      "index": 409,
+      "text_preview": "p"
+    },
+    {
+      "index": 410,
+      "text_preview": "ola"
+    },
+    {
+      "index": 411,
+      "text_preview": " kel"
+    },
+    {
+      "index": 412,
+      "text_preview": "anjutan"
+    },
+    {
+      "index": 413,
+      "text_preview": ")."
+    },
+    {
+      "index": 414,
+      "text_preview": " Artinya"
+    },
+    {
+      "index": 415,
+      "text_preview": ":"
+    },
+    {
+      "index": 416,
+      "text_preview": "\n\n"
+    },
+    {
+      "index": 417,
+      "text_preview": "1"
+    },
+    {
+      "index": 418,
+      "text_preview": "."
+    },
+    {
+      "index": 419,
+      "text_preview": "  "
+    },
+    {
+      "index": 420,
+      "text_preview": "**"
+    },
+    {
+      "index": 421,
+      "text_preview": "S"
+    },
+    {
+      "index": 422,
+      "text_preview": "ken"
+    },
+    {
+      "index": 423,
+      "text_preview": "ario"
+    },
+    {
+      "index": 424,
+      "text_preview": " Umum"
+    },
+    {
+      "index": 425,
+      "text_preview": " ("
+    },
+    {
+      "index": 426,
+      "text_preview": "Bear"
+    },
+    {
+      "index": 427,
+      "text_preview": "ish"
+    },
+    {
+      "index": 428,
+      "text_preview": "):"
+    },
+    {
+      "index": 429,
+      "text_preview": "**"
+    },
+    {
+      "index": 430,
+      "text_preview": " Jika"
+    },
+    {
+      "index": 431,
+      "text_preview": " harga"
+    },
+    {
+      "index": 432,
+      "text_preview": " men"
+    },
+    {
+      "index": 433,
+      "text_preview": "emb"
+    },
+    {
+      "index": 434,
+      "text_preview": "us"
+    },
+    {
+      "index": 435,
+      "text_preview": " (*"
+    },
+    {
+      "index": 436,
+      "text_preview": "break"
+    },
+    {
+      "index": 437,
+      "text_preview": "out"
+    },
+    {
+      "index": 438,
+      "text_preview": "*)"
+    },
+    {
+      "index": 439,
+      "text_preview": " garis"
+    },
+    {
+      "index": 440,
+      "text_preview": " support"
+    },
+    {
+      "index": 441,
+      "text_preview": " di"
+    },
+    {
+      "index": 442,
+      "text_preview": " **"
+    },
+    {
+      "index": 443,
+      "text_preview": "6"
+    },
+    {
+      "index": 444,
+      "text_preview": "1"
+    },
+    {
+      "index": 445,
+      "text_preview": ","
+    },
+    {
+      "index": 446,
+      "text_preview": "4"
+    },
+    {
+      "index": 447,
+      "text_preview": "0"
+    },
+    {
+      "index": 448,
+      "text_preview": "0"
+    },
+    {
+      "index": 449,
+      "text_preview": "**,"
+    },
+    {
+      "index": 450,
+      "text_preview": " pola"
+    },
+    {
+      "index": 451,
+      "text_preview": " ini"
+    },
+    {
+      "index": 452,
+      "text_preview": " meng"
+    },
+    {
+      "index": 453,
+      "text_preview": "on"
+    },
+    {
+      "index": 454,
+      "text_preview": "firmasi"
+    },
+    {
+      "index": 455,
+      "text_preview": " bahwa"
+    },
+    {
+      "index": 456,
+      "text_preview": " tren"
+    },
+    {
+      "index": 457,
+      "text_preview": " penurunan"
+    },
+    {
+      "index": 458,
+      "text_preview": " akan"
+    },
+    {
+      "index": 459,
+      "text_preview": " ber"
+    },
+    {
+      "index": 460,
+      "text_preview": "lan"
+    },
+    {
+      "index": 461,
+      "text_preview": "jut"
+    },
+    {
+      "index": 462,
+      "text_preview": "."
+    },
+    {
+      "index": 463,
+      "text_preview": "\n"
+    },
+    {
+      "index": 464,
+      "text_preview": "2"
+    },
+    {
+      "index": 465,
+      "text_preview": "."
+    },
+    {
+      "index": 466,
+      "text_preview": "  "
+    },
+    {
+      "index": 467,
+      "text_preview": "**"
+    },
+    {
+      "index": 468,
+      "text_preview": "S"
+    },
+    {
+      "index": 469,
+      "text_preview": "ken"
+    },
+    {
+      "index": 470,
+      "text_preview": "ario"
+    },
+    {
+      "index": 471,
+      "text_preview": " Altern"
+    },
+    {
+      "index": 472,
+      "text_preview": "atif"
+    },
+    {
+      "index": 473,
+      "text_preview": " ("
+    },
+    {
+      "index": 474,
+      "text_preview": "Bull"
+    },
+    {
+      "index": 475,
+      "text_preview": "ish"
+    },
+    {
+      "index": 476,
+      "text_preview": " Re"
+    },
+    {
+      "index": 477,
+      "text_preview": "versal"
+    },
+    {
+      "index": 478,
+      "text_preview": "):"
+    },
+    {
+      "index": 479,
+      "text_preview": "**"
+    },
+    {
+      "index": 480,
+      "text_preview": " Meskipun"
+    },
+    {
+      "index": 481,
+      "text_preview": " jarang"
+    },
+    {
+      "index": 482,
+      "text_preview": " pada"
+    },
+    {
+      "index": 483,
+      "text_preview": " pola"
+    },
+    {
+      "index": 484,
+      "text_preview": " ini"
+    },
+    {
+      "index": 485,
+      "text_preview": ","
+    },
+    {
+      "index": 486,
+      "text_preview": " jika"
+    },
+    {
+      "index": 487,
+      "text_preview": " harga"
+    },
+    {
+      "index": 488,
+      "text_preview": " mampu"
+    },
+    {
+      "index": 489,
+      "text_preview": " men"
+    },
+    {
+      "index": 490,
+      "text_preview": "emb"
+    },
+    {
+      "index": 491,
+      "text_preview": "us"
+    },
+    {
+      "index": 492,
+      "text_preview": " garis"
+    },
+    {
+      "index": 493,
+      "text_preview": " resistance"
+    },
+    {
+      "index": 494,
+      "text_preview": " atas"
+    },
+    {
+      "index": 495,
+      "text_preview": " dengan"
+    },
+    {
+      "index": 496,
+      "text_preview": " volume"
+    },
+    {
+      "index": 497,
+      "text_preview": " yang"
+    },
+    {
+      "index": 498,
+      "text_preview": " kuat"
+    },
+    {
+      "index": 499,
+      "text_preview": ","
+    },
+    {
+      "index": 500,
+      "text_preview": " maka"
+    },
+    {
+      "index": 501,
+      "text_preview": " pola"
+    },
+    {
+      "index": 502,
+      "text_preview": " ini"
+    },
+    {
+      "index": 503,
+      "text_preview": " bisa"
+    },
+    {
+      "index": 504,
+      "text_preview": " berubah"
+    },
+    {
+      "index": 505,
+      "text_preview": " menjadi"
+    },
+    {
+      "index": 506,
+      "text_preview": " sin"
+    },
+    {
+      "index": 507,
+      "text_preview": "yal"
+    },
+    {
+      "index": 508,
+      "text_preview": " pem"
+    },
+    {
+      "index": 509,
+      "text_preview": "bal"
+    },
+    {
+      "index": 510,
+      "text_preview": "ikan"
+    },
+    {
+      "index": 511,
+      "text_preview": " arah"
+    },
+    {
+      "index": 512,
+      "text_preview": " ("
+    },
+    {
+      "index": 513,
+      "text_preview": "re"
+    },
+    {
+      "index": 514,
+      "text_preview": "versal"
+    },
+    {
+      "index": 515,
+      "text_preview": ")"
+    },
+    {
+      "index": 516,
+      "text_preview": " menuju"
+    },
+    {
+      "index": 517,
+      "text_preview": " tren"
+    },
+    {
+      "index": 518,
+      "text_preview": " naik"
+    },
+    {
+      "index": 519,
+      "text_preview": "."
+    },
+    {
+      "index": 520,
+      "text_preview": "\n\n"
+    },
+    {
+      "index": 521,
+      "text_preview": "###"
+    },
+    {
+      "index": 522,
+      "text_preview": " Ring"
+    },
+    {
+      "index": 523,
+      "text_preview": "k"
+    },
+    {
+      "index": 524,
+      "text_preview": "asan"
+    },
+    {
+      "index": 525,
+      "text_preview": " untuk"
+    },
+    {
+      "index": 526,
+      "text_preview": " Pemb"
+    },
+    {
+      "index": 527,
+      "text_preview": "elajaran"
+    },
+    {
+      "index": 528,
+      "text_preview": ":"
+    },
+    {
+      "index": 529,
+      "text_preview": "\n"
+    },
+    {
+      "index": 530,
+      "text_preview": "*"
+    },
+    {
+      "index": 531,
+      "text_preview": "   "
+    },
+    {
+      "index": 532,
+      "text_preview": "**"
+    },
+    {
+      "index": 533,
+      "text_preview": "P"
+    },
+    {
+      "index": 534,
+      "text_preview": "ola"
+    },
+    {
+      "index": 535,
+      "text_preview": ":**"
+    },
+    {
+      "index": 536,
+      "text_preview": " Desc"
+    },
+    {
+      "index": 537,
+      "text_preview": "ending"
+    },
+    {
+      "index": 538,
+      "text_preview": " Triangle"
+    },
+    {
+      "index": 539,
+      "text_preview": "."
+    },
+    {
+      "index": 540,
+      "text_preview": "\n"
+    },
+    {
+      "index": 541,
+      "text_preview": "*"
+    },
+    {
+      "index": 542,
+      "text_preview": "   "
+    },
+    {
+      "index": 543,
+      "text_preview": "**"
+    },
+    {
+      "index": 544,
+      "text_preview": "K"
+    },
+    {
+      "index": 545,
+      "text_preview": "arak"
+    },
+    {
+      "index": 546,
+      "text_preview": "ter"
+    },
+    {
+      "index": 547,
+      "text_preview": "istik"
+    },
+    {
+      "index": 548,
+      "text_preview": ":**"
+    },
+    {
+      "index": 549,
+      "text_preview": " Lower"
+    },
+    {
+      "index": 550,
+      "text_preview": " High"
+    },
+    {
+      "index": 551,
+      "text_preview": "s"
+    },
+    {
+      "index": 552,
+      "text_preview": " +"
+    },
+    {
+      "index": 553,
+      "text_preview": " Flat"
+    },
+    {
+      "index": 554,
+      "text_preview": " Support"
+    },
+    {
+      "index": 555,
+      "text_preview": "."
+    },
+    {
+      "index": 556,
+      "text_preview": "\n"
+    },
+    {
+      "index": 557,
+      "text_preview": "*"
+    },
+    {
+      "index": 558,
+      "text_preview": "   "
+    },
+    {
+      "index": 559,
+      "text_preview": "**"
+    },
+    {
+      "index": 560,
+      "text_preview": "F"
+    },
+    {
+      "index": 561,
+      "text_preview": "okus"
+    },
+    {
+      "index": 562,
+      "text_preview": " Pant"
+    },
+    {
+      "index": 563,
+      "text_preview": "auan"
+    },
+    {
+      "index": 564,
+      "text_preview": ":**"
+    },
+    {
+      "index": 565,
+      "text_preview": " Per"
+    },
+    {
+      "index": 566,
+      "text_preview": "hatikan"
+    },
+    {
+      "index": 567,
+      "text_preview": " apakah"
+    },
+    {
+      "index": 568,
+      "text_preview": " harga"
+    },
+    {
+      "index": 569,
+      "text_preview": " akan"
+    },
+    {
+      "index": 570,
+      "text_preview": " mampu"
+    },
+    {
+      "index": 571,
+      "text_preview": " bertahan"
+    },
+    {
+      "index": 572,
+      "text_preview": " di"
+    },
+    {
+      "index": 573,
+      "text_preview": " area"
+    },
+    {
+      "index": 574,
+      "text_preview": " support"
+    },
+    {
+      "index": 575,
+      "text_preview": " **"
+    },
+    {
+      "index": 576,
+      "text_preview": "6"
+    },
+    {
+      "index": 577,
+      "text_preview": "1"
+    },
+    {
+      "index": 578,
+      "text_preview": ","
+    },
+    {
+      "index": 579,
+      "text_preview": "4"
+    },
+    {
+      "index": 580,
+      "text_preview": "0"
+    },
+    {
+      "index": 581,
+      "text_preview": "0"
+    },
+    {
+      "index": 582,
+      "text_preview": "**"
+    },
+    {
+      "index": 583,
+      "text_preview": " atau"
+    },
+    {
+      "index": 584,
+      "text_preview": " justru"
+    },
+    {
+      "index": 585,
+      "text_preview": " men"
+    },
+    {
+      "index": 586,
+      "text_preview": "emb"
+    },
+    {
+      "index": 587,
+      "text_preview": "usnya"
+    },
+    {
+      "index": 588,
+      "text_preview": " ke"
+    },
+    {
+      "index": 589,
+      "text_preview": " bawah"
+    },
+    {
+      "index": 590,
+      "text_preview": "."
+    },
+    {
+      "index": 591,
+      "text_preview": "\n\n"
+    },
+    {
+      "index": 592,
+      "text_preview": "*"
+    },
+    {
+      "index": 593,
+      "text_preview": "Disclaimer"
+    },
+    {
+      "index": 594,
+      "text_preview": ":"
+    },
+    {
+      "index": 595,
+      "text_preview": " Anal"
+    },
+    {
+      "index": 596,
+      "text_preview": "isis"
+    },
+    {
+      "index": 597,
+      "text_preview": " ini"
+    },
+    {
+      "index": 598,
+      "text_preview": " bertujuan"
+    },
+    {
+      "index": 599,
+      "text_preview": " untuk"
+    },
+    {
+      "index": 600,
+      "text_preview": " eduk"
+    },
+    {
+      "index": 601,
+      "text_preview": "asi"
+    },
+    {
+      "index": 602,
+      "text_preview": " mengenai"
+    },
+    {
+      "index": 603,
+      "text_preview": " pola"
+    },
+    {
+      "index": 604,
+      "text_preview": " chart"
+    },
+    {
+      "index": 605,
+      "text_preview": " dan"
+    },
+    {
+      "index": 606,
+      "text_preview": " bukan"
+    },
+    {
+      "index": 607,
+      "text_preview": " merupakan"
+    },
+    {
+      "index": 608,
+      "text_preview": " saran"
+    },
+    {
+      "index": 609,
+      "text_preview": " investasi"
+    },
+    {
+      "index": 610,
+      "text_preview": " atau"
+    },
+    {
+      "index": 611,
+      "text_preview": " instru"
+    },
+    {
+      "index": 612,
+      "text_preview": "ksi"
+    },
+    {
+      "index": 613,
+      "text_preview": " untuk"
+    },
+    {
+      "index": 614,
+      "text_preview": " melakukan"
+    },
+    {
+      "index": 615,
+      "text_preview": " transaksi"
+    },
+    {
+      "index": 616,
+      "text_preview": " jual"
+    },
+    {
+      "index": 617,
+      "text_preview": "/"
+    },
+    {
+      "index": 618,
+      "text_preview": "beli"
+    },
+    {
+      "index": 619,
+      "text_preview": ".*"
+    },
+    {
+      "index": 620,
+      "text_preview": ""
+    },
+    {
+      "index": 621,
+      "text_preview": ""
+    },
+    {
+      "index": 622,
+      "text_preview": ""
+    }
+  ],
+  "vision_attempts": [
+    {
+      "model": "gemma4:31b-cloud",
+      "attempt": 1,
+      "invocation_success": true,
+      "parse_success": true,
+      "content_preview": "```json\n{\n    \"key_patterns\": [\"Descending Triangle\", \"Lower Highs\"],\n    \"key_levels\": [\"Resistance: 64,200\", \"Support: 61,400\", \"Current Price: 62,538.80\"],\n    \"indicators\": [\"Price action showing bearish momentum\", \"Price trading below recent swing highs\"],\n    \"summary\": \"BTCUSDT pada timeframe 15m menunjukkan tren penurunan jangka pendek dengan pembentukan lower highs, bergerak menuju area support di kisaran 61,400.\"\n}\n```",
+      "error": null
+    }
+  ],
+  "error": null,
+  "vision_model_used": "gemma4:31b-cloud",
+  "rag_results": [
+    {
+      "rank": 1,
+      "source": "../data\\technical-analysis-course-cambridge.pdf",
+      "rerank_score": 

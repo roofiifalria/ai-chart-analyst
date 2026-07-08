@@ -5,6 +5,7 @@ import uvicorn
 
 # --- IMPOR ROUTER BARU ---
 from app.api import chat as chat_router
+from app.api import evaluate as evaluate_router
 
 # Inisialisasi aplikasi FastAPI
 app = FastAPI(
@@ -39,6 +40,9 @@ def read_root():
 
 # --- TAMBAHKAN API ROUTER UTAMA KITA ---
 app.include_router(chat_router.router, prefix="/api", tags=["Analysis"])
+
+# --- ROUTER EVALUASI (Precision / Recall / F1-Score) ---
+app.include_router(evaluate_router.router, prefix="/api", tags=["Evaluation"])
 
 
 if __name__ == "__main__":

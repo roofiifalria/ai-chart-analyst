@@ -20,4 +20,38 @@ class VisionExtraction(BaseModel):
             }
         }
 
-# (Kita bisa tambahkan skema lain di sini nanti)
+# --- SKEMA UNTUK MODUL EVALUASI (Precision / Recall / F1-Score) ---
+
+class ModelCombination(BaseModel):
+    """Satu kombinasi model Ollama (vision + generative) yang akan dievaluasi."""
+    vision_model: Optional[str] = None
+    generative_model: Optional[str] = None
+
+
+class EvaluateRequest(BaseModel):
+    """
+    Body untuk POST /api/evaluate.
+
+    Contoh:
+    {
+        "model_combinations": [
+            {"vision_model": "qwen2.5vl:7b", "generative_model": "llama3.1:8b"},
+            {"vision_model": "llava:13b", "generative_model": "mistral:7b"}
+        ]
+    }
+
+    Jika model_combinations dikosongkan, evaluasi akan otomatis memakai
+    VISION_MODEL dan GENERATIVE_MODEL yang ada di .env (1 kombinasi saja).
+    """
+    model_combinations: List[ModelCombination] = []
+    dataset_path: Optional[str] = None
+
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "model_combinations": [
+                    {"vision_model": "qwen2.5vl:7b", "generative_model": "llama3.1:8b"},
+                    {"vision_model": "llava:13b", "generative_model": "mistral:7b"}
+                ]
+            }
+        }
