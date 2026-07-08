@@ -1,0 +1,738 @@
+{
+  "timestamp": "2026-07-08T13:45:06.655469",
+  "dataset_used": "C:\\Users\\roofi\\OneDrive - Institut Teknologi Sepuluh Nopember\\Magang Batch2\\RAG\\backend\\evaluation\\dataset\\ground_truth.json",
+  "num_combinations": 1,
+  "ranking": [
+    {
+      "rank": 1,
+      "vision_model": "gemma4:31b-cloud",
+      "generative_model": "qwen3-vl:4b",
+      "overall_f1": 0.1364,
+      "overall_precision": 0.2222,
+      "overall_recall": 0.0984,
+      "accuracy_perfect_match": 0.0,
+      "avg_latency_sec": {
+        "vision": 88.109,
+        "generative": 106.026
+      }
+    }
+  ],
+  "best_model": {
+    "vision_model": "gemma4:31b-cloud",
+    "generative_model": "qwen3-vl:4b",
+    "overall_f1": 0.1364
+  },
+  "full_results": [
+    {
+      "vision_model": "gemma4:31b-cloud",
+      "generative_model": "qwen3-vl:4b",
+      "num_cases": 5,
+      "metrics": {
+        "key_patterns": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1_score": 0.0,
+          "true_positive": 0,
+          "false_positive": 7,
+          "false_negative": 16,
+          "matched_labels": [],
+          "missing_labels": [],
+          "extra_labels": []
+        },
+        "key_levels": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1_score": 0.0,
+          "true_positive": 0,
+          "false_positive": 9,
+          "false_negative": 10,
+          "matched_labels": [],
+          "missing_labels": [],
+          "extra_labels": []
+        },
+        "indicators": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1_score": 0.0,
+          "true_positive": 0,
+          "false_positive": 5,
+          "false_negative": 10,
+          "matched_labels": [],
+          "missing_labels": [],
+          "extra_labels": []
+        },
+        "answer_relevance": {
+          "precision": 1.0,
+          "recall": 0.24,
+          "f1_score": 0.3871,
+          "true_positive": 6,
+          "false_positive": 0,
+          "false_negative": 19,
+          "matched_labels": [],
+          "missing_labels": [],
+          "extra_labels": []
+        },
+        "overall": {
+          "precision": 0.2222,
+          "recall": 0.0984,
+          "f1_score": 0.1364,
+          "true_positive": 6,
+          "false_positive": 21,
+          "false_negative": 55,
+          "matched_labels": [],
+          "missing_labels": [],
+          "extra_labels": []
+        }
+      },
+      "accuracy_perfect_match": 0.0,
+      "avg_latency_sec": {
+        "vision": 88.109,
+        "generative": 106.026
+      },
+      "case_results": [
+        {
+          "case_id": "btc_001",
+          "query": "Jelaskan kondisi chart Bitcoin ini dan prediksi arah pergerakan selanjutnya.",
+          "vision_model": "gemma4:31b-cloud",
+          "generative_model": "qwen3-vl:4b",
+          "vision": {
+            "model": "gemma4:31b-cloud",
+            "success": true,
+            "latency_sec": 120.665,
+            "raw_content": "```json\n{\n    \"key_patterns\": [\"Descending Triangle\", \"Lower Highs\", \"Lower Lows\"],\n    \"key_levels\": [\"Resistance: 82,000\", \"Support: 73,000\", \"Current Price: 73,769.06\"],\n    \"indicators\": [\"Bearish Price Action\", \"Downward Trendline\"],\n    \"summary\": \"Chart menunjukkan tren bearish yang kuat dengan pembentukan puncak yang semakin rendah (lower highs) dan dasar yang semakin rendah (lower lows), saat ini sedang mencoba konsolidasi di area support 73,000.\"\n}\n```",
+            "extracted": {
+              "key_patterns": [
+                "Descending Triangle",
+                "Lower Highs",
+                "Lower Lows"
+              ],
+              "key_levels": [
+                "Resistance: 82,000",
+                "Support: 73,000",
+                "Current Price: 73,769.06"
+              ],
+              "indicators": [
+                "Bearish Price Action",
+                "Downward Trendline"
+              ],
+              "summary": "Chart menunjukkan tren bearish yang kuat dengan pembentukan puncak yang semakin rendah (lower highs) dan dasar yang semakin rendah (lower lows), saat ini sedang mencoba konsolidasi di area support 73,000."
+            },
+            "error": null
+          },
+          "generative": {
+            "model": "qwen3-vl:4b",
+            "success": true,
+            "latency_sec": 96.139,
+            "answer_text": " Make sure to use bold for key terms, and bullet points for explanations.\n</think>\n\n## Chart Analysis: Descending Triangle dan Bearish Consolidation  \n\n### **Pola Utama yang Terlihat**  \n#### **1. Descending Triangle (Segitiga Turun)**  \n- **Definisi**: Pola harga yang terbentuk ketika harga bergerak di antara dua garis sejajar (resistance atas dan support bawah), dengan **harga tertinggi terus menurun** (lower highs) dan **harga terendah terus menurun** (lower lows).  \n- **Penjelasan**:  \n  - Garis atas (resistance) menunjukkan level ketahanan harga (82,000).  \n  - Garis bawah (support) menunjukkan level kekuatan harga (73,000).  \n  - Pola ini terjadi ketika **penjual (bear)** dominan, tetapi harga berusaha menembus resistance sebelum kembali ke support.  \n- **Kunci Identifikasi**:  \n  - Harga bergerak di antara dua garis sejajar.  \n  - Tidak ada penurunan signifikan di bawah support (73,000) selama pola terbentuk.  \n\n#### **2. Lower Highs dan Lower Lows**  \n- **Definisi**:  \n  - **Lower Highs**: Tinggi harga terendah (misal: 82,000 → 81,500 → 81,000).  \n  - **Lower Lows**: Titik terendah harga terendah (misal: 73,000 → 72,800 → 72,500).  \n- **Arti**:  \n  - Menunjukkan **tren bearish yang kuat** (harga terus turun).  \n  - Pola ini mengonfirmasi kekuatan penjual, karena harga tidak bisa menembus resistance dan terus menurun di bawah support.  \n\n#### **3. Konsolidasi di Area Support (73,000)**  \n- **Definisi**: Fase di mana harga bergerak kecil di sekitar level support (73,000) setelah tren turun.  \n- **Arti**:  \n  - Harga sedang \"beristirahat\" di area support, menunggu sinyal untuk melanjutkan tren turun atau berpotensi membalik.  \n  - Konsolidasi ini sering terjadi sebelum harga **melebihi resistance** atau **mengonfirmasi support**.  \n\n---\n\n### **Level Kunci dan Signifikansi**  \n#### **1. Resistance: 82,000**  \n- **Peran**: Level ketahanan harga. Jika harga **melebihi resistance** (misal: naik ke 82,500), pola segitiga mungkin terbentuk ulang atau tren berbalik.  \n- **Penting**: Jika harga **tidak bisa menembus resistance**, tren bearish akan terus kuat.  \n\n#### **2. Support: 73,000**  \n- **Peran**: Level kekuatan harga. Jika harga **terlalu rendah** (misal: turun di bawah 72,800), tren turun akan memperkuat.  \n- **Penting**: Jika harga **mencapai atau melebihi support**, pola konsolidasi mungkin berakhir dan tren turun akan terus berlanjut.  \n\n#### **3. Harga Saat Ini: 73,769.06**  \n- **Posisi**: Harga berada di **atas support (73,000)** tetapi **di bawah resistance (82,000)**.  \n- **Arti**:  \n  - Harga sedang dalam fase konsolidasi, menunggu sinyal untuk melanjutkan tren turun atau berpotensi membalik.  \n  - Jika harga **terus bergerak ke bawah** (misal: turun di bawah 73,000), tren bearish akan memperkuat.  \n\n---\n\n### **Indikator dan Konteks Analisis**  \n#### **1. Bearish Price Action**  \n- **Definisi**: Pergerakan harga yang menunjukkan kekuatan penjual (misal: harga turun, volume tinggi).  \n- **Arti**:  \n  - Harga terus menembus level lower highs dan lower lows, menunjukkan kekuatan penjual.  \n  - Volume tinggi saat harga turun mengonfirmasi kekuatan tren bearish.  \n\n#### **2. Downward Trendline**  \n- **Definisi**: Garis yang menghubungkan titik-titik terendah (lower lows).  \n- **Arti**:  \n  - Jika harga **melebihi trendline** (misal: naik di atas 72,500), tren turun mungkin berakhir.  \n  - Jika harga **terus bergerak di bawah trendline**, tren bearish akan memperkuat.  \n\n---\n\n### **Poin Edukasi Penting**  \n1. **Mengapa Descending Triangle Terbentuk?**  \n   - Pola ini terjadi ketika penjual dominan, tetapi harga berusaha menembus resistance sebelum kembali ke support.  \n   - Ini adalah sinyal bahwa **tren bearish sedang kuat**, tetapi harga masih berpotensi membalik.  \n\n2. **Apa yang Harus Dilakukan Saat Konsolidasi?**  \n   - **Jika harga turun di bawah support (73,000)**: Tren bearish akan memperkuat.  \n   - **Jika harga naik di atas resistance (82,000)**: Tren bearish mungkin berbalik.  \n   - **Jika harga bergerak kecil di sekitar support**: Perlu menunggu sinyal lebih jelas (misal: volume tinggi, indikator teknis).  \n\n3. **Manajemen Risiko**  \n   - **Jika harga turun di bawah support**: Gunakan stop-loss di bawah level tersebut untuk menghindari kerugian.  \n   - **Jika harga naik di atas resistance**: Gunakan take-profit di atas level tersebut untuk memanfaatkan potensi reversal.  \n\n---\n\n### **Kesimpulan**  \n- **Tren saat ini**: Bearish yang kuat dengan pola Descending Triangle dan konsolidasi di support (73,000).  \n- **Pertimbangan**:  \n  - Harga berada di **batas kekuatan (73,000)** dan **batas ketahanan (82,000)**.  \n  - Pergerakan harga di sekitar support menunjukkan **keinginan untuk membalik** atau **melanjutkan tren turun**.  \n- **Saran**:  \n  - Jangan terburu-buru memasuki posisi.  \n  - Gunakan indikator teknis (misal: RSI, MACD) untuk memvalidasi sinyal.  \n  - Fokus pada **manajemen risiko** dan **pemantauan level kunci** (73,000 dan 82,000).  \n\n> **Catatan**: Analisis ini hanya untuk edukasi. Trading berisiko, pastikan Anda memahami risiko sebelum memasuki pasar.",
+            "error": null
+          },
+          "scores": {
+            "key_patterns": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 3,
+              "false_negative": 4,
+              "matched_labels": [],
+              "missing_labels": [
+                "bearish continuation",
+                "downtrend",
+                "lower high",
+                "lower low"
+              ],
+              "extra_labels": [
+                "descending triangle",
+                "lower highs",
+                "lower lows"
+              ]
+            },
+            "key_levels": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 3,
+              "false_negative": 2,
+              "matched_labels": [],
+              "missing_labels": [
+                "resistance 76000",
+                "support 73000"
+              ],
+              "extra_labels": [
+                "current price 73 769 06",
+                "resistance 82 000",
+                "support 73 000"
+              ]
+            },
+            "indicators": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 2,
+              "false_negative": 2,
+              "matched_labels": [],
+              "missing_labels": [
+                "selling pressure",
+                "strong bearish momentum"
+              ],
+              "extra_labels": [
+                "bearish price action",
+                "downward trendline"
+              ]
+            },
+            "answer_relevance": {
+              "precision": 1.0,
+              "recall": 0.6,
+              "f1_score": 0.75,
+              "true_positive": 3,
+              "false_positive": 0,
+              "false_negative": 2,
+              "matched_labels": [
+                "bearish",
+                "lower low",
+                "support"
+              ],
+              "missing_labels": [
+                "downtrend",
+                "potensi turun"
+              ],
+              "extra_labels": []
+            },
+            "case_overall": {
+              "precision": 0.2727,
+              "recall": 0.2308,
+              "f1_score": 0.25,
+              "true_positive": 3,
+              "false_positive": 8,
+              "false_negative": 10,
+              "matched_labels": [
+                "bearish",
+                "lower low",
+                "support"
+              ],
+              "missing_labels": [
+                "bearish continuation",
+                "downtrend",
+                "lower high",
+                "lower low",
+                "resistance 76000",
+                "support 73000",
+                "selling pressure",
+                "strong bearish momentum",
+                "downtrend",
+                "potensi turun"
+              ],
+              "extra_labels": [
+                "descending triangle",
+                "lower highs",
+                "lower lows",
+                "current price 73 769 06",
+                "resistance 82 000",
+                "support 73 000",
+                "bearish price action",
+                "downward trendline"
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "gold_001",
+          "query": "Jelaskan kondisi chart Gold ini dan prediksi arah pergerakan selanjutnya.",
+          "vision_model": "gemma4:31b-cloud",
+          "generative_model": "qwen3-vl:4b",
+          "vision": {
+            "model": "gemma4:31b-cloud",
+            "success": false,
+            "latency_sec": null,
+            "raw_content": null,
+            "extracted": null,
+            "error": "Ollama call failed with status code 503. Details: {\"StatusCode\":503,\"Status\":\"503 Service Unavailable\",\"error\":\"model 'gemma4:31b' is temporarily overloaded, please retry shortly or try a different model (ref: e1a196d9-816a-4aaf-8dd1-55b2da2cd25a)\"}"
+          },
+          "generative": {
+            "model": "qwen3-vl:4b",
+            "success": true,
+            "latency_sec": 109.18,
+            "answer_text": "",
+            "error": null
+          },
+          "scores": {
+            "key_patterns": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 3,
+              "matched_labels": [],
+              "missing_labels": [
+                "bullish continuation",
+                "bullish trend",
+                "higher low"
+              ],
+              "extra_labels": []
+            },
+            "key_levels": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 2,
+              "matched_labels": [],
+              "missing_labels": [
+                "resistance 4400",
+                "support 4300"
+              ],
+              "extra_labels": []
+            },
+            "indicators": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 2,
+              "matched_labels": [],
+              "missing_labels": [
+                "bullish momentum",
+                "buying pressure"
+              ],
+              "extra_labels": []
+            },
+            "answer_relevance": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 5,
+              "matched_labels": [],
+              "missing_labels": [
+                "bullish",
+                "higher low",
+                "potensi naik",
+                "resistance",
+                "uptrend"
+              ],
+              "extra_labels": []
+            },
+            "case_overall": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 12,
+              "matched_labels": [],
+              "missing_labels": [
+                "bullish continuation",
+                "bullish trend",
+                "higher low",
+                "resistance 4400",
+                "support 4300",
+                "bullish momentum",
+                "buying pressure",
+                "bullish",
+                "higher low",
+                "potensi naik",
+                "resistance",
+                "uptrend"
+              ],
+              "extra_labels": []
+            }
+          }
+        },
+        {
+          "case_id": "eth_001",
+          "query": "Jelaskan kondisi chart Ethereum ini dan prediksi arah pergerakan selanjutnya.",
+          "vision_model": "gemma4:31b-cloud",
+          "generative_model": "qwen3-vl:4b",
+          "vision": {
+            "model": "gemma4:31b-cloud",
+            "success": true,
+            "latency_sec": 38.491,
+            "raw_content": "```json\n{\n    \"key_patterns\": [\"Multiple Tops\", \"Sideways Consolidation\"],\n    \"key_levels\": [\"Resistance: 2,400.00\", \"Support: 1,840.00\", \"Current Price: 2,112.52\"],\n    \"indicators\": [\"Price action showing volatility within a range\"],\n    \"summary\": \"Ethereum is currently trading in a broad sideways range after a peak near 2,400, showing signs of consolidation between 1,960 and 2,200.\"\n}\n```",
+            "extracted": {
+              "key_patterns": [
+                "Multiple Tops",
+                "Sideways Consolidation"
+              ],
+              "key_levels": [
+                "Resistance: 2,400.00",
+                "Support: 1,840.00",
+                "Current Price: 2,112.52"
+              ],
+              "indicators": [
+                "Price action showing volatility within a range"
+              ],
+              "summary": "Ethereum is currently trading in a broad sideways range after a peak near 2,400, showing signs of consolidation between 1,960 and 2,200."
+            },
+            "error": null
+          },
+          "generative": {
+            "model": "qwen3-vl:4b",
+            "success": true,
+            "latency_sec": 132.798,
+            "answer_text": " Check for bold, headings, bullet points.\n</think>\n\n## Analisis Kondisi Chart Ethereum: Pola dan Konsep Trading\n\n### **Pola Utama yang Terlihat**\n#### **1. Multiple Tops (Puncak Berulang)**\n- **Apa itu?**  \n  Pola ini terjadi ketika harga mencapai puncak (peak) beberapa kali, tetapi **gagal memecahkan level harga sebelumnya**. Setiap puncak baru terjadi setelah harga turun ke level lebih rendah, lalu naik kembali ke level yang lebih tinggi, tetapi tidak bisa melewati level terakhir.\n  \n- **Mengapa terjadi?**  \n  - Pasar kelelahan atau ragu tentang arah selanjutnya.  \n  - Harga terjebak dalam \"siklus\" naik-turun karena kekuatan beli dan jual yang seimbang.  \n  - Contoh: Ethereum mencapai 2.400.00, lalu turun ke 2.200.00, naik kembali ke 2.300.00, tetapi gagal melewati 2.400.00 lagi.\n\n#### **2. Sideways Consolidation (Konsolidasi Samping)**\n- **Apa itu?**  \n  Pola ini terjadi ketika harga bergerak **dalam rentang terbatas** (tidak naik atau turun secara signifikan) dengan volatilitas tinggi. Harga bergerak naik-turun cepat, tetapi tidak bisa melewati level resistensi atau support.\n\n- **Mengapa terjadi?**  \n  - Pasar kelelahan dari pergerakan sebelumnya.  \n  - Ketidakpastian dari faktor eksternal (misal: berita, volatilitas pasar).  \n  - Contoh: Harga Ethereum bergerak antara **1.960.00** (support) dan **2.200.00** (resistensi) selama beberapa hari/minggu.\n\n---\n\n### **Tingkat Kunci dan Posisi Harga Saat Ini**\n#### **1. Level Resistensi**\n- **2.400.00**: Level resistensi kritis yang menjadi hambatan untuk naik lebih tinggi.  \n  - Jika harga **melewati 2.400.00** dengan volume tinggi, kemungkinan besar akan terjadi kenaikan lebih lanjut.  \n  - Jika gagal melewati, pola konsolidasi mungkin akan terus berlanjut.\n\n#### **2. Level Support**\n- **1.840.00**: Level support kritis yang menjadi tempat harga pulih jika turun.  \n  - Jika harga **turun di bawah 1.840.00**, kemungkinan besar akan terjadi penurunan lebih lanjut.  \n  - Jika harga **bertahan di atas 1.840.00**, pola konsolidasi mungkin akan berlanjut.\n\n#### **3. Posisi Harga Saat Ini**\n- **2.112.52**: Berada di **tengah rentang konsolidasi** (1.960.00 - 2.200.00).  \n  - Ini menunjukkan ketidakpastian pasar: harga belum memutuskan arah selanjutnya.  \n  - Harga berada di zona \"safety zone\" (antara support dan resistensi), sehingga trader sering memantau pola ini untuk memprediksi breakout.\n\n---\n\n### **Indikator Volatilitas dan Keterkaitan dengan Pola**\n- **Volatilitas Tinggi**: Harga bergerak cepat naik-turun dalam rentang konsolidasi.  \n  - Ini menunjukkan **kegembiraan pasar** (siklus beli-jual yang intensif).  \n  - Namun, karena harga tidak bisa melewati resistensi atau turun ke support, pola ini sering menjadi **\"sinyal konsolidasi\"** sebelum arah yang jelas muncul.\n\n- **Kaitan dengan Pola Island (Analisis Analogi)**  \n  Dalam trading, pola konsolidasi sering diibaratkan sebagai \"island\" (pulau) di mana harga berada dalam zona kelelahan.  \n  - **Contoh**: Setelah \"island\" (konsolidasi), harga sering \"mengambil kapal\" (breakout) ke arah atas atau bawah.  \n  - Namun, **tidak ada prediksi pasti** karena faktor eksternal (berita, volatilitas) bisa memengaruhi.\n\n---\n\n### **Prediksi Arah Pergerakan (Edukasi Tanpa Rekomendasi)**\nBerdasarkan pola yang terlihat, berikut skenario yang mungkin terjadi:\n\n#### **1. Breakout ke Atas (Kenaikan)**\n- **Kondisi**: Harga melewati **2.400.00** dengan volume tinggi dan konfirmasi dari indikator teknis (misal: RSI, MACD).  \n- **Mengapa?**  \n  - Pola multiple tops menunjukkan kekuatan beli yang mungkin terkumpul.  \n  - Konsolidasi di zona 1.960.00-2.200.00 sering menjadi \"tempat persiapan\" untuk breakout ke atas.  \n- **Catatan**: Jika harga berhasil melewati 2.400.00, kemungkinan besar akan terjadi kenaikan lebih lanjut ke 2.500.00 atau lebih.\n\n#### **2. Breakout ke Bawah (Penurunan)**\n- **Kondisi**: Harga turun di bawah **1.840.00** dengan volume tinggi dan konfirmasi dari indikator teknis.  \n- **Mengapa?**  \n  - Pola multiple tops juga bisa menunjukkan kekuatan jual yang mungkin terkumpul.  \n  - Konsolidasi di zona 1.960.00-2.200.00 sering menjadi \"tempat persiapan\" untuk breakout ke bawah.  \n- **Catatan**: Jika harga turun di bawah 1.840.00, kemungkinan besar akan terjadi penurunan lebih lanjut ke 1.700.00 atau lebih.\n\n#### **3. Konsolidasi Lanjut**\n- **Kondisi**: Harga tetap bergerak dalam rentang 1.960.00-2.200.00 tanpa breakout.  \n- **Mengapa?**  \n  - Pasar masih kelelahan atau ragu tentang arah selanjutnya.  \n  - Pola ini sering terjadi sebelum arah yang jelas muncul.  \n- **Catatan**: Jika konsolidasi berlangsung lama, harga mungkin akan bergerak ke arah yang tidak terduga (misal: ke atas atau bawah).\n\n---\n\n### **Poin Penting untuk Trading**\n1. **Tidak ada prediksi pasti**: Pola konsolidasi dan multiple tops tidak menjamin arah pasti. Harga bisa bergerak ke atas atau bawah tergantung pada faktor eksternal (berita, volatilitas pasar, sentimen).  \n2. **Edukasi untuk Pengambilan Keputusan**:  \n   - Perhatikan **volume transaksi** saat harga mendekati resistensi/support.  \n   - Gunakan indikator teknis (RSI, MACD) untuk memvalidasi pola.  \n   - Jangan terburu-buru memasuki posisi hanya karena pola konsolidasi.  \n3. **Risiko**:  \n   - Jika harga gagal melewati resistensi atau turun di bawah support, risiko kerugian bisa besar.  \n   - Selalu lakukan riset lebih lanjut sebelum memutuskan strategi trading.\n\n---\n\n### **Kesimpulan**\n- **Pola utama**: Multiple tops dan sideways consolidation menunjukkan **ketidakpastian pasar** yang membutuhkan waktu untuk memutuskan arah.  \n- **Level kunci**: Resistensi 2.400.00 dan support 1.840.00 adalah titik kritis yang perlu dipantau.  \n- **Prediksi**: Harga mungkin akan **breakout ke atas** atau **ke bawah** setelah konsolidasi, tetapi **tidak ada jaminan**.  \n- **Saran**: Fokus pada **analisis teknis** dan **faktor eksternal** untuk mengambil keputusan yang lebih baik.  \n\n> **Catatan**: Analisis ini bersifat edukasi dan tidak menggantikan keputusan trading. Selalu lakukan riset lanjutan dan manajemen risiko yang baik.",
+            "error": null
+          },
+          "scores": {
+            "key_patterns": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 2,
+              "false_negative": 3,
+              "matched_labels": [],
+              "missing_labels": [
+                "bullish continuation",
+                "bullish reversal",
+                "higher low"
+              ],
+              "extra_labels": [
+                "multiple tops",
+                "sideways consolidation"
+              ]
+            },
+            "key_levels": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 3,
+              "false_negative": 2,
+              "matched_labels": [],
+              "missing_labels": [
+                "resistance 2150",
+                "support 2050"
+              ],
+              "extra_labels": [
+                "current price 2 112 52",
+                "resistance 2 400 00",
+                "support 1 840 00"
+              ]
+            },
+            "indicators": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 1,
+              "false_negative": 2,
+              "matched_labels": [],
+              "missing_labels": [
+                "bullish momentum",
+                "increasing buying pressure"
+              ],
+              "extra_labels": [
+                "price action showing volatility within a range"
+              ]
+            },
+            "answer_relevance": {
+              "precision": 1.0,
+              "recall": 0.2,
+              "f1_score": 0.3333,
+              "true_positive": 1,
+              "false_positive": 0,
+              "false_negative": 4,
+              "matched_labels": [
+                "breakout"
+              ],
+              "missing_labels": [
+                "bullish",
+                "higher low",
+                "potensi naik",
+                "reversal"
+              ],
+              "extra_labels": []
+            },
+            "case_overall": {
+              "precision": 0.1429,
+              "recall": 0.0833,
+              "f1_score": 0.1052,
+              "true_positive": 1,
+              "false_positive": 6,
+              "false_negative": 11,
+              "matched_labels": [
+                "breakout"
+              ],
+              "missing_labels": [
+                "bullish continuation",
+                "bullish reversal",
+                "higher low",
+                "resistance 2150",
+                "support 2050",
+                "bullish momentum",
+                "increasing buying pressure",
+                "bullish",
+                "higher low",
+                "potensi naik",
+                "reversal"
+              ],
+              "extra_labels": [
+                "multiple tops",
+                "sideways consolidation",
+                "current price 2 112 52",
+                "resistance 2 400 00",
+                "support 1 840 00",
+                "price action showing volatility within a range"
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "bnb_001",
+          "query": "Jelaskan kondisi chart BNB ini dan prediksi arah pergerakan selanjutnya.",
+          "vision_model": "gemma4:31b-cloud",
+          "generative_model": "qwen3-vl:4b",
+          "vision": {
+            "model": "gemma4:31b-cloud",
+            "success": false,
+            "latency_sec": 33.253,
+            "raw_content": "```json\n{",
+            "extracted": null,
+            "error": "Gagal parsing JSON dari respons vision model"
+          },
+          "generative": {
+            "model": "qwen3-vl:4b",
+            "success": true,
+            "latency_sec": 95.063,
+            "answer_text": "",
+            "error": null
+          },
+          "scores": {
+            "key_patterns": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 3,
+              "matched_labels": [],
+              "missing_labels": [
+                "bearish reversal",
+                "double top",
+                "lower high"
+              ],
+              "extra_labels": []
+            },
+            "key_levels": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 2,
+              "matched_labels": [],
+              "missing_labels": [
+                "resistance 700",
+                "support 620"
+              ],
+              "extra_labels": []
+            },
+            "indicators": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 2,
+              "matched_labels": [],
+              "missing_labels": [
+                "bearish momentum",
+                "selling pressure"
+              ],
+              "extra_labels": []
+            },
+            "answer_relevance": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 5,
+              "matched_labels": [],
+              "missing_labels": [
+                "bearish",
+                "double top",
+                "potensi turun",
+                "reversal",
+                "support"
+              ],
+              "extra_labels": []
+            },
+            "case_overall": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 12,
+              "matched_labels": [],
+              "missing_labels": [
+                "bearish reversal",
+                "double top",
+                "lower high",
+                "resistance 700",
+                "support 620",
+                "bearish momentum",
+                "selling pressure",
+                "bearish",
+                "double top",
+                "potensi turun",
+                "reversal",
+                "support"
+              ],
+              "extra_labels": []
+            }
+          }
+        },
+        {
+          "case_id": "sol_001",
+          "query": "Jelaskan kondisi chart Solana ini dan prediksi arah pergerakan selanjutnya.",
+          "vision_model": "gemma4:31b-cloud",
+          "generative_model": "qwen3-vl:4b",
+          "vision": {
+            "model": "gemma4:31b-cloud",
+            "success": true,
+            "latency_sec": 160.029,
+            "raw_content": "```json\n{\n    \"key_patterns\": [\"Descending Channel\", \"Lower Highs and Lower Lows\"],\n    \"key_levels\": [\"Resistance: 95.00\", \"Support: 60.00\", \"Current Price: 78.65\"],\n    \"indicators\": [\"Bearish Price Action\", \"Strong Downtrend\"],\n    \"summary\": \"Chart menunjukkan tren bearish yang kuat dengan pembentukan lower highs dan lower lows yang konsisten, saat ini sedang mengalami koreksi naik setelah menyentuh area support di kisaran 60.00.\"\n}\n```",
+            "extracted": {
+              "key_patterns": [
+                "Descending Channel",
+                "Lower Highs and Lower Lows"
+              ],
+              "key_levels": [
+                "Resistance: 95.00",
+                "Support: 60.00",
+                "Current Price: 78.65"
+              ],
+              "indicators": [
+                "Bearish Price Action",
+                "Strong Downtrend"
+              ],
+              "summary": "Chart menunjukkan tren bearish yang kuat dengan pembentukan lower highs dan lower lows yang konsisten, saat ini sedang mengalami koreksi naik setelah menyentuh area support di kisaran 60.00."
+            },
+            "error": null
+          },
+          "generative": {
+            "model": "qwen3-vl:4b",
+            "success": true,
+            "latency_sec": 96.952,
+            "answer_text": " Avoid any recommendations, focus on education.\n</think>\n\n## Analisis Chart Solana: Kondisi dan Pola yang Terlihat  \n\n### 1. Pola Utama yang Teridentifikasi  \n- **Descending Channel (Saluran Turun)**:  \n  Chart menunjukkan pola saluran turun yang terbentuk oleh dua garis sejajar (resistensi atas dan support bawah). Harga bergerak di antara kedua garis ini dengan **lower highs** (puncak harga yang lebih rendah dari sebelumnya) dan **lower lows** (titik terendah yang lebih tinggi dari sebelumnya). Pola ini mengindikasikan tren bearish (turun) yang kuat karena harga terus bergerak ke bawah sambil terjebak di antara dua garis tersebut.  \n\n- **Koreksi Naik Setelah Support**:  \n  Harga baru saja menyentuh area support (60.00) dan kembali naik ke level 78.65. Namun, koreksi ini tidak mencapai level sebelumnya (misalnya, 80.00), menunjukkan bahwa tren turun masih dominan. Koreksi ini sering kali menjadi sinyal awal bahwa tren mungkin mulai melambat, tetapi tidak menjamin reversal.  \n\n---\n\n### 2. Tingkat Kunci dan Pergerakan Terkini  \n- **Resistance (Hambatan)**:  \n  - **95.00**: Level di mana harga cenderung terhenti naik. Jika harga tidak berhasil melewati level ini, tren turun akan terus berlanjut.  \n  - **78.65 (Harga Saat Ini)**: Berada di atas support 60.00, tetapi masih dalam koreksi naik yang tidak mencapai level sebelumnya. Ini menunjukkan bahwa harga belum memperkuat kekuatan tren turun.  \n\n- **Support (Dukungan)**:  \n  - **60.00**: Level kritis yang menjadi titik awal koreksi naik. Jika harga tidak berhasil mempertahankan koreksi ini, tren turun akan terus berlanjut.  \n  - **Jika Harga Melewati 60.00**: Koreksi naik mungkin menjadi sinyal awal bahwa tren turun mulai melambat, tetapi perlu konfirmasi lebih lanjut.  \n\n---\n\n### 3. Indikator Tren dan Konfirmasi  \n- **Bearish Price Action**:  \n  Pola harga yang terlihat (misalnya, candlestick dengan harga tertutup rendah) menunjukkan kekuatan tren turun. Jika harga terus bergerak di bawah garis support 60.00, tren turun akan terkuat.  \n\n- **Koreksi Naik yang Tidak Mencapai Level Sebelumnya**:  \n  Koreksi ini sering kali menjadi sinyal awal bahwa tren turun mulai melambat. Namun, karena harga tidak mencapai level sebelumnya (misalnya, 80.00), tren turun masih dominan.  \n\n- **Pola Candlestick yang Mungkin Terjadi**:  \n  - **Three Black Crows**: Jika harga terus turun dengan pola candlestick berwarna hitam berturut-turut, ini akan memperkuat tren turun.  \n  - **Island Reversal**: Jika harga kembali naik setelah menyentuh support 60.00, ini bisa menjadi sinyal awal reversal. Namun, perlu konfirmasi dengan volume atau indikator teknis lain.  \n\n---\n\n### 4. Analisis Potensial Pergerakan Selanjutnya  \n- **Jika Tren Turun Terus Berlanjut**:  \n  - Harga mungkin terus turun ke bawah 60.00, mengonfirmasi kekuatan tren turun.  \n  - Jika harga melewati 95.00, tren turun akan menjadi lebih kuat.  \n\n- **Jika Tren Turun Mulai Melambat**:  \n  - Koreksi naik yang kuat (misalnya, mencapai 80.00) mungkin menjadi sinyal awal bahwa tren turun mulai melambat.  \n  - Namun, perlu konfirmasi dengan indikator teknis seperti RSI atau MACD untuk memastikan kekuatan tren.  \n\n---\n\n### 5. Catatan Penting untuk Analisis  \n- **Tidak Ada Prediksi Pasti**:  \n  Pola dan tingkat kunci hanya memberikan gambaran kondisi pasar, bukan prediksi pasti. Pergerakan harga dipengaruhi oleh faktor eksternal seperti berita, volatilitas pasar, dan kebijakan regulator.  \n\n- **Perlu Konfirmasi Tambahan**:  \n  - **Volume**: Jika volume rendah saat harga koreksi naik, ini menunjukkan kekuatan tren turun yang masih dominan.  \n  - **Indikator Teknis**: Gunakan RSI, MACD, atau EMA untuk memvalidasi kekuatan tren.  \n  - **Pola Candlestick**: Perhatikan pola seperti *morning star* atau *hammer* untuk memvalidasi sinyal reversal.  \n\n- **Konteks Lebih Luas**:  \n  Pergerakan harga tidak hanya tergantung pada pola teknis, tetapi juga pada faktor eksternal seperti berita ekonomi, perubahan kebijakan, atau sentimen pasar.  \n\n---\n\n### Kesimpulan  \nChart Solana saat ini menunjukkan tren turun yang kuat dengan pola descending channel dan koreksi naik yang tidak mencapai level sebelumnya. Meskipun koreksi naik terjadi setelah menyentuh support 60.00, tren turun masih dominan. Perlu konfirmasi lebih lanjut dengan indikator teknis dan faktor eksternal untuk memprediksi pergerakan selanjutnya. **Jangan mengambil keputusan trading hanya berdasarkan pola teknis tunggal!** 📈📉",
+            "error": null
+          },
+          "scores": {
+            "key_patterns": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 2,
+              "false_negative": 3,
+              "matched_labels": [],
+              "missing_labels": [
+                "bearish exhaustion",
+                "potential reversal",
+                "support bounce"
+              ],
+              "extra_labels": [
+                "descending channel",
+                "lower highs and lower lows"
+              ]
+            },
+            "key_levels": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 3,
+              "false_negative": 2,
+              "matched_labels": [],
+              "missing_labels": [
+                "resistance 68",
+                "support 62"
+              ],
+              "extra_labels": [
+                "current price 78 65",
+                "resistance 95 00",
+                "support 60 00"
+              ]
+            },
+            "indicators": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 2,
+              "false_negative": 2,
+              "matched_labels": [],
+              "missing_labels": [
+                "potential buying pressure",
+                "weak selling momentum"
+              ],
+              "extra_labels": [
+                "bearish price action",
+                "strong downtrend"
+              ]
+            },
+            "answer_relevance": {
+              "precision": 1.0,
+              "recall": 0.4,
+              "f1_score": 0.5714,
+              "true_positive": 2,
+              "false_positive": 0,
+              "false_negative": 3,
+              "matched_labels": [
+                "reversal",
+                "support"
+              ],
+              "missing_labels": [
+                "bullish",
+                "pantulan",
+                "potensi naik"
+              ],
+              "extra_labels": []
+            },
+            "case_overall": {
+              "precision": 0.2222,
+              "recall": 0.1667,
+              "f1_score": 0.1905,
+              "true_positive": 2,
+              "false_positive": 7,
+              "false_negative": 10,
+              "matched_labels": [
+                "reversal",
+                "support"
+              ],
+              "missing_labels": [
+                "bearish exhaustion",
+                "potential reversal",
+                "support bounce",
+                "resistance 68",
+                "support 62",
+                "potential buying pressure",
+                "weak selling momentum",
+                "bullish",
+                "pantulan",
+                "potensi naik"
+              ],
+              "extra_labels": [
+                "descending channel",
+                "lower highs and lower lows",
+                "current price 78 65",
+                "resistance 95 00",
+                "support 60 00",
+                "bearish price action",
+                "strong downtrend"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

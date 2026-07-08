@@ -75,16 +75,60 @@ def _load_dataset(dataset_path: str) -> List[Dict[str, Any]]:
     return cases
 
 
+def _resolve_image_path(image_path: str) -> Optional[str]:
+    """
+    Cari lokasi file gambar yang sebenarnya di disk berdasarkan `image_path`
+    dari ground_truth.json.
+
+    `image_path` di dataset ditulis relatif terhadap ROOT REPO, contoh:
+        "backend/evaluation/dataset/images/btc_001.png"
+
+    BUG SEBELUMNYA: kode ini menggabungkan image_path dengan `backend/`
+    (folder backend itu sendiri), menghasilkan path dobel yang tidak pernah
+    ada di disk:
+        backend/  +  backend/evaluation/dataset/images/btc_001.png
+        -> backend/backend/evaluation/dataset/images/btc_001.png  (SALAH)
+
+    Fungsi ini sekarang mencoba beberapa kandidat path secara berurutan agar
+    tetap bekerja baik jika `image_path` ditulis relatif terhadap root repo
+    (format saat ini di ground_truth.json) MAUPUN jika suatu saat ditulis
+    relatif terhadap folder backend/ (tanpa prefix "backend/").
+    """
+    if not image_path:
+        return None
+    if os.path.isabs(image_path):
+        return image_path if os.path.exists(image_path) else None
+
+    backend_root = os.path.dirname(EVAL_DIR)          # -> .../backend
+    repo_root = os.path.dirname(backend_root)          # -> satu level di atas backend/
+
+    candidates = [
+        os.path.join(repo_root, image_path),            # image_path relatif thd root repo (format saat ini)
+        os.path.join(backend_root, image_path),         # image_path relatif thd backend/ (jaga-jaga)
+    ]
+    # Jika image_path masih membawa prefix "backend/" tapi kandidat di atas
+    # tidak ketemu (mis. struktur folder berubah), coba juga tanpa prefix itu.
+    if image_path.startswith("backend/") or image_path.startswith("backend\\"):
+        stripped = image_path.split("/", 1)[-1].split("\\", 1)[-1]
+        candidates.append(os.path.join(backend_root, stripped))
+
+    for candidate in candidates:
+        if os.path.exists(candidate):
+            return candidate
+    return None
+
+
 def _image_to_base64(image_path: str) -> Optional[str]:
     if not image_path:
         return None
-    full_path = image_path
-    if not os.path.isabs(full_path):
-        # relative terhadap root backend/
-        backend_root = os.path.dirname(EVAL_DIR)
-        full_path = os.path.join(backend_root, image_path)
-    if not os.path.exists(full_path):
-        logger.warning("⚠️ [EVAL] Gambar tidak ditemukan: %s", full_path)
+    full_path = _resolve_image_path(image_path)
+    if not full_path:
+        logger.warning(
+            "⚠️ [EVAL] Gambar tidak ditemukan untuk image_path='%s' "
+            "(sudah dicoba relatif terhadap root repo maupun folder backend/): %s",
+            image_path,
+            image_path,
+        )
         return None
     with open(full_path, "rb") as f:
         return base64.b64encode(f.read()).decode("utf-8")
