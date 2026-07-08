@@ -2,116 +2,264 @@
 # AI Chart Analyst
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/558270dd-1b1e-420c-9a43-a3aac4aec9a2" />
 
-AI Chart Analyst adalah aplikasi web multimodal berbasis arsitektur **RAG (Retrieval-Augmented Generation)**. Aplikasi ini memungkinkan pengguna mengunggah gambar chart keuangan untuk dianalisis, sekaligus menyediakan fitur chat berbasis teks mengenai berbagai konsep analisis teknikal.
+# AI Chart Analyst
+
+AI Chart Analyst is a multimodal Retrieval-Augmented Generation (RAG) application designed to analyze cryptocurrency charts using Vision Language Models, vector retrieval, and Large Language Models.
+
+The system combines image understanding, technical analysis knowledge retrieval, and natural language generation to provide contextual chart analysis from uploaded cryptocurrency chart images.
+
+## Features
+
+* Upload cryptocurrency chart images
+* Vision-based chart analysis
+* Technical pattern extraction
+* Support and resistance detection
+* Retrieval-Augmented Generation (RAG)
+* ChromaDB vector search
+* Local LLM inference using Ollama
+* Streaming AI responses
+* Modern React-based user interface
 
 ---
 
-## ✨ Fitur Utama
+## System Architecture
 
-* **Analisis Visual Chart**
-  Menggunakan model `qwen3-vl:235b-cloud` (atau model visi lainnya) untuk mengekstrak pola, support–resistance, dan indikator teknikal dari gambar.
-
-* **RAG dengan Basis Pengetahuan**
-  Terhubung dengan ChromaDB Cloud berisi materi analisis teknikal sehingga jawaban lebih akurat dan kontekstual.
-
-* **Chat Multimodal**
-  Menjawab pertanyaan yang berkaitan dengan gambar chart yang diunggah.
-
-* **Chat Teks Saja**
-  Mendukung percakapan seputar konsep trading seperti “Apa itu RSI?” atau “Bagaimana membaca candlestick?”.
-
-* **Backend Asinkron**
-  Dibangun dengan **FastAPI** untuk menangani permintaan secara cepat dan efisien.
-
-* **Frontend Interaktif**
-  Dibangun dengan **React (Vite)** dengan UI chatbot yang responsif.
-
-* **Streaming Respons**
-  Jawaban AI dikirim secara streaming untuk pengalaman percakapan yang lebih natural.
-
----
-
-## 🧩 Tumpukan Teknologi
-
-* **Backend**: Python, FastAPI, LangChain
-* **Frontend**: React (Vite), JavaScript, CSS
-* **Model AI**: Ollama (`qwen3-vl:235b-cloud` atau model visi lain)
-* **Database Vektor**: ChromaDB Cloud
-* **Embedding Model**: `all-MiniLM-L6-v2` (dijalankan lokal via LangChain)
-
----
-
-## 📁 Struktur Proyek
-
+```text
+User
+  ↓
+React Frontend
+  ↓
+FastAPI Backend
+  ↓
+Vision Model (Qwen VL)
+  ↓
+Chart Information Extraction
+  ↓
+ChromaDB Retrieval
+  ↓
+LLM Synthesis
+  ↓
+Final Analysis
 ```
-/ai-chart-analyst/
-│
-├── /backend/                   # Server FastAPI
-│   ├── /app/
-│   │   ├── /api/               # Endpoint API (chat.py)
-│   │   ├── /core/              # Konfigurasi (config.py)
-│   │   ├── /models/            # Skema Pydantic (schema.py)
-│   │   └── /services/          # Logika bisnis (llm_service.py, rag_service.py)
-│   ├── .env                    # Kredensial (WAJIB dibuat)
+
+---
+
+## Technology Stack
+
+### Frontend
+
+* React
+* JavaScript
+* Vite
+
+### Backend
+
+* FastAPI
+* Python
+
+### AI Components
+
+* Ollama
+* LangChain
+* ChromaDB
+* Sentence Transformers
+* Vision Language Model
+* Large Language Model
+
+---
+
+## Project Structure
+
+```text
+RAG
+├── backend
+│   ├── app
+│   ├── scripts
+│   ├── model_cache
 │   └── requirements.txt
 │
-├── /frontend/                  # Aplikasi React
-│   ├── /src/
-│   │   ├── App.jsx             # Komponen UI utama
-│   │   ├── App.css             # Styling App.jsx
-│   │   └── index.css           # Styling global
+├── frontend
+│   ├── src
+│   ├── public
 │   └── package.json
-│
-├── /notebooks/
-│   └── 01_Data_Ingestion.ipynb # Script untuk mengisi ChromaDB
 │
 └── README.md
 ```
 
 ---
 
-## 🚀 Instalasi & Menjalankan Proyek
+## Prerequisites
 
-### Persyaratan
+Before running the project, make sure the following software is installed:
 
-1. **Python 3.10+**
-2. **Node.js 20+**
-3. **Ollama** (sudah terinstal dan berjalan)
-4. Tarik model Ollama:
-
-   ```bash
-   ollama pull llava:7b
-   ```
-5. **Akun ChromaDB Cloud**
-   Siapkan API Key, Tenant, dan nama Database.
+* Python 3.11+
+* Node.js 18+
+* Ollama
+* Git
 
 ---
 
-## 1. Menjalankan Backend ([http://localhost:8000](http://localhost:8000))
+## Installation
 
-Buka terminal pertama:
+### Clone Repository
 
 ```bash
-# 1. Masuk ke folder backend
+git clone https://github.com/roofiifalria/ai-chart-analyst.git
+
+cd ai-chart-analyst
+```
+
+---
+
+### Backend Setup
+
+```bash
 cd backend
 
-# 2. Buat & aktifkan virtual environment
 python -m venv .venv
 
-# Windows:
 .\.venv\Scripts\activate
 
-# macOS/Linux:
-source .venv/bin/activate
-
-# 3. Instal dependensi
 pip install -r requirements.txt
+```
 
-# 4. Buat file .env
-# Isi semua variabel (OLLAMA_BASE_URL, CHROMA_API_KEY, dll)
-# berdasarkan template dari .env.example
+Create `.env` file:
 
-# 5. Jalankan server backend
-uvicorn app.main:app --host 0.0.0.0 --port 8000
+```env
+OLLAMA_BASE_URL=http://localhost:11434
+
+GENERATIVE_MODEL=<your_model>
+
+VISION_MODEL=<your_vision_model>
+
+CHROMA_API_KEY=<your_key>
+CHROMA_TENANT=<your_tenant>
+CHROMA_DATABASE=<your_database>
+CHROMA_COLLECTION_NAME=<your_collection>
+```
+
+---
+
+### Frontend Setup
+
+```bash
+cd frontend
+
+npm install
+```
+
+---
+
+## Running the Application
+
+### Terminal 1 — Start Ollama
+
+```bash
+ollama serve
+```
+
+---
+
+### Terminal 2 — Start Backend
+
+```bash
+cd backend
+
+.\.venv\Scripts\activate
+
+uvicorn app.main:app --reload
+```
+
+Backend:
+
+```text
+http://127.0.0.1:8000
+```
+
+Swagger:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+---
+
+### Terminal 3 — Start Frontend
+
+```bash
+cd frontend
+
+npm run dev
+```
+
+Frontend:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## Usage
+
+1. Open the frontend application.
+2. Upload a cryptocurrency chart image.
+3. Enter a question or analysis request.
+4. Submit the request.
+5. Receive AI-generated chart analysis.
+
+Example:
+
+```text
+Analyze this BTC chart and identify the trend.
+```
+
+```text
+What are the major support and resistance levels?
+```
+
+```text
+Explain the chart pattern shown in this image.
+```
+
+---
+
+## API Endpoint
+
+### Analyze Chart
+
+```http
+POST /api/analyze_chart
+```
+
+Parameters:
+
+| Parameter  | Type   |
+| ---------- | ------ |
+| query      | string |
+| image_file | file   |
+
+---
+
+## Future Improvements
+
+* Real-time market data integration
+* Additional technical indicators
+* Multi-asset support
+* Analysis history
+* User authentication
+* Performance optimization
+
+---
+
+## Author
+
+Roofiif Alria
+
+Institut Teknologi Sepuluh Nopember (ITS)
+
+PT. Adma Digital Solusi Internship Project
+
+```
 ```
 
