@@ -1,0 +1,618 @@
+{
+  "timestamp": "2026-07-08T13:01:39.536188",
+  "dataset_used": "C:\\Users\\roofi\\OneDrive - Institut Teknologi Sepuluh Nopember\\Magang Batch2\\RAG\\backend\\evaluation\\dataset\\ground_truth.json",
+  "num_combinations": 1,
+  "ranking": [
+    {
+      "rank": 1,
+      "vision_model": "gemma4:31b-cloud",
+      "generative_model": "qwen3-vl:4b",
+      "overall_f1": 0.0,
+      "overall_precision": 1.0,
+      "overall_recall": 0.0,
+      "accuracy_perfect_match": 0.0,
+      "avg_latency_sec": {
+        "vision": null,
+        "generative": 379.174
+      }
+    }
+  ],
+  "best_model": {
+    "vision_model": "gemma4:31b-cloud",
+    "generative_model": "qwen3-vl:4b",
+    "overall_f1": 0.0
+  },
+  "full_results": [
+    {
+      "vision_model": "gemma4:31b-cloud",
+      "generative_model": "qwen3-vl:4b",
+      "num_cases": 5,
+      "metrics": {
+        "key_patterns": {
+          "precision": 1.0,
+          "recall": 0.0,
+          "f1_score": 0.0,
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 16,
+          "matched_labels": [],
+          "missing_labels": [],
+          "extra_labels": []
+        },
+        "key_levels": {
+          "precision": 1.0,
+          "recall": 0.0,
+          "f1_score": 0.0,
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 10,
+          "matched_labels": [],
+          "missing_labels": [],
+          "extra_labels": []
+        },
+        "indicators": {
+          "precision": 1.0,
+          "recall": 0.0,
+          "f1_score": 0.0,
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 10,
+          "matched_labels": [],
+          "missing_labels": [],
+          "extra_labels": []
+        },
+        "answer_relevance": {
+          "precision": 1.0,
+          "recall": 0.0,
+          "f1_score": 0.0,
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 25,
+          "matched_labels": [],
+          "missing_labels": [],
+          "extra_labels": []
+        },
+        "overall": {
+          "precision": 1.0,
+          "recall": 0.0,
+          "f1_score": 0.0,
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 61,
+          "matched_labels": [],
+          "missing_labels": [],
+          "extra_labels": []
+        }
+      },
+      "accuracy_perfect_match": 0.0,
+      "avg_latency_sec": {
+        "vision": null,
+        "generative": 379.174
+      },
+      "case_results": [
+        {
+          "case_id": "btc_001",
+          "query": "Jelaskan kondisi chart Bitcoin ini dan prediksi arah pergerakan selanjutnya.",
+          "vision_model": "gemma4:31b-cloud",
+          "generative_model": "qwen3-vl:4b",
+          "vision": {
+            "model": "gemma4:31b-cloud",
+            "success": false,
+            "error": "Gambar tidak ditemukan/tidak dapat dibaca: backend/evaluation/dataset/images/btc_001.png"
+          },
+          "generative": {
+            "model": "qwen3-vl:4b",
+            "success": true,
+            "latency_sec": 384.839,
+            "answer_text": "",
+            "error": null
+          },
+          "scores": {
+            "key_patterns": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 4,
+              "matched_labels": [],
+              "missing_labels": [
+                "bearish continuation",
+                "downtrend",
+                "lower high",
+                "lower low"
+              ],
+              "extra_labels": []
+            },
+            "key_levels": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 2,
+              "matched_labels": [],
+              "missing_labels": [
+                "resistance 76000",
+                "support 73000"
+              ],
+              "extra_labels": []
+            },
+            "indicators": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 2,
+              "matched_labels": [],
+              "missing_labels": [
+                "selling pressure",
+                "strong bearish momentum"
+              ],
+              "extra_labels": []
+            },
+            "answer_relevance": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 5,
+              "matched_labels": [],
+              "missing_labels": [
+                "bearish",
+                "downtrend",
+                "lower low",
+                "potensi turun",
+                "support"
+              ],
+              "extra_labels": []
+            },
+            "case_overall": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 13,
+              "matched_labels": [],
+              "missing_labels": [
+                "bearish continuation",
+                "downtrend",
+                "lower high",
+                "lower low",
+                "resistance 76000",
+                "support 73000",
+                "selling pressure",
+                "strong bearish momentum",
+                "bearish",
+                "downtrend",
+                "lower low",
+                "potensi turun",
+                "support"
+              ],
+              "extra_labels": []
+            }
+          }
+        },
+        {
+          "case_id": "gold_001",
+          "query": "Jelaskan kondisi chart Gold ini dan prediksi arah pergerakan selanjutnya.",
+          "vision_model": "gemma4:31b-cloud",
+          "generative_model": "qwen3-vl:4b",
+          "vision": {
+            "model": "gemma4:31b-cloud",
+            "success": false,
+            "error": "Gambar tidak ditemukan/tidak dapat dibaca: backend/evaluation/dataset/images/gold_001.png"
+          },
+          "generative": {
+            "model": "qwen3-vl:4b",
+            "success": true,
+            "latency_sec": 471.952,
+            "answer_text": "",
+            "error": null
+          },
+          "scores": {
+            "key_patterns": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 3,
+              "matched_labels": [],
+              "missing_labels": [
+                "bullish continuation",
+                "bullish trend",
+                "higher low"
+              ],
+              "extra_labels": []
+            },
+            "key_levels": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 2,
+              "matched_labels": [],
+              "missing_labels": [
+                "resistance 4400",
+                "support 4300"
+              ],
+              "extra_labels": []
+            },
+            "indicators": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 2,
+              "matched_labels": [],
+              "missing_labels": [
+                "bullish momentum",
+                "buying pressure"
+              ],
+              "extra_labels": []
+            },
+            "answer_relevance": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 5,
+              "matched_labels": [],
+              "missing_labels": [
+                "bullish",
+                "higher low",
+                "potensi naik",
+                "resistance",
+                "uptrend"
+              ],
+              "extra_labels": []
+            },
+            "case_overall": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 12,
+              "matched_labels": [],
+              "missing_labels": [
+                "bullish continuation",
+                "bullish trend",
+                "higher low",
+                "resistance 4400",
+                "support 4300",
+                "bullish momentum",
+                "buying pressure",
+                "bullish",
+                "higher low",
+                "potensi naik",
+                "resistance",
+                "uptrend"
+              ],
+              "extra_labels": []
+            }
+          }
+        },
+        {
+          "case_id": "eth_001",
+          "query": "Jelaskan kondisi chart Ethereum ini dan prediksi arah pergerakan selanjutnya.",
+          "vision_model": "gemma4:31b-cloud",
+          "generative_model": "qwen3-vl:4b",
+          "vision": {
+            "model": "gemma4:31b-cloud",
+            "success": false,
+            "error": "Gambar tidak ditemukan/tidak dapat dibaca: backend/evaluation/dataset/images/eth_001.png"
+          },
+          "generative": {
+            "model": "qwen3-vl:4b",
+            "success": true,
+            "latency_sec": 852.128,
+            "answer_text": "",
+            "error": null
+          },
+          "scores": {
+            "key_patterns": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 3,
+              "matched_labels": [],
+              "missing_labels": [
+                "bullish continuation",
+                "bullish reversal",
+                "higher low"
+              ],
+              "extra_labels": []
+            },
+            "key_levels": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 2,
+              "matched_labels": [],
+              "missing_labels": [
+                "resistance 2150",
+                "support 2050"
+              ],
+              "extra_labels": []
+            },
+            "indicators": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 2,
+              "matched_labels": [],
+              "missing_labels": [
+                "bullish momentum",
+                "increasing buying pressure"
+              ],
+              "extra_labels": []
+            },
+            "answer_relevance": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 5,
+              "matched_labels": [],
+              "missing_labels": [
+                "breakout",
+                "bullish",
+                "higher low",
+                "potensi naik",
+                "reversal"
+              ],
+              "extra_labels": []
+            },
+            "case_overall": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 12,
+              "matched_labels": [],
+              "missing_labels": [
+                "bullish continuation",
+                "bullish reversal",
+                "higher low",
+                "resistance 2150",
+                "support 2050",
+                "bullish momentum",
+                "increasing buying pressure",
+                "breakout",
+                "bullish",
+                "higher low",
+                "potensi naik",
+                "reversal"
+              ],
+              "extra_labels": []
+            }
+          }
+        },
+        {
+          "case_id": "bnb_001",
+          "query": "Jelaskan kondisi chart BNB ini dan prediksi arah pergerakan selanjutnya.",
+          "vision_model": "gemma4:31b-cloud",
+          "generative_model": "qwen3-vl:4b",
+          "vision": {
+            "model": "gemma4:31b-cloud",
+            "success": false,
+            "error": "Gambar tidak ditemukan/tidak dapat dibaca: backend/evaluation/dataset/images/bnb_001.png"
+          },
+          "generative": {
+            "model": "qwen3-vl:4b",
+            "success": true,
+            "latency_sec": 94.43,
+            "answer_text": "",
+            "error": null
+          },
+          "scores": {
+            "key_patterns": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 3,
+              "matched_labels": [],
+              "missing_labels": [
+                "bearish reversal",
+                "double top",
+                "lower high"
+              ],
+              "extra_labels": []
+            },
+            "key_levels": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 2,
+              "matched_labels": [],
+              "missing_labels": [
+                "resistance 700",
+                "support 620"
+              ],
+              "extra_labels": []
+            },
+            "indicators": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 2,
+              "matched_labels": [],
+              "missing_labels": [
+                "bearish momentum",
+                "selling pressure"
+              ],
+              "extra_labels": []
+            },
+            "answer_relevance": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 5,
+              "matched_labels": [],
+              "missing_labels": [
+                "bearish",
+                "double top",
+                "potensi turun",
+                "reversal",
+                "support"
+              ],
+              "extra_labels": []
+            },
+            "case_overall": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 12,
+              "matched_labels": [],
+              "missing_labels": [
+                "bearish reversal",
+                "double top",
+                "lower high",
+                "resistance 700",
+                "support 620",
+                "bearish momentum",
+                "selling pressure",
+                "bearish",
+                "double top",
+                "potensi turun",
+                "reversal",
+                "support"
+              ],
+              "extra_labels": []
+            }
+          }
+        },
+        {
+          "case_id": "sol_001",
+          "query": "Jelaskan kondisi chart Solana ini dan prediksi arah pergerakan selanjutnya.",
+          "vision_model": "gemma4:31b-cloud",
+          "generative_model": "qwen3-vl:4b",
+          "vision": {
+            "model": "gemma4:31b-cloud",
+            "success": false,
+            "error": "Gambar tidak ditemukan/tidak dapat dibaca: backend/evaluation/dataset/images/sol_001.png"
+          },
+          "generative": {
+            "model": "qwen3-vl:4b",
+            "success": true,
+            "latency_sec": 92.523,
+            "answer_text": "",
+            "error": null
+          },
+          "scores": {
+            "key_patterns": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 3,
+              "matched_labels": [],
+              "missing_labels": [
+                "bearish exhaustion",
+                "potential reversal",
+                "support bounce"
+              ],
+              "extra_labels": []
+            },
+            "key_levels": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 2,
+              "matched_labels": [],
+              "missing_labels": [
+                "resistance 68",
+                "support 62"
+              ],
+              "extra_labels": []
+            },
+            "indicators": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 2,
+              "matched_labels": [],
+              "missing_labels": [
+                "potential buying pressure",
+                "weak selling momentum"
+              ],
+              "extra_labels": []
+            },
+            "answer_relevance": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 5,
+              "matched_labels": [],
+              "missing_labels": [
+                "bullish",
+                "pantulan",
+                "potensi naik",
+                "reversal",
+                "support"
+              ],
+              "extra_labels": []
+            },
+            "case_overall": {
+              "precision": 1.0,
+              "recall": 0.0,
+              "f1_score": 0.0,
+              "true_positive": 0,
+              "false_positive": 0,
+              "false_negative": 12,
+              "matched_labels": [],
+              "missing_labels": [
+                "bearish exhaustion",
+                "potential reversal",
+                "support bounce",
+                "resistance 68",
+                "support 62",
+                "potential buying pressure",
+                "weak selling momentum",
+                "bullish",
+                "pantulan",
+                "potensi naik",
+                "reversal",
+                "support"
+              ],
+              "extra_labels": []
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

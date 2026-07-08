@@ -1,0 +1,47 @@
+===========================================================================================
+LAPORAN EVALUASI AI CHART ANALYST — PRECISION / RECALL / F1-SCORE / ACCURACY
+===========================================================================================
+Timestamp        : 2026-07-08T13:01:39.536188
+Dataset dipakai  : C:\Users\roofi\OneDrive - Institut Teknologi Sepuluh Nopember\Magang Batch2\RAG\backend\evaluation\dataset\ground_truth.json
+Jumlah kombinasi : 1
+
+-------------------------------------------------------------------------------------------
+TABEL PERBANDINGAN MODEL (diurutkan dari F1-Score tertinggi)
+-------------------------------------------------------------------------------------------
+Rank Vision Model          Generative Model      Precision  Recall    F1-Score   Accuracy  
+-------------------------------------------------------------------------------------------
+1    gemma4:31b-cloud      qwen3-vl:4b           1.0        0.0       0.0        0.0       
+
+MODEL TERBAIK: vision=gemma4:31b-cloud | generative=qwen3-vl:4b | F1-Score=0.0
+
+===========================================================================================
+RINCIAN METRIK PER MODEL (breakdown per kategori)
+===========================================================================================
+
+Model: vision=gemma4:31b-cloud | generative=qwen3-vl:4b
+Jumlah kasus diuji: 5
+----------------------------------------------------------------------
+  key_patterns       Precision=1.0      Recall=0.0      F1-Score=0.0      (TP=0, FP=0, FN=16)
+  key_levels         Precision=1.0      Recall=0.0      F1-Score=0.0      (TP=0, FP=0, FN=10)
+  indicators         Precision=1.0      Recall=0.0      F1-Score=0.0      (TP=0, FP=0, FN=10)
+  answer_relevance   Precision=1.0      Recall=0.0      F1-Score=0.0      (TP=0, FP=0, FN=25)
+  overall            Precision=1.0      Recall=0.0      F1-Score=0.0      (TP=0, FP=0, FN=61)
+  Accuracy (perfect-match) 0.0
+  Rata-rata latency  : vision=Nones | generative=379.174s
+
+===========================================================================================
+RINCIAN PER KASUS UJI
+===========================================================================================
+
+>> Model: vision=gemma4:31b-cloud | generative=qwen3-vl:4b
+   [btc_001] query="Jelaskan kondisi chart Bitcoin ini dan prediksi arah pergera" -> F1=0.0 P=1.0 R=0.0
+   [gold_001] query="Jelaskan kondisi chart Gold ini dan prediksi arah pergerakan" -> F1=0.0 P=1.0 R=0.0
+   [eth_001] query="Jelaskan kondisi chart Ethereum ini dan prediksi arah perger" -> F1=0.0 P=1.0 R=0.0
+   [bnb_001] query="Jelaskan kondisi chart BNB ini dan prediksi arah pergerakan " -> F1=0.0 P=1.0 R=0.0
+   [sol_001] query="Jelaskan kondisi chart Solana ini dan prediksi arah pergerak" -> F1=0.0 P=1.0 R=0.0
+
+===========================================================================================
+Catatan metodologi: metrik dihitung dengan pencocokan label case-insensitive
+& toleran variasi kata (fuzzy ringan), micro-averaged di seluruh kasus uji.
+Lihat evaluation/README.md untuk penjelasan lengkap metodologi.
+===========================================================================================

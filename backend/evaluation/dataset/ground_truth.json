@@ -1,42 +1,19 @@
 {
   "cases": [
     {
-      "case_id": "chart_001",
-      "query": "Jelaskan pola dan indikator chart ini",
-      "image_path": "backend/evaluation/dataset/images/bnb_1.png",
+      "case_id": "btc_001",
+      "asset": "BTCUSDT",
+      "query": "Jelaskan kondisi chart Bitcoin ini dan prediksi arah pergerakan selanjutnya.",
+      "image_path": "backend/evaluation/dataset/images/btc_001.png",
       "expected_key_patterns": [
-        "Lower High",
         "Downtrend",
+        "Lower High",
+        "Lower Low",
         "Bearish Continuation"
       ],
       "expected_key_levels": [
-        "Support 568",
-        "Resistance 578"
-      ],
-      "expected_indicators": [
-        "Momentum Bearish",
-        "Selling Pressure"
-      ],
-      "expected_answer_keywords": [
-        "bearish",
-        "turun",
-        "support",
-        "lower high",
-        "downtrend"
-      ]
-    },
-    {
-      "case_id": "chart_002",
-      "query": "Jelaskan pola dan indikator chart ini",
-      "image_path": "backend/evaluation/dataset/images/xrp_1.png",
-      "expected_key_patterns": [
-        "Downtrend",
-        "Bearish Breakdown",
-        "Lower Low"
-      ],
-      "expected_key_levels": [
-        "Support 1.09",
-        "Resistance 1.13"
+        "Support 73000",
+        "Resistance 76000"
       ],
       "expected_indicators": [
         "Strong Bearish Momentum",
@@ -44,74 +21,80 @@
       ],
       "expected_answer_keywords": [
         "bearish",
-        "breakdown",
+        "downtrend",
         "support",
         "lower low",
-        "turun"
-      ]
+        "potensi turun"
+      ],
+      "actual_outcome": "Harga turun dari sekitar 73.000 menjadi sekitar 62.000 dalam beberapa hari berikutnya."
     },
     {
-      "case_id": "chart_003",
-      "query": "Jelaskan pola dan indikator chart ini",
-      "image_path": "backend/evaluation/dataset/images/sol_1.png",
+      "case_id": "gold_001",
+      "asset": "XAUUSD",
+      "query": "Jelaskan kondisi chart Gold ini dan prediksi arah pergerakan selanjutnya.",
+      "image_path": "backend/evaluation/dataset/images/gold_001.png",
       "expected_key_patterns": [
-        "Bearish Continuation",
-        "Breakdown",
+        "Bullish Trend",
+        "Higher Low",
+        "Bullish Continuation"
+      ],
+      "expected_key_levels": [
+        "Support 4300",
+        "Resistance 4400"
+      ],
+      "expected_indicators": [
+        "Bullish Momentum",
+        "Buying Pressure"
+      ],
+      "expected_answer_keywords": [
+        "bullish",
+        "uptrend",
+        "higher low",
+        "resistance",
+        "potensi naik"
+      ],
+      "actual_outcome": "Harga melanjutkan kenaikan hingga mendekati 4.800 dalam beberapa hari berikutnya."
+    },
+    {
+      "case_id": "eth_001",
+      "asset": "ETHUSDT",
+      "query": "Jelaskan kondisi chart Ethereum ini dan prediksi arah pergerakan selanjutnya.",
+      "image_path": "backend/evaluation/dataset/images/eth_001.png",
+      "expected_key_patterns": [
+        "Higher Low",
+        "Bullish Reversal",
+        "Bullish Continuation"
+      ],
+      "expected_key_levels": [
+        "Support 2050",
+        "Resistance 2150"
+      ],
+      "expected_indicators": [
+        "Bullish Momentum",
+        "Increasing Buying Pressure"
+      ],
+      "expected_answer_keywords": [
+        "bullish",
+        "reversal",
+        "higher low",
+        "potensi naik",
+        "breakout"
+      ],
+      "actual_outcome": "Harga naik dari sekitar 2.100 menuju sekitar 2.400."
+    },
+    {
+      "case_id": "bnb_001",
+      "asset": "BNBUSDT",
+      "query": "Jelaskan kondisi chart BNB ini dan prediksi arah pergerakan selanjutnya.",
+      "image_path": "backend/evaluation/dataset/images/bnb_001.png",
+      "expected_key_patterns": [
+        "Double Top",
+        "Bearish Reversal",
         "Lower High"
       ],
       "expected_key_levels": [
-        "Support 78",
-        "Resistance 81"
-      ],
-      "expected_indicators": [
-        "Momentum Bearish",
-        "Selling Pressure"
-      ],
-      "expected_answer_keywords": [
-        "bearish",
-        "support",
-        "breakdown",
-        "downtrend",
-        "momentum"
-      ]
-    },
-    {
-      "case_id": "chart_004",
-      "query": "Jelaskan pola dan indikator chart ini",
-      "image_path": "backend/evaluation/dataset/images/link_1.png",
-      "expected_key_patterns": [
-        "Lower High",
-        "Bearish Trend",
-        "Support Test"
-      ],
-      "expected_key_levels": [
-        "Support 7.68",
-        "Resistance 7.95"
-      ],
-      "expected_indicators": [
-        "Weak Momentum",
-        "Bearish Bias"
-      ],
-      "expected_answer_keywords": [
-        "bearish",
-        "support",
-        "downtrend",
-        "lower high",
-        "seller"
-      ]
-    },
-    {
-      "case_id": "chart_005",
-      "query": "Jelaskan pola dan indikator chart ini",
-      "image_path": "backend/evaluation/dataset/images/btc_1.png",
-      "expected_key_patterns": [
-        "Lower High",
-        "Bearish Pullback",
-        "Downtrend"
-      ],
-      "expected_key_levels": [
-        "Support 62700",
-        "Resistance 64000"
+        "Support 620",
+        "Resistance 700"
       ],
       "expected_indicators": [
         "Bearish Momentum",
@@ -119,61 +102,39 @@
       ],
       "expected_answer_keywords": [
         "bearish",
-        "pullback",
-        "support",
-        "lower high",
-        "turun"
-      ]
+        "double top",
+        "reversal",
+        "potensi turun",
+        "support"
+      ],
+      "actual_outcome": "Harga turun dari sekitar 632 menuju sekitar 559."
     },
     {
-      "case_id": "chart_006",
-      "query": "Jelaskan pola dan indikator chart ini",
-      "image_path": "backend/evaluation/dataset/images/gold_1.png",
+      "case_id": "sol_001",
+      "asset": "SOLUSDT",
+      "query": "Jelaskan kondisi chart Solana ini dan prediksi arah pergerakan selanjutnya.",
+      "image_path": "backend/evaluation/dataset/images/sol_001.png",
       "expected_key_patterns": [
-        "Pullback",
-        "Range",
-        "Potential Rebound"
+        "Bearish Exhaustion",
+        "Potential Reversal",
+        "Support Bounce"
       ],
       "expected_key_levels": [
-        "Support 4100",
-        "Resistance 4140"
+        "Support 62",
+        "Resistance 68"
       ],
       "expected_indicators": [
-        "Neutral Momentum",
-        "Consolidation"
+        "Weak Selling Momentum",
+        "Potential Buying Pressure"
       ],
       "expected_answer_keywords": [
-        "konsolidasi",
+        "reversal",
         "support",
-        "resistance",
-        "pullback",
-        "netral"
-      ]
-    },
-    {
-      "case_id": "chart_007",
-      "query": "Jelaskan pola dan indikator chart ini",
-      "image_path": "backend/evaluation/dataset/images/eth_1.png",
-      "expected_key_patterns": [
-        "Lower High",
-        "Bearish Continuation",
-        "Downtrend"
+        "bullish",
+        "pantulan",
+        "potensi naik"
       ],
-      "expected_key_levels": [
-        "Support 1745",
-        "Resistance 1780"
-      ],
-      "expected_indicators": [
-        "Momentum Bearish",
-        "Selling Pressure"
-      ],
-      "expected_answer_keywords": [
-        "bearish",
-        "downtrend",
-        "support",
-        "lower high",
-        "breakdown"
-      ]
+      "actual_outcome": "Harga naik dari sekitar 65,7 menuju sekitar 72."
     }
   ]
 }
